@@ -27,3 +27,8 @@ The command prints the live URL (`https://<project>.vercel.app`). The backend al
 ## 3. After deploying
 * Put the Vercel URL in the README and the paper's availability statement if you want the demo cited.
 * `frontend/.env.production` still holds an old backend URL; update it to the new Render URL so local production builds match.
+
+## Deployed instances (15 Nov 2026)
+* Backend: Render service `govallocxai-api` (id `srv-dbsp33gn74is73agr850`), https://govallocxai-api.onrender.com . Models load in a background thread and are warmed at start-up; health reports `initializing` until ready. Builds are limited to changes in `backend/`, `data/dataset_new/` and `render.yaml` (Render build filter), so README or paper commits do not redeploy it.
+* Frontend: Vercel project `govallocxai`, https://govallocxai.vercel.app (built with `VITE_API_BASE_URL=https://govallocxai-api.onrender.com/api`). Redeploy with `cd frontend; vercel deploy --prod --yes --build-env VITE_API_BASE_URL=https://govallocxai-api.onrender.com/api`.
+* Memory: measured peak about 370 MB on a laptop; the free plan (512 MB) ran both panels and the stack without restarting.
