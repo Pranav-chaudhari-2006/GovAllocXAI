@@ -8,7 +8,7 @@ const axis = { fill: "#94a3b8", fontSize: 11 };
 
 function Card({ title, note, children }) {
   return (
-    <div className="glass-card p-5">
+    <div className="glass-card p-6">
       <h3 className="text-sm font-semibold text-white mb-1">{title}</h3>
       <p className="text-xs text-slate-500 mb-3">{note}</p>
       {children}
@@ -35,12 +35,12 @@ function Chart({ data, xKey, bars }) {
 
 export default function ModelPerformance() {
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <Header
         title="Model Performance"
         subtitle={`Held-out evaluation, ${RESULTS_SOURCE}. Gains over simple baselines are modest; this is not a high-accuracy forecaster.`}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card title="Annual update (TVD, pp; lower is better)" note="Temporal split 2020-24: persistence vs learned hybrid.">
           <Chart
             data={[{ name: "Annual update", persistence: ANNUAL_UPDATE.persistence, hybrid: ANNUAL_UPDATE.hybrid }]}

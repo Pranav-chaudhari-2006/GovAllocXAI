@@ -45,7 +45,7 @@ export default function ExplainableAI() {
     run({ iso3: sel.iso3, panel: sel.panel, shock: sel.shock || undefined, limeSector: useLime ? c || undefined : undefined });
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <Header
         title="Explainable AI"
         subtitle="SHAP: how much each indicator moved a component's recommended share (percentage points) versus the average economy. LIME: a local linear surrogate for one chosen component."
@@ -70,7 +70,7 @@ export default function ExplainableAI() {
       {data && (
         <>
           <ApplicabilityBanner applicability={data.applicability} />
-          <div className="glass-card p-5">
+          <div className="glass-card p-6">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
               <h3 className="text-sm font-semibold text-white">
                 SHAP top features (pp): {current?.label || current?.component}
@@ -97,7 +97,7 @@ export default function ExplainableAI() {
           </div>
 
           {useLime && (
-            <div className="glass-card p-5">
+            <div className="glass-card p-6">
               {limeOk ? (
                 <>
                   <h3 className="text-sm font-semibold text-white mb-1">LIME: {data.lime.sector}</h3>

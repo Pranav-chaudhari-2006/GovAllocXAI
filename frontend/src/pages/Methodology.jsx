@@ -14,10 +14,10 @@ const POINTS = [
 
 export default function Methodology() {
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <Header title="Methodology and Limits" subtitle="What the system does, and what it does not claim." />
       <Disclaimer />
-      <ul className="glass-card p-5 space-y-3 text-sm text-slate-300 list-disc list-inside">
+      <ul className="glass-card p-6 space-y-3 text-sm text-slate-300 list-disc list-inside">
         {POINTS.map((p) => (
           <li key={p}>{p}</li>
         ))}

@@ -10,10 +10,12 @@ import {
   X,
   ShieldCheck,
   BookOpen,
+  Leaf,
 } from "lucide-react";
 
 const NAV_ITEMS = [
-  { to: "/", label: "Get recommendation", icon: TrendingUp, end: true },
+  { to: "/", label: "Budget Explorer", icon: TrendingUp, end: true },
+  { to: "/sdg", label: "SDG View", icon: Leaf },
   { to: "/guide", label: "How to use / Glossary", icon: BookOpen },
 ];
 const MORE_ITEMS = [

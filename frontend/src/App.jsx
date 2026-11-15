@@ -4,6 +4,8 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Guide from "./pages/Guide";
+import SdgView from "./pages/SdgView";
+import { ResultProvider } from "./state/ResultContext";
 import ModelPerformance from "./pages/ModelPerformance";
 import ExplainableAI from "./pages/ExplainableAI";
 import Methodology from "./pages/Methodology";
@@ -11,13 +13,15 @@ import Methodology from "./pages/Methodology";
 export default function App() {
 
   return (
+    <ResultProvider>
     <HashRouter future={{ v7_startTransition: true }}>
       <div className="flex min-h-screen">
         <Sidebar />
-        <main className="flex-1 min-w-0 px-4 py-6 md:px-8 md:py-8 animate-fade-in">
+        <main className="flex-1 min-w-0 px-5 py-8 md:px-10 md:py-10 animate-fade-in">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/guide" element={<Guide />} />
+            <Route path="/sdg" element={<SdgView />} />
             <Route path="/overview" element={<Dashboard />} />
             <Route path="/model-performance" element={<ModelPerformance />} />
             <Route path="/explainable-ai" element={<ExplainableAI />} />
@@ -26,5 +30,6 @@ export default function App() {
         </main>
       </div>
     </HashRouter>
+    </ResultProvider>
   );
 }

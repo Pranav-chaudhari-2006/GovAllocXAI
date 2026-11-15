@@ -45,7 +45,7 @@ export default function Dashboard() {
         The gain over simple baselines is small, and for the 16-function panel it does not survive multiple-comparison correction; see Model Performance for per-function and per-income-group results.
       </p>
 
-      <div className="glass-card p-5 text-sm text-slate-300 space-y-2">
+      <div className="glass-card p-6 text-sm text-slate-300 space-y-2">
         <h3 className="text-sm font-semibold text-white">Where to go</h3>
         <p>
           <Link className="text-cyan-300 underline" to="/">Get recommendation</Link>: pick an economy,
