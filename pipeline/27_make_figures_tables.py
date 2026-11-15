@@ -19,12 +19,15 @@ J = lambda p: json.load(open(p))
 
 
 import matplotlib.text as mtext
-FONT_SCALE = 1.45   # figures are drawn ~11 in wide and shown ~6.2 in wide: scale text so it stays >= 7 pt on the page
+FONT_SCALE = 1.45
+FIG_SHRINK = 0.82   # figures are drawn narrower, so on the page their text appears larger   # figures are drawn ~11 in wide and shown ~6.2 in wide: scale text so it stays >= 7 pt on the page
 
 
 def save(fig, name):
     for t in fig.findobj(mtext.Text):
         t.set_fontsize(t.get_fontsize() * FONT_SCALE)
+    w, h = fig.get_size_inches()
+    fig.set_size_inches(w * FIG_SHRINK, h * 0.95)
     try:
         fig.tight_layout()
     except Exception:  # noqa: BLE001
@@ -171,7 +174,7 @@ ms = [c for c in A1.columns if c.startswith("mae_")]; keys = [c.replace("mae_", 
 P_ = A1[A1.method.str.startswith("Persistence")][ms].iloc[0].values; H_ = A1[A1.method == hyb_name][ms].iloc[0].values
 fig, ax = plt.subplots(1, 2, figsize=(11.5, 4.1)); y = np.arange(len(keys)); nm = [lab.get(k, "Other / unallocated") for k in keys]
 ax[0].barh(y - .2, P_, .4, color=PAL["persist"], label="Persistence"); ax[0].barh(y + .2, H_, .4, color=PAL["hyb"], label="Delta-ML hybrid"); ax[0].set_yticks(y); ax[0].set_yticklabels(nm, fontsize=6.8); ax[0].invert_yaxis()
-ax[0].set_xlabel("MAE (pp of total expenditure), 2020-24"); ax[0].legend(fontsize=7, loc="center right"); ax[0].set_title("(a) Per-function error")
+ax[0].set_xlabel("MAE (pp of total expenditure), 2020-24"); ax[0].legend(fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.32), ncol=2, frameon=False); ax[0].set_title("(a) Per-function error")
 dd = dyn.set_index("sector").reindex(keys); ax[1].barh(y, dd.corr_delta.values, color=[PAL["hyb"] if v > .25 else PAL["base"] for v in dd.corr_delta.values]); ax[1].set_yticks(y); ax[1].set_yticklabels(nm, fontsize=6.8); ax[1].invert_yaxis()
 ax[1].set_xlabel("Correlation: predicted vs actual year-on-year change"); ax[1].axvline(0, c="k", lw=.6); ax[1].set_title("(b) Does the model anticipate shifts?")
 fig.tight_layout(); save(fig, "fig5_per_function")
@@ -204,7 +207,7 @@ for a, c in zip(ax[:2], cs):
     yy = np.arange(len(q)); a.barh(yy - .19, q.shap, .38, color=PAL["hyb"], label="TreeSHAP"); a.barh(yy + .19, q.lime_contrib, .38, color=PAL["persist"], label="LIME")
     a.set_yticks(yy); a.set_yticklabels([FEATURE_LABEL[f] for f in q.feature], fontsize=6.8); a.axvline(0, c="k", lw=.6)
     r = q.iloc[0]; a.set_title(f"{c.replace('-', ' ')}" + chr(10) + f"pred {r.pred:.1f}% vs actual {r.actual:.1f}%", fontsize=8); a.set_xlabel("contribution to predicted share (pp)")
-ax[0].legend(fontsize=7, loc="center right")
+ax[0].legend(fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.32), ncol=2, frameon=False)
 ag = agree.set_index("sector"); xs_ = np.arange(len(ag))
 ax[2].bar(xs_ - .27, ag.spearman_abs_SHAP_vs_LIME, .27, color=PAL["persist"], label=r"Spearman $\rho$"); ax[2].bar(xs_, ag.top5_jaccard, .27, color=PAL["ml"], label="top-5 Jaccard"); ax[2].bar(xs_ + .27, ag.top5_sign_agreement, .27, color=PAL["peer"], label="top-5 sign agr.")
 ax[2].set_xticks(xs_); ax[2].set_xticklabels([{"Social Protection": "Social prot.", "General Public Services": "Gen. public"}.get(lab.get(s, s), lab.get(s, s)) for s in ag.index], fontsize=6, rotation=40, ha="right"); ax[2].set_ylim(0, 1.45); ax[2].legend(fontsize=6.3, ncol=1, loc="upper right"); ax[2].set_title("SHAP-LIME agreement" + chr(10) + "(80 test rows per function)", fontsize=8)
@@ -215,7 +218,7 @@ w2 = wi.copy(); w2["name"] = [lab.get(s, "Other / unallocated") for s in w2.sect
 fig, ax = plt.subplots(1, 2, figsize=(11.2, 4.0), gridspec_kw={"width_ratios": [1.3, 1]})
 ax[0].barh(w2.name, w2.delta_pp, xerr=w2.delta_sd_over_rows, color=[PAL["hyb"] if v > 0 else PAL["persist"] for v in w2.delta_pp], error_kw={"lw": .7, "ecolor": "k"}); ax[0].axvline(0, c="k", lw=.6)
 ax[0].set_xlabel("Mean change in recommended share (pp) [bar = sd across rows]"); ax[0].set_title("(a) What-if: severe macro shock\n(GDP -15%, inflation +12 pp, debt +35 pp)"); ax[0].tick_params(axis="y", labelsize=7)
-ax[1].bar(range(len(bnd)), bnd.TVD, color=[PAL["base"], PAL["ml"], PAL["hyb"], PAL["persist"]]); ax[1].set_xticks(range(len(bnd))); ax[1].set_xticklabels([b.replace(" - ", "-\n").replace(" (", "\n(") for b in bnd.bounds], fontsize=6.6)
+ax[1].bar(range(len(bnd)), bnd.TVD, color=[PAL["base"], PAL["ml"], PAL["hyb"], PAL["persist"]]); ax[1].set_xticks(range(len(bnd))); ax[1].set_xticklabels(["1st-99th\npercentile", "min-max\n(train)", "0.5 min-\n1.5 max", "none\n(renorm.)"], fontsize=6.0)
 ax[1].set_ylim(0, max(bnd.TVD) * 1.15); ax[1].set_ylabel("TVD vs actual (pp)"); ax[1].set_title("(b) Allocation-engine bound width\n(temporal test, Delta-hybrid)")
 for i, (v, o) in enumerate(zip(bnd.TVD, bnd.rows_pred_outside_bounds)): ax[1].text(i, v + .05, f"{o*100:.0f}% rows\nclipped", ha="center", fontsize=6)
 fig.tight_layout(); save(fig, "fig9_whatif_engine")
@@ -368,6 +371,8 @@ for _n in ["tab_features", "tab_sdg", "tab_hyper", "tab_selection", "tab_ablatio
     if _f.exists():
         _t = _f.read_text(encoding="utf-8")
         if _t.startswith("\\begin{table}\n"):
-            _f.write_text(_t.replace("\\begin{table}\n", "\\begin{table}[H]\n", 1), encoding="utf-8")
+            _t = _t.replace("\\begin{table}\n", "\\begin{table}[H]\n", 1)
+            _t = _t.replace("\\centering\\small", "\\centering\\footnotesize", 1).replace("\\renewcommand{\\arraystretch}{1.1}", "\\renewcommand{\\arraystretch}{1.0}", 1)
+            _f.write_text(_t, encoding="utf-8")
 print("figures:", sorted(p.name for p in FIG.glob("*.pdf")))
 print("tables:", sorted(p.name for p in TAB.glob("*.tex")))

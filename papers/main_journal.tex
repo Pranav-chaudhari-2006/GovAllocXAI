@@ -30,9 +30,12 @@
 \linespread{1.07}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt plus 1pt}
-\setlength{\textfloatsep}{16pt plus 2pt minus 4pt}
-\setlength{\intextsep}{14pt plus 2pt minus 2pt}
-\setlength{\floatsep}{14pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{14pt plus 2pt minus 4pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\makeatletter\setlength{\@fptop}{0pt}\setlength{\@fpsep}{12pt}\setlength{\@fpbot}{0pt plus 1fil}\makeatother
+\renewcommand{\floatpagefraction}{0.8}\renewcommand{\topfraction}{0.9}\renewcommand{\textfraction}{0.1}\renewcommand{\bottomfraction}{0.8}
+\usepackage{courier}\urlstyle{same}
 \AtBeginEnvironment{table}{\small}
 \AtBeginEnvironment{table*}{\small}
 \makeatletter\renewcommand{\fps@table}{htbp}\expandafter\def\csname fps@table*\endcsname{htbp}\makeatother
@@ -82,11 +85,10 @@
 \section{Literature search protocol}
 A web search was run on 14 November 2026 (not a systematic database search) with strings combining \emph{budget allocation / public expenditure}, \emph{machine learning / XGBoost / gradient boosting}, \emph{COFOG / functional classification}, \emph{SHAP / LIME} and \emph{SDG}. A repeat on Scopus, Web of Science and IEEE Xplore has not yet been run, and the novelty statement in Section~\ref{sec:related} is qualified accordingly. The query log and the closest papers are described in \texttt{docs/literature\_and\_novelty.md} of the repository; a later reference audit (Crossref and arXiv lookups of every cited DOI) is in \texttt{docs/audits/04\_reference\_audit.md}.
 
-\clearpage
 \section{Supplementary tables}\label{app:tables}
-\input{tables/tab_features.tex}
-\input{tables/tab_sdg.tex}
 \input{tables/tab_hyper.tex}
+\input{tables/tab_sdg.tex}
+\input{tables/tab_features.tex}
 \input{tables/tab_selection.tex}
 \input{tables/tab_ablation.tex}
 \input{tables/tab_bounds.tex}
@@ -133,7 +135,7 @@ Correspondence and requests for materials should be addressed to the authors at 
 All inputs are public. World Development Indicators: \url{https://databank.worldbank.org/source/world-development-indicators}; Worldwide Governance Indicators: \url{https://www.worldbank.org/en/publication/worldwide-governance-indicators}; Eurostat \texttt{gov\_10a\_exp}: \url{https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table}; OECD National Accounts Table~11: \url{https://data-explorer.oecd.org/}; IMF Government Finance Statistics (COFOG): \url{https://data.imf.org/}. The harmonised panels (GovAlloc-COFOG v1.0, with provenance and imputation flags, and the preserved legacy v1 dataset) are in the \texttt{data/dataset\_new} folder of the repository below; the release is archived on Zenodo~\cite{chaudhari2026dataset}: \url{https://doi.org/10.5281/zenodo.24248315} (all versions; version~1.0: \url{https://doi.org/10.5281/zenodo.24248316}). Redistribution of the derived panels follows the licences of the sources (World Bank CC BY 4.0; OECD, Eurostat and IMF terms of use).
 
 \subsection*{Code Availability}
-All code (one script per pipeline stage, \texttt{pipeline/01}--\texttt{27}), the API and dashboard, the result files from which the numbers in this paper are generated, and the \LaTeX{} sources are in the public repository \url{https://github.com/Pranav-chaudhari-2006/GovAllocXAI}.
+All code (one script per pipeline stage, \texttt{pipeline/01}--\texttt{27}), the API and dashboard, the result files from which the numbers in this paper are generated, and the LaTeX sources are in the public repository \url{https://github.com/Pranav-chaudhari-2006/GovAllocXAI}.
 
 \subsection*{Acknowledgements}
 The authors thank the Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, for computing resources.
