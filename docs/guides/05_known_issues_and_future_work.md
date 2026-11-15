@@ -18,7 +18,7 @@ Rolling-origin headline test (more than one train/test split); fold-internal fea
 * CSV column names still contain `legacy_v1` (e.g. `has_legacy_v1_row`) because renaming them requires regenerating the datasets.
 
 ## 4. Evidence / citation caveats
-* **Mohith et al. 2026:** judged from the abstract only (paywalled IEEE paper). **Nonato et al. 2026:** the open-access page was read; its methods and results tables could not be extracted by our tools, so the figures quoted in the paper (24 real observations, 1 048 synthetic points, leakage-free R^2 -0.45) rest on the abstract. **Kisman et al. 2026:** abstract (via Crossref) only; the publisher blocks automated access. All three carry a dagger in the positioning table. Read the full texts before submission.
+* **Mohith et al. 2026:** judged from the abstract only (paywalled IEEE paper). **Nonato et al. 2026:** the open-access page was read; its methods and results tables could not be extracted by our tools; the figures quoted in the paper (24 real observations, 1 048 synthetic points, R^2 0.97 vs -0.45) are all in the Crossref abstract. **Kisman et al. 2026:** abstract (via Crossref) only; the publisher blocks automated access. All three carry a dagger in the positioning table. Read the full texts before submission.
 * The literature search was Google Scholar plus Crossref. **Scopus, Web of Science and IEEE Xplore were not searched** (they need an institutional login); strings are in `docs/literature_and_novelty.md`.
 * Santschi et al. 2024 has no DOI (AIS eLibrary URL only, which is how the proceedings are published). Holm (1979) is now in the bibliography with its JSTOR stable URL (no Crossref DOI record exists).
 
