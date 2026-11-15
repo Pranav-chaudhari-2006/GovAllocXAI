@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "papers/figures"; OUT.mkdir(parents=True, exist_ok=True)
 plt.rcParams.update({"font.family": "DejaVu Sans"})
 fig, ax = plt.subplots(figsize=(8.4, 3.9))
-ax.set_xlim(0, 100); ax.set_ylim(0, 50); ax.axis("off")
+ax.set_xlim(0, 100); ax.set_ylim(0, 53); ax.axis("off")
 C = {"data": "#DCEBF7", "prep": "#E8F3E1", "model": "#FFF2CC", "alloc": "#FCE4D6", "xai": "#EADCF4", "val": "#E3EEF9", "human": "#F8D7DA", "edge": "#34495E"}
 W, H = 21.5, 17
 XS = [1.5, 26.5, 51.5, 76.5]           # column left edges, gap 3.5
@@ -48,5 +48,6 @@ arrow(XS[3] + W / 2, Y1 - 0.3, XS[3] + W / 2, Y2 + H + 0.3, "reference split", l
 arrow(XS[2] + W + 0.3, Y2 + H / 2, XS[3] - 0.3, Y2 + H / 2)
 arrow(XS[1] + W + 0.3, Y2 + H / 2, XS[2] - 0.3, Y2 + H / 2)
 arrow(XS[0] + W + 0.3, Y2 + H / 2, XS[1] - 0.3, Y2 + H / 2, ls="--")
+ax.text(1.5, 49.5, "GovAllocXAI: components and flow", ha="left", va="top", fontsize=9, fontweight="bold")
 fig.savefig(OUT / "fig1_architecture.pdf", bbox_inches="tight"); fig.savefig(OUT / "fig1_architecture.png", dpi=300, bbox_inches="tight")
 print("ok")

@@ -8,6 +8,7 @@
 \usepackage[a4paper,left=2.6cm,right=2.6cm,top=2.6cm,bottom=2.8cm]{geometry}
 \usepackage{microtype}
 \usepackage{amsmath,amssymb}
+\usepackage{array}
 \usepackage{graphicx,booktabs,xcolor}
 \usepackage{enumitem}
 \usepackage{float}
@@ -22,7 +23,7 @@
 \titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.2ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{1.8ex plus 1ex minus .2ex}{0.9ex plus .2ex}
 \usepackage{cite}
-\usepackage[font=small,labelfont=bf,labelsep=colon,justification=justified,singlelinecheck=false,skip=6pt]{caption}
+\usepackage[font=small,labelfont=bf,labelsep=colon,justification=raggedright,singlelinecheck=false,skip=6pt]{caption}
 \usepackage{url}
 \usepackage[colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue]{hyperref}
 \Urlmuskip=0mu plus 2mu
@@ -42,6 +43,7 @@
 \input{results_macros.tex}
 \input{figs_all.tex}
 
+\DeclareRobustCommand*{\_}{\textunderscore\hskip0pt\relax}
 \begin{document}
 \begin{center}
 {\LARGE\bfseries GovAllocXAI: A Benchmark of Explainable Machine Learning for Predicting Functional Government Expenditure Shares from Official Multi-Country Data\par}

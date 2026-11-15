@@ -376,3 +376,13 @@ for _n in ["tab_features", "tab_sdg", "tab_hyper", "tab_selection", "tab_ablatio
             _f.write_text(_t, encoding="utf-8")
 print("figures:", sorted(p.name for p in FIG.glob("*.pdf")))
 print("tables:", sorted(p.name for p in TAB.glob("*.tex")))
+
+# ragged-right p-columns (no stretched word gaps in narrow cells) -- RAGGED_P
+import re as _rr
+for _f in pathlib.Path(TAB).glob("*.tex"):
+    _s = _f.read_text(encoding="utf-8")
+    if "arraybackslash" in _s:
+        continue
+    _n = "\n".join(_rr.sub(r"p\{", lambda m: ">{\\raggedright\\arraybackslash}p{", _l) if _l.startswith("\\begin{tabular}") else _l for _l in _s.split("\n"))
+    if _n != _s:
+        _f.write_text(_n, encoding="utf-8")

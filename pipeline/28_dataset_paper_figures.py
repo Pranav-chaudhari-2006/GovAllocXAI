@@ -385,30 +385,30 @@ def save(fig, name):
     plt.close(fig)
 
 
-# ---- Fig D1: construction workflow (sequential, straight arrows)
+# ---- Fig D1: construction workflow (simple vertical flow, title above)
 steps = [
-    ("1 Fetch", "Download raw JSON / CSV through\npublic APIs; files stored verbatim,\nnothing edited", "pipeline/01, 02", "data/raw/ (%s files)" % M["DRawFiles"].replace("{,}", ",")),
-    ("2 Harmonise", "Join on ISO3 code and year (2000-2024);\nmap COFOG codes to 16 functions\nand 10 divisions", "pipeline/03", "economy-year rows"),
-    ("3 Validate", "Keep complete country-years whose\nshares sum to 100; priority\nEurostat > OECD > IMF", "pipeline/03", "targets never imputed"),
-    ("4 Features", "Fill short gaps: interpolation, edge\nfill, then peer median; each filled\ncell gets an imp_ flag", "pipeline/03", "30 features + 30 flags"),
-    ("5 Release", "Master table, three panels, quality\nreport; legacy columns kept with\nprefix legacy_", "pipeline/03, 14", "data/dataset_new/"),
+    ("Fetch", "Download raw data through public APIs; files are stored unedited.", "data/raw/ (%s files)" % M["DRawFiles"].replace("{,}", ",")),
+    ("Harmonise", "Join on ISO3 code and year; map COFOG codes to 16 functions and 10 divisions.", "economy-year rows"),
+    ("Validate", "Keep complete country-years whose shares sum to 100; priority Eurostat, OECD, IMF.", "targets never imputed"),
+    ("Features", "Fill short gaps (interpolation, then peer median) and flag every filled cell.", "30 features + 30 flags"),
+    ("Release", "Master table, three panels and a quality report; legacy columns keep a prefix.", "data/dataset_new/"),
 ]
-fig, ax = plt.subplots(figsize=(W, 4.3))
+cols_ = [BLUE, BLUE, GREEN, ORANGE, PURPLE]
+fig, ax = plt.subplots(figsize=(W, 4.6))
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
 ax.axis("off")
-h, gap = 0.16, 0.05
-cols_ = [BLUE, BLUE, GREEN, ORANGE, PURPLE]
-for i, (ttl, desc, scr, outp) in enumerate(steps):
-    y = 1 - (i + 1) * h - i * gap
-    ax.add_patch(FancyBboxPatch((0.0, y), 1.0, h, boxstyle="round,pad=0,rounding_size=0.012", fc="white", ec=cols_[i], lw=1.6))
-    ax.add_patch(FancyBboxPatch((0.0, y), 0.21, h, boxstyle="round,pad=0,rounding_size=0.012", fc=cols_[i], ec=cols_[i], lw=1.6))
-    ax.text(0.105, y + h / 2, ttl, ha="center", va="center", color="white", fontsize=10, fontweight="bold")
-    ax.text(0.23, y + h / 2, desc, ha="left", va="center", fontsize=9.2, linespacing=1.35)
-    ax.text(0.715, y + h / 2 + 0.032, scr, ha="left", va="center", fontsize=9.4, color=GREY, family="monospace")
-    ax.text(0.715, y + h / 2 - 0.030, outp, ha="left", va="center", fontsize=9.4, color="black")
+ax.text(0.0, 0.985, "Construction workflow of GovAlloc-COFOG", ha="left", va="top", fontsize=11, fontweight="bold")
+top, step = 0.86, 0.178
+for i, (ttl, desc, outp) in enumerate(steps):
+    yc = top - i * step
+    ax.plot([0.035], [yc], marker="o", markersize=22, color=cols_[i], zorder=3, clip_on=False)
+    ax.text(0.035, yc, str(i + 1), ha="center", va="center", color="white", fontsize=10.5, fontweight="bold", zorder=4)
+    ax.text(0.095, yc + 0.028, ttl, ha="left", va="center", fontsize=10.5, fontweight="bold", color=cols_[i])
+    ax.text(0.095, yc - 0.026, desc, ha="left", va="center", fontsize=8.6, color="#333333")
+    ax.text(1.0, yc + 0.028, outp, ha="right", va="center", fontsize=8.6, color="#333333", bbox=dict(boxstyle="round,pad=0.25", fc="#F1F1F1", ec="#CCCCCC", lw=0.8))
     if i < len(steps) - 1:
-        ax.annotate("", xy=(0.5, y - gap + 0.004), xytext=(0.5, y - 0.004), arrowprops=dict(arrowstyle="-|>", lw=1.8, color="black", mutation_scale=16))
+        ax.annotate("", xy=(0.035, yc - step + 0.040), xytext=(0.035, yc - 0.040), arrowprops=dict(arrowstyle="-|>", lw=1.6, color="#555555", mutation_scale=13))
 save(fig, "figD1_workflow")
 
 # ---- Fig D2: country-year coverage
@@ -491,25 +491,36 @@ save(fig, "figD4_imputation")
 REG = {"Europe & Central Asia": "Europe & Central Asia", "Sub-Saharan Africa": "Sub-Saharan Africa", "Latin America & Caribbean": "Latin America & Caribbean",
        "East Asia & Pacific": "East Asia & Pacific", "Middle East, North Africa, Afghanistan & Pakistan": "MENA, Afghanistan, Pakistan", "South Asia": "South Asia", "North America": "North America"}
 series = [("All economies", core, GREY), ("Panel B (WDI)", wdi, SKY), ("Panel A10", a10, BLUE), ("Panel A16", a16, ORANGE)]
-fig, axs = plt.subplots(2, 1, figsize=(W, 5.7), gridspec_kw={"height_ratios": [4, 7], "hspace": 0.38})
+fig, axs = plt.subplots(2, 1, figsize=(W, 8.4), gridspec_kw={"height_ratios": [4, 7], "hspace": 0.30})
 for ax, keys, col, ttl, labf in [(axs[0], INC, "income_group", "(a) Economies by income group", lambda k: k),
                                  (axs[1], list(REG), "region", "(b) Economies by region", lambda k: REG[k])]:
     yy = np.arange(len(keys))[::-1]
     for j, (lab, d, c) in enumerate(series):
         v = [d[d[col] == k].iso3.nunique() for k in keys]
-        ypos = yy + (1.5 - j) * 0.2
+        ypos = yy + (1.5 - j) * 0.215
         ax.barh(ypos, v, height=0.19, color=c, label=lab)
         for yp, vv in zip(ypos, v):
-            ax.text(vv + 1, yp, str(vv), va="center", fontsize=10)
+            ax.text(vv + 1.2, yp, str(vv), va="center", ha="left", fontsize=8.5)
     ax.set_yticks(yy)
-    ax.set_yticklabels([labf(k) for k in keys], fontsize=10.4)
-    ax.set_xlabel("Number of economies")
-    ax.set_xlim(0, 112 if col == "income_group" else 75)
-    ax.set_title(ttl, loc="left", fontsize=10)
-axs[0].legend(frameon=False, loc="lower right", fontsize=10)
-fig.subplots_adjust(left=0.26, right=0.98, top=0.95, bottom=0.07)
+    ax.set_yticklabels([labf(k) for k in keys], fontsize=9.5)
+    ax.set_xlabel("Number of economies", fontsize=9.5)
+    ax.set_xlim(0, 108 if col == "income_group" else 72)
+    ax.set_title(ttl, loc="left", fontsize=10.5, fontweight="bold")
+    ax.spines[["top", "right"]].set_visible(False)
+axs[0].legend(frameon=False, loc="lower right", fontsize=9)
+fig.subplots_adjust(left=0.27, right=0.97, top=0.96, bottom=0.06)
 save(fig, "figD5_coverage_groups")
 
 print("macros:", len(M), "| files written to", OUT)
 for k in ["DMasterRows", "DMasterEcon", "DRowsSix", "DEconSix", "DRowsTen", "DEconTen", "DRowsWdi", "DEconWdi", "DNegSix", "DNegTen", "DJumpN", "DImpMean", "DDupKeys"]:
     print(k, M[k])
+
+# ragged-right p-columns (no stretched word gaps in narrow cells) -- RAGGED_P
+import re as _rr
+for _f in pathlib.Path(GEN).glob("*.tex"):
+    _s = _f.read_text(encoding="utf-8")
+    if "arraybackslash" in _s:
+        continue
+    _n = "\n".join(_rr.sub(r"p\{", lambda m: ">{\\raggedright\\arraybackslash}p{", _l) if _l.startswith("\\begin{tabular}") else _l for _l in _s.split("\n"))
+    if _n != _s:
+        _f.write_text(_n, encoding="utf-8")
