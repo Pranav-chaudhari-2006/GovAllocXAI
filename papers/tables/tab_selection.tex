@@ -1,8 +1,8 @@
-\begin{table}
+\begin{table}[H]
 \caption{Feature-spec selection on a validation window (train $\le$2016, validate 2017--2019; test years never used). In the cold-start regime richer specifications did not improve validation error. In the history regime the ``changes'' specification improved on the base specification (2.27 vs.\ 2.33\,pp) but remained worse than persistence (2.26\,pp); the base 25 features were kept.}\label{tab:selection}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llcc}
 \toprule
 Regime & Feature spec & \#features & Validation TVD (pp) \\
@@ -17,5 +17,5 @@ cold-start features-only & PLUS\_groups & 31 & 4.970 \\
 cold-start features-only & PLUS\_changes & 32 & 5.041 \\
 cold-start features-only & PLUS\_both & 38 & 5.081 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

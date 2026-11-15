@@ -56,9 +56,9 @@ def f2(x, n=2): return f"{x:.{n}f}"
 def booktab(path, header, rows, colfmt, caption, label, star=False, small=True, note=None, size=None, resize=True):
     env = "table*" if star else "table"
     lines = [rf"\begin{{{env}}}", rf"\caption{{{caption}}}\label{{{label}}}", r"\centering" + (("\\" + size) if size else (r"\small" if small else "")) + ("\\setlength{\\tabcolsep}{3pt}" if size else ""), r"\renewcommand{\arraystretch}{1.1}",
-             (r"\resizebox{\linewidth}{!}{%" if resize else ""), rf"\begin{{tabular}}{{{colfmt}}}", r"\toprule", " & ".join(header) + r" \\", r"\midrule"]
+             (r"\begin{adjustbox}{max width=\linewidth}" if resize else ""), rf"\begin{{tabular}}{{{colfmt}}}", r"\toprule", " & ".join(header) + r" \\", r"\midrule"]
     for r in rows: lines.append(" & ".join(str(x) for x in r) + r" \\" if r != "MID" else r"\midrule")
-    lines += [r"\bottomrule", r"\end{tabular}}" if resize else r"\end{tabular}"]
+    lines += [r"\bottomrule", r"\end{tabular}\end{adjustbox}" if resize else r"\end{tabular}"]
     if note: lines.append(rf"\par\smallskip{{\footnotesize {note}}}")
     lines.append(rf"\end{{{env}}}")
     pathlib.Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -362,5 +362,12 @@ for _f in ["tab_B.tex", "tab_audit.tex", "tab_A1.tex"]:   # typographic minus si
     _lines = _p.read_text(encoding="utf-8").split("\n")
     _lines = [_re.sub(r"(?<![\w\-])-(\d)", r"$-$\1", l) if "&" in l else l for l in _lines]
     _p.write_text("\n".join(_lines), encoding="utf-8")
+# supplementary tables are placed exactly where they are input (float package, [H]); wide tables shrink only when needed (adjustbox), narrow ones keep the normal size
+for _n in ["tab_features", "tab_sdg", "tab_hyper", "tab_selection", "tab_ablation", "tab_bounds", "tab_E_hist"]:
+    _f = TAB / f"{_n}.tex"
+    if _f.exists():
+        _t = _f.read_text(encoding="utf-8")
+        if _t.startswith("\\begin{table}\n"):
+            _f.write_text(_t.replace("\\begin{table}\n", "\\begin{table}[H]\n", 1), encoding="utf-8")
 print("figures:", sorted(p.name for p in FIG.glob("*.pdf")))
 print("tables:", sorted(p.name for p in TAB.glob("*.tex")))

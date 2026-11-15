@@ -1,8 +1,8 @@
-\begin{table}
+\begin{table}[H]
 \caption{Architecture v2.1, annual update (one-step-ahead). Stack weights are fitted on the validation window; the test window 2020--24 is used once.}\label{tab:Ehist}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llccc}
 \toprule
 Panel & Method & Val. TVD & Test TVD & Test 95\% CI \\
@@ -27,5 +27,5 @@ A10 & Delta-learner: CatBoost, log-ratio + history & 3.32 & 4.58 & [3.89, 5.32] 
 A10 & Delta-learner hybrid, log-ratio + history & 3.35 & 4.62 & [3.93, 5.37] \\
 A10 & Stack (NNLS on validation window) & 3.34 & 4.82 & [4.13, 5.58] \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

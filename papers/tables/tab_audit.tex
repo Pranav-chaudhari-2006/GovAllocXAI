@@ -2,7 +2,7 @@
 \caption{Forensic re-analysis of the legacy v1 benchmark (random 80/20 split as in the original notebooks). CV = coefficient of variation of sector/GDP across all 775 rows.}\label{tab:audit}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{rlcccccc}
 \toprule
 \# & Legacy sector & Mean \%GDP & CV (\%) & $R^2$ XGB (USD) & $R^2$ $k\!\times$GDP (USD) & $R^2$ XGB (share) & $R^2$ const. (share) \\
@@ -23,5 +23,5 @@
 14 & digital and IT & 0.62 & 2.8 & 0.999 & 1.000 & 0.70 & $-$0.00 \\
 15 & industry and MSMEs & 1.08 & 2.8 & 0.999 & 1.000 & 0.88 & $-$0.00 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table*}

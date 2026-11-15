@@ -2,7 +2,7 @@
 \caption{Cold-start paired TVD gains averaged over five fold seeds, cluster bootstrap over economies (10\,000 draws), Holm correction over the family of eight comparisons. Positive = first method better.}\label{tab:holm}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llcccc}
 \toprule
 Panel & Comparison (cold start) & Gain (pp) & 95\% CI & Holm $p$ & Survives? \\
@@ -16,5 +16,5 @@ A10 & XGBoost vs peer mean & 0.89 & [0.19, 1.58] & 0.060 & no \\
 A10 & 8-nearest-economies vs peer mean & 1.25 & [0.71, 1.78] & 0.0008 & yes \\
 A10 & Stack vs XGBoost & 0.38 & [0.06, 0.69] & 0.060 & no \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

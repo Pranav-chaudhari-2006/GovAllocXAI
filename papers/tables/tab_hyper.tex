@@ -1,8 +1,8 @@
-\begin{table}
+\begin{table}[H]
 \caption{Fixed hyper-parameters (no test-set tuning).}\label{tab:hyper}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lp{9.5cm}}
 \toprule
 Model & Hyper-parameters \\
@@ -15,5 +15,5 @@ Ridge & $\alpha=10$, standardised inputs, median imputation \\
 Hybrid & $0.5\,\hat{y}_{\text{XGB}}+0.5\,\hat{y}_{\text{Cat}}$ \\
 All & targets standardised; seed 42; no tuning on test data (Section~\ref{sec:selection}) \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

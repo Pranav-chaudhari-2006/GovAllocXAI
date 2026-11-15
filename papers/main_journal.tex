@@ -10,21 +10,31 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx,booktabs,xcolor}
 \usepackage{enumitem}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{etoolbox}
 \usepackage[section]{placeins}
 \usepackage{titlesec}
 \definecolor{linkblue}{RGB}{0,82,164}
 \titleformat{\section}{\Large\bfseries\color{linkblue}}{\thesection.}{0.6em}{}
 \titleformat{\subsection}{\large\bfseries\color{linkblue}}{\thesubsection}{0.6em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\color{linkblue}}{\thesubsubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape\color{linkblue}}{\thesubsubsection}{0.6em}{}
 \titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.2ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{1.8ex plus 1ex minus .2ex}{0.9ex plus .2ex}
 \usepackage{cite}
+\usepackage[font=small,labelfont=bf,labelsep=colon,justification=justified,singlelinecheck=false,skip=6pt]{caption}
 \usepackage{url}
 \usepackage[colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue]{hyperref}
 \Urlmuskip=0mu plus 2mu
 \emergencystretch=3em
 \linespread{1.07}
-\setlength{\parskip}{4pt plus 1pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\textfloatsep}{16pt plus 2pt minus 4pt}
+\setlength{\intextsep}{14pt plus 2pt minus 2pt}
+\setlength{\floatsep}{14pt plus 2pt minus 2pt}
+\AtBeginEnvironment{table}{\small}
+\AtBeginEnvironment{table*}{\small}
 \makeatletter\renewcommand{\fps@table}{htbp}\expandafter\def\csname fps@table*\endcsname{htbp}\makeatother
 \input{results_macros.tex}
 \input{figs_all.tex}
@@ -33,12 +43,11 @@
 \begin{center}
 {\LARGE\bfseries GovAllocXAI: A Benchmark of Explainable Machine Learning for Predicting Functional Government Expenditure Shares from Official Multi-Country Data\par}
 \vspace{1.2em}
-{\large Aditi H.\ Joshi$^{1,a,*}$, Pranav S.\ Chaudhari$^{1,b}$, Gaurav M.\ Jaypatre$^{1,c}$, Digvijay P.\ Birajdar$^{1,d}$\par}
+{\large Pranav S.\ Chaudhari$^{1,a}$, Aditi H.\ Joshi$^{1,b}$, Gaurav M.\ Jaypatre$^{1,c}$, Digvijay P.\ Birajdar$^{1,d}$\par}
 \vspace{0.8em}
 {\small\itshape $^{1}$Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, 411044, India\par}
 \vspace{0.5em}
-{\small $^{a}$aditi.joshi24@pccoepune.org; $^{b}$pranav.chaudhari24@pccoepune.org; $^{c}$gaurav.jaypatre24@pccoepune.org; $^{d}$digvijay.birajdar24@pccoepune.org\par}
-{\small $^{*}$Corresponding author\par}
+{\small $^{a}$pranav.chaudhari24@pccoepune.org; $^{b}$aditi.joshi24@pccoepune.org; $^{c}$gaurav.jaypatre24@pccoepune.org; $^{d}$digvijay.birajdar24@pccoepune.org\par}
 \end{center}
 \vspace{0.6em}
 \noindent{\color{linkblue}\Large\bfseries Abstract}\par\vspace{0.4em}
@@ -73,7 +82,7 @@
 \section{Literature search protocol}
 A web search was run on 14 November 2026 (not a systematic database search) with strings combining \emph{budget allocation / public expenditure}, \emph{machine learning / XGBoost / gradient boosting}, \emph{COFOG / functional classification}, \emph{SHAP / LIME} and \emph{SDG}. A repeat on Scopus, Web of Science and IEEE Xplore has not yet been run, and the novelty statement in Section~\ref{sec:related} is qualified accordingly. The query log and the closest papers are described in \texttt{docs/literature\_and\_novelty.md} of the repository; a later reference audit (Crossref and arXiv lookups of every cited DOI) is in \texttt{docs/audits/04\_reference\_audit.md}.
 
-\FloatBarrier
+\clearpage
 \section{Supplementary tables}\label{app:tables}
 \input{tables/tab_features.tex}
 \input{tables/tab_sdg.tex}
@@ -84,42 +93,49 @@ A web search was run on 14 November 2026 (not a systematic database search) with
 \input{tables/tab_E_hist.tex}
 \FloatBarrier
 
-\section*{CRediT authorship contribution statement}
-\begin{description}[leftmargin=!,labelwidth=5.2cm,itemsep=1pt,parsep=0pt]
-\item[Conceptualization:] A.H.J., P.S.C.
-\item[Methodology:] A.H.J., P.S.C., D.P.B.
-\item[Software:] P.S.C., D.P.B.
-\item[Validation:] G.M.J., D.P.B.
-\item[Formal analysis:] P.S.C., G.M.J.
-\item[Investigation:] G.M.J., A.H.J.
-\item[Resources:] G.M.J.
-\item[Data curation:] P.S.C., G.M.J.
-\item[Writing -- original draft:] P.S.C., G.M.J.
-\item[Writing -- review \& editing:] all authors
-\item[Visualization:] D.P.B., P.S.C.
-\item[Supervision and project administration:] A.H.J.
-\end{description}
-Author abbreviations: Aditi H.\ Joshi (A.H.J.), Pranav S.\ Chaudhari (P.S.C.), Gaurav M.\ Jaypatre (G.M.J.), Digvijay P.\ Birajdar (D.P.B.).
+\section*{Authors' Contribution and CRediT}
+\noindent Conceptualization: A.H.J., P.S.C.\\
+\noindent Methodology: A.H.J., P.S.C., D.P.B.\\
+\noindent Software: P.S.C., D.P.B.\\
+\noindent Validation: G.M.J., D.P.B.\\
+\noindent Formal analysis: P.S.C., G.M.J.\\
+\noindent Investigation: G.M.J., A.H.J.\\
+\noindent Resources: G.M.J.\\
+\noindent Data curation: P.S.C., G.M.J.\\
+\noindent Writing---original draft: P.S.C., G.M.J.\\
+\noindent Writing---review \& editing: all authors\\
+\noindent Visualization: D.P.B., P.S.C.\\
+\noindent Supervision and project administration: A.H.J.
 
-\section*{Declaration of competing interest}
-All authors have reviewed the manuscript and declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+\medskip\noindent\textbf{Author abbreviations:}\par
+\noindent Pranav S.\ Chaudhari (P.S.C.),\\
+\noindent Aditi H.\ Joshi (A.H.J.),\\
+\noindent Gaurav M.\ Jaypatre (G.M.J.),\\
+\noindent Digvijay P.\ Birajdar (D.P.B.)
 
 \section*{Funding}
 This research received no external funding.
 
-\section*{Ethical approval}
+\section*{Declarations}
+\subsection*{Conflict of Interest}
+All authors have reviewed the manuscript and declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\subsection*{Ethical Approval}
 This study is a secondary analysis of publicly released, aggregated national statistics (country-level government expenditure and macro-economic indicators). No human participants were recruited, no personal data were collected, and no institutional ethics approval was required. The human-subject evaluation described in the Discussion is future work and will require approval before it is run.
 
-\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+\subsection*{Declaration of Generative AI Use}
 During the preparation of this work the authors used Anthropic's Claude, an AI coding and writing assistant, for code scaffolding, data-collection scripts, drafting and editing of text, and for simulated critical review of the manuscript; the legacy v1 dataset analysed in Section~\ref{sec:audit} had itself been partly populated with the help of a large language model. References were checked with automated Crossref and arXiv lookups followed by manual correction. The authors reviewed and edited all content produced with these tools and take full responsibility for the content of the publication.
 
-\section*{Data availability}
+\section*{Additional Information}
+Correspondence and requests for materials should be addressed to the authors at the e-mail addresses given on the first page.
+
+\subsection*{Data Availability}
 All inputs are public. World Development Indicators: \url{https://databank.worldbank.org/source/world-development-indicators}; Worldwide Governance Indicators: \url{https://www.worldbank.org/en/publication/worldwide-governance-indicators}; Eurostat \texttt{gov\_10a\_exp}: \url{https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table}; OECD National Accounts Table~11: \url{https://data-explorer.oecd.org/}; IMF Government Finance Statistics (COFOG): \url{https://data.imf.org/}. The harmonised panels (GovAllocXAI-Data v2.1, with provenance and imputation flags, and the preserved legacy v1 dataset) are in the \texttt{data/dataset\_new} folder of the repository below; a permanent Zenodo archive with a DOI is to be created at acceptance and its DOI inserted here. Redistribution of the derived panels follows the licences of the sources (World Bank CC BY 4.0; OECD, Eurostat and IMF terms of use).
 
-\section*{Code availability}
+\subsection*{Code Availability}
 All code (one script per pipeline stage, \texttt{pipeline/01}--\texttt{27}), the API and dashboard, the result files from which the numbers in this paper are generated, and the \LaTeX{} sources are in the public repository \url{https://github.com/Pranav-chaudhari-2006/GovAllocXAI-}.
 
-\section*{Acknowledgements}
+\subsection*{Acknowledgements}
 The authors thank the Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, for computing resources.
 
 \bibliographystyle{IEEEtran}

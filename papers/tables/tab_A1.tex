@@ -2,7 +2,7 @@
 \caption{Temporal evaluation: train 2000--2019, test 2020--2024 ($n=178$ country-years, 36 economies); one-step-ahead with last year's allocation available. CIs: cluster bootstrap over economies. (MAE is omitted: with 17 components it equals TVD/8.5 exactly.)}\label{tab:A1}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lccc}
 \toprule
 Method & TVD (pp) & 95\% CI & RMSE (pp) \\
@@ -21,5 +21,5 @@ Delta-learner: LightGBM & 3.63 & [3.17, 4.12] & 0.872 \\
 Delta-learner: CatBoost & 3.50 & [3.08, 3.92] & 0.842 \\
 Delta-learner hybrid (50\% XGBoost + 50\% CatBoost) & 3.48 & [3.06, 3.91] & 0.845 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

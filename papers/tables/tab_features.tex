@@ -1,8 +1,8 @@
-\begin{table}
+\begin{table}[H]
 \caption{The 25 model features (all from WDI/WGI; derived log transforms of GDP and population). Imputed-cell share is over the full master table.}\label{tab:features}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lllr}
 \toprule
 Feature & Group & Source & Imputed cells (\%) \\
@@ -33,5 +33,5 @@ Control of corruption (WGI) & Governance & WGI & 10.9 \\
 Rule of law (WGI) & Governance & WGI & 9.6 \\
 Regulatory quality (WGI) & Governance & WGI & 11.4 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

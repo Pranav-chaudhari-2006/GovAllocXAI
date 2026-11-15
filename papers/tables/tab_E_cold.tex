@@ -2,7 +2,7 @@
 \caption{Architecture v2.1, cold start (leave-country-out, 6 folds; TVD and CI are means over 2 fold seeds): peer mean, single learners (raw or log-ratio targets) and the nested-NNLS stack. Paired gains over the peer mean in the text are five-seed values (Table~\ref{tab:holm}), so they differ slightly from differences of the two-seed means shown here.}\label{tab:Ecold}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llcc}
 \toprule
 Panel & Method & TVD (pp) & 95\% CI \\
@@ -23,5 +23,5 @@ A10 (85 economies) & XGBoost (log-ratio targets) & 14.58 & [13.03, 16.34] \\
 A10 (85 economies) & Ridge & 14.86 & [13.29, 16.70] \\
 A10 (85 economies) & Income-group peer mean & 15.01 & [13.52, 16.80] \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

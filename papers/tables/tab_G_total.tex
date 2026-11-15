@@ -2,7 +2,7 @@
 \caption{Total-budget module: general-government total expenditure as percent of GDP (30 OECD/EU economies, 716 country-years, Eurostat COFOG panel). MAE in percentage points of GDP. The income-group mean equals the global mean because all but one economy is high income.}\label{tab:total}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llccc}
 \toprule
 Protocol & Method & $n$ & MAE (pp of GDP) & 95\% CI \\
@@ -18,5 +18,5 @@ cold start leave-country-out & ridge & 716 & 3.82 & [3.13, 4.59] \\
 cold start leave-country-out & xgb & 716 & 4.26 & [3.53, 5.02] \\
 cold start leave-country-out & cat & 716 & 4.41 & [3.62, 5.24] \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}

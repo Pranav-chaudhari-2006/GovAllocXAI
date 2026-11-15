@@ -1,8 +1,8 @@
-\begin{table}
+\begin{table}[H]
 \caption{Cold-start feature-group ablation (XGBoost, leave-country-out). Each row removes one group. SD is the population SD over the two fold seeds (ddof = 0), so it is not comparable with the sample SD in Table~\ref{tab:A2}.}\label{tab:ablation}
 \centering\small
 \renewcommand{\arraystretch}{1.1}
-\resizebox{\linewidth}{!}{%
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lccc}
 \toprule
 Feature set & \#features & TVD (pp) & SD over seeds \\
@@ -14,5 +14,5 @@ all features & 25 & 10.83 & 0.12 \\
 - macro (GDP, growth, inflation, trade) & 20 & 11.01 & 0.13 \\
 - development/environment (internet, co2, water, structure) & 19 & 10.94 & 0.20 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}\end{adjustbox}
 \end{table}
