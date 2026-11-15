@@ -21,8 +21,12 @@ def _load_models() -> None:
     """Fit the models in a background thread so the web server answers at once (cloud hosts need an open port within minutes)."""
     global v2_bundle, v2_bundle10, loading_error
     try:
-        v2_bundle = load_v2("cofog16")
-        v2_bundle10 = load_v2("cofog10")
+        b16 = load_v2("cofog16")
+        b10 = load_v2("cofog10")
+        # warm-up: fits the lazily created stack members once, so the first user request is fast
+        recommend(b10, "IND", None, {}, None, None, 5, None)
+        recommend(b16, "DEU", None, {}, None, None, 5, None)
+        v2_bundle, v2_bundle10 = b16, b10
     except Exception as exc:  # noqa: BLE001
         loading_error = repr(exc)
 
