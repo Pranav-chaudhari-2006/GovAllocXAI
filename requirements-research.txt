@@ -1,0 +1,19 @@
+# Packages needed to re-run the research pipeline (pipeline/01-29) and the paper tools (tools/).
+# Tested with Python 3.13; the web backend (backend/requirements.txt) also runs on Python 3.12.
+numpy>=2.0
+pandas>=2.2
+scipy>=1.13
+scikit-learn>=1.5
+xgboost>=2.1
+lightgbm>=4.5
+catboost>=1.2
+shap>=0.46
+lime>=0.2.0.1
+optuna>=4.0
+torch>=2.4          # CPU build is enough (neural baselines in pipeline/21)
+matplotlib>=3.9
+openpyxl>=3.1       # reads the Excel files of the legacy dataset and institutional sources
+requests>=2.32      # data download scripts
+pymupdf>=1.24       # optional: page checks of compiled PDFs
+pytest>=8.0         # backend tests
+httpx>=0.27         # needed by the FastAPI test client
