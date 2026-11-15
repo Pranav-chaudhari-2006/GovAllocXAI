@@ -10,3 +10,4 @@ catboost_info/
 results/**/log_*.txt
 papers/overleaf_zips/*.tmp
 .vite/
+release/

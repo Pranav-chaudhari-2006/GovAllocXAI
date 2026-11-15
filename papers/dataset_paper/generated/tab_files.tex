@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{File inventory of GovAlloc-COFOG v1.0 (processed files; raw downloads are described in the text). Files in \texttt{dataset\_new/} start with \texttt{govalloc\_cofog\_} (omitted here), as does the legacy file in \texttt{dataset\_old/}. Rows $\times$ columns were counted from the files.}\label{tab:files}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}p{4.4cm}p{4.9cm}rrr@{}}
+\toprule
+File & Content & Rows & Cols & Size \\
+\midrule
+\texttt{master.csv} & All economies $\times$ 2000--2024: features, flags, all targets, legacy columns & 5{,}450 & 217 & 5.68\,MB \\
+\texttt{cofog\_panel.csv} & Panel A16: complete 16-function COFOG, Eurostat + OECD & 825 & 217 & 1.35\,MB \\
+\texttt{cofog10\_panel.csv} & Panel A10: complete 10-division COFOG, Eurostat + OECD + IMF & 1{,}526 & 217 & 2.22\,MB \\
+\texttt{cofog10x\_panel.csv} & A10 plus rows admitted under a relaxed rule (scope/strictness flags) & 1{,}539 & 221 & 2.27\,MB \\
+\texttt{wdi\_panel.csv} & Panel B: rows with at least one official WDI sector series & 4{,}995 & 217 & 5.32\,MB \\
+\texttt{institutional\_features.csv} & WGI voice \& accountability, political stability (+ 2-year changes) & 4{,}903 & 6 & 317\,kB \\
+\texttt{institutional\_manual.csv} & Fiscal rules, election timing, IMF programme indicators & 9{,}119 & 10 & 279\,kB \\
+\texttt{data\_quality.json} & Coverage, imputation, cross-source and legacy audit statistics & -- & -- & 7\,kB \\
+\texttt{legacy\_dataset.csv} & Legacy dataset, verbatim (semi-synthetic sectors); in dataset\_old/ & 775 & 59 & 543\,kB \\
+\bottomrule
+\end{tabular}
+\end{table}

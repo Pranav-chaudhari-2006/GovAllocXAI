@@ -64,12 +64,12 @@ def booktab(path, header, rows, colfmt, caption, label, star=False, small=True, 
     pathlib.Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-dq = J(PROC / "govallocxai_new_data_quality.json"); A1 = pd.read_csv(RES / "02_main_experiments/temporal_history.csv"); A2 = pd.read_csv(RES / "02_main_experiments/cold_start.csv")
+dq = J(PROC / "govalloc_cofog_data_quality.json"); A1 = pd.read_csv(RES / "02_main_experiments/temporal_history.csv"); A2 = pd.read_csv(RES / "02_main_experiments/cold_start.csv")
 dyn = pd.read_csv(RES / "02_main_experiments/delta_dynamics.csv"); sumA = J(RES / "02_main_experiments/summary.json"); B = pd.read_csv(RES / "03_wdi_panel/wdi_results.csv"); C = J(RES / "01_legacy_audit/legacy_audit.json")
 abl = pd.read_csv(RES / "02_main_experiments/ablation.csv"); bnd = pd.read_csv(RES / "02_main_experiments/bounds_sensitivity.csv"); spec = pd.read_csv(RES / "02_main_experiments/feature_spec_selection.csv")
 agree = pd.read_csv(RES / "05_explainability/shap_lime_agreement.csv"); gsh = pd.read_csv(RES / "05_explainability/global_shap_all_sectors.csv", index_col=0)
 case = pd.read_csv(RES / "05_explainability/case_studies.csv"); wi = pd.read_csv(RES / "05_explainability/whatif_shock.csv"); sA = J(RES / "02_main_experiments/summary.json")
-master = pd.read_csv(PROC / "govallocxai_new_master.csv", usecols=["iso3", "year", "region", "income_group", "cofog_complete_flag", "wdi_target_n", "has_legacy_v1_row", "legacy_only_row", "cofog_source"])
+master = pd.read_csv(PROC / "govalloc_cofog_master.csv", usecols=["iso3", "year", "region", "income_group", "cofog_complete_flag", "wdi_target_n", "has_legacy_v1_row", "legacy_only_row", "cofog_source"])
 panel = load_cofog()
 lab = SECTOR_LABEL
 

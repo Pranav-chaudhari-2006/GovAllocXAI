@@ -1,0 +1,26 @@
+\begin{table}[t]
+\caption{Column dictionary of the master table (\DMasterCols{} columns); the three modelling panels contain the same columns.}\label{tab:columns}
+\centering\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{3.6cm}rp{9.4cm}@{}}
+\toprule
+Group & Columns & Content \\
+\midrule
+Identifiers and groupings & 6 & \texttt{iso3}, \texttt{iso2}, \texttt{country}, \texttt{region}, \texttt{income\_group} (World Bank, current classification), \texttt{year} \\
+Socio-economic features & 30 & 26 WDI and 4 WGI indicators (GDP, inflation, demography, fiscal, health, infrastructure, governance); \texttt{units in column name} \\
+Imputation flags & 30 & \texttt{imp\_<feature>} = 1 if the cell was filled, 0 if observed \\
+WDI sector targets & 7 & education, domestic government health, military (each \% of GDP and of government expenditure) and R\&D (\% of GDP), observed only \\
+Derived fields & 5 & \texttt{n\_imputed\_features}, \texttt{log\_gdp}, \texttt{log\_pop}, \texttt{has\_legacy\_v1\_row}, \texttt{wdi\_target\_n} \\
+COFOG-16 targets, share of total & 17 & 16 functions plus an explicit residual, \% of general-government expenditure (the simplex targets of panel A16) \\
+COFOG-16, share of GDP & 17 & same functions as \% of GDP (Eurostat and OECD) \\
+COFOG-16, national currency & 17 & same functions plus total, million euro (Eurostat only) \\
+COFOG-16, derived USD & 16 & share of GDP $\times$ World Bank GDP in current USD (derived, not an official figure) \\
+COFOG-16 provenance & 3 & \texttt{cofog\_complete\_flag}, \texttt{cofog\_source\_name}, \texttt{cofog\_source} \\
+COFOG-10 targets & 10 & divisions GF01--GF10, \% of total expenditure (panel A10) \\
+COFOG-10 provenance & 2 & \texttt{cofog10\_source} (Eurostat / OECD / IMF), \texttt{cofog10\_complete\_flag} \\
+Legacy columns & 57 & all 57 legacy columns with prefix \texttt{legacy\_} (semi-synthetic sector columns; see Section~\ref{sec:legacy}); \texttt{legacy\_only\_row} marks the Taiwan rows \\
+\midrule
+Total & 217 & \\
+\bottomrule
+\end{tabular}
+\end{table}

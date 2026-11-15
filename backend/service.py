@@ -1,6 +1,6 @@
 """GovAllocXAI v2 service: peer-informed COFOG budget-composition recommendation with SHAP + LIME and a bounded allocation engine.
 
-Trained on the OFFICIAL Eurostat/OECD COFOG panel (data/dataset_new/govallocxai_new_cofog_panel.csv). This is decision SUPPORT:
+Trained on the OFFICIAL Eurostat/OECD COFOG panel (data/dataset_new/govalloc_cofog_panel_a16.csv). This is decision SUPPORT:
 it returns a recommendation plus the evidence for it; a human analyst makes the decision.
 """
 from __future__ import annotations
@@ -23,8 +23,8 @@ except ImportError:  # running outside the package layout
     from peer_module import nearest_peers
 
 ROOT = Path(__file__).resolve().parents[1]
-PANELS = {"cofog16": ROOT / "data/dataset_new/govallocxai_new_cofog_panel.csv", "cofog10": ROOT / "data/dataset_new/govallocxai_new_cofog10_panel.csv"}
-MASTER = ROOT / "data/dataset_new/govallocxai_new_master.csv"
+PANELS = {"cofog16": ROOT / "data/dataset_new/govalloc_cofog_panel_a16.csv", "cofog10": ROOT / "data/dataset_new/govalloc_cofog_panel_a10.csv"}
+MASTER = ROOT / "data/dataset_new/govalloc_cofog_master.csv"
 
 SECTORS = ["general_public_services", "defence", "public_order_safety", "agriculture", "energy", "industry_construction", "transport",
            "communication_digital", "research_development", "environment", "housing_community", "water_supply", "health",

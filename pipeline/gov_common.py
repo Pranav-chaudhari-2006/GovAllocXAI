@@ -51,7 +51,7 @@ FEATURE_LABEL = {"log_gdp": "log10 GDP", "log_pop": "log10 population", "gdp_per
 
 
 def load_cofog() -> pd.DataFrame:
-    d = pd.read_csv(PROC / "govallocxai_new_cofog_panel.csv")
+    d = pd.read_csv(PROC / "govalloc_cofog_panel_a16.csv")
     d = d.sort_values(["iso3", "year"]).reset_index(drop=True)
     for t in TARGETS_A:
         d[f"lag_{t}"] = d.groupby("iso3")[t].shift(1)

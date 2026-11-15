@@ -1,16 +1,16 @@
-# Dataset Card — GovAllocXAI-Data v2.1
+# Dataset Card — GovAlloc-COFOG v1.0
 
 *Built by `pipeline/01_fetch_worldbank_eurostat.py`, `02_fetch_imf_cofog.py`, `03_build_dataset.py` from official APIs on 14 Nov 2026. Raw downloads are in `data/raw/`, outputs in `data/dataset_new/`. Every cell is either an official observation, a flagged imputed feature, or a legacy v1 value (prefixed `legacy_`).*
 
 ## 1. Files
 | File | Rows × cols | Purpose |
 |---|---|---|
-| `govallocxai_new_master.csv` | 5,450 × 217 | All economies × 2000–2024: features, every target series, flags, all legacy v1 columns (57 prefixed `legacy_`; country and year are keys) |
-| `govallocxai_new_cofog_panel.csv` | 825 × ~220 | **Panel A16**: complete 16-function COFOG breakdown (Eurostat + OECD), 36 economies |
-| `govallocxai_new_cofog10_panel.csv` | 1,526 × ~220 | **Panel A10 (new in v2.1)**: complete 10-division COFOG breakdown (Eurostat + OECD + **IMF**), **85 economies incl. 35 middle/low-income** |
-| `govallocxai_new_wdi_panel.csv` | 4,995 × ~220 | **Panel B**: WDI official sector series (health, education, defence, R&D), 211 economies |
-| `govallocxai_old_dataset.csv` | 775 × 59 | v1 dataset, verbatim |
-| `govallocxai_new_data_quality.json` | — | Coverage, imputation, legacy-vs-real and cross-source audit |
+| `govalloc_cofog_master.csv` | 5,450 × 217 | All economies × 2000–2024: features, every target series, flags, all legacy v1 columns (57 prefixed `legacy_`; country and year are keys) |
+| `govalloc_cofog_panel_a16.csv` | 825 × ~220 | **Panel A16**: complete 16-function COFOG breakdown (Eurostat + OECD), 36 economies |
+| `govalloc_cofog_panel_a10.csv` | 1,526 × ~220 | **Panel A10 (new in v2.1)**: complete 10-division COFOG breakdown (Eurostat + OECD + **IMF**), **85 economies incl. 35 middle/low-income** |
+| `govalloc_cofog_panel_wdi.csv` | 4,995 × ~220 | **Panel B**: WDI official sector series (health, education, defence, R&D), 211 economies |
+| `govalloc_cofog_legacy_dataset.csv` | 775 × 59 | v1 dataset, verbatim |
+| `govalloc_cofog_data_quality.json` | — | Coverage, imputation, legacy-vs-real and cross-source audit |
 
 ## 2. Sources and cross-validation
 | Source | Used for | Coverage | Cross-check |
@@ -43,4 +43,4 @@ World Bank (CC BY 4.0) · Eurostat (CC BY 4.0 reuse policy) · IMF data: subject
 Executed general-government spending (not proposals) · definitions vary slightly across sources and countries · IMF series for developing economies are short and sometimes revised · Panel A10 has only 12 lower-middle/low-income economies (23 upper-middle) · sub-national budgets absent · the SDG cross-walk is the authors' reporting layer, not an official mapping.
 
 ## 8. Recommended citation
-Authors (2026). *GovAllocXAI-Data v2.1: a provenance-flagged panel of government expenditure by function.* Repository `GovAllocXAI`, `data/dataset_new/`. Cite the underlying sources (World Bank, Eurostat, OECD, IMF) as well.
+Authors (2026). *GovAlloc-COFOG v1.0: a provenance-flagged panel of government expenditure by function.* Repository `GovAllocXAI`, `data/dataset_new/`. Cite the underlying sources (World Bank, Eurostat, OECD, IMF) as well.

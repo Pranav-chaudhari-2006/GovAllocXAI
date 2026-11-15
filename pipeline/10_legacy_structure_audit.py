@@ -3,7 +3,7 @@ import json, sys
 import numpy as np, pandas as pd
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from gov_common import OLD, RES
-d = pd.read_csv(OLD / "govallocxai_old_dataset.csv")
+d = pd.read_csv(OLD / "govalloc_cofog_legacy_dataset.csv")
 syn = ['infrastructure_usd', 'agriculture_usd', 'rural_development_usd', 'social_welfare_freebies_usd', 'energy_usd', 'transport_usd',
        'housing_urban_development_usd', 'water_sanitation_usd', 'environment_climate_usd', 'digital_it_usd', 'industry_msme_usd']
 mult = {t: {"multiple_of_agriculture": float((d[t] / d.agriculture_usd).mean()), "std_of_multiple": float((d[t] / d.agriculture_usd).std())} for t in syn}

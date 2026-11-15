@@ -1,7 +1,7 @@
 """Institutional-features ablation (limited to what is reachable keylessly): WGI Voice & Accountability and Political Stability (World Bank API, source 3),
 plus their 2-year changes. Election-year, fiscal-rule and IMF-programme datasets were NOT obtainable without login/manual download (documented in docs/12).
 Ablation on A10: baseline FEATURES vs FEATURES + inst_*; cold-start leave-country-out (6 folds, seeds 0,1) and annual Delta-xgb (train<=2019, test 2020-24; also 2020-21 only).
-Outputs data/dataset_new/govallocxai_new_institutional_features.csv, results/18_institutional_features/wgi_*.csv|json
+Outputs data/dataset_new/govalloc_cofog_institutional_features.csv, results/18_institutional_features/wgi_*.csv|json
 """
 import importlib.util
 import json
@@ -39,7 +39,7 @@ for code, name in [("VA", "inst_voice_accountability"), ("PV", "inst_political_s
 inst = frames[0].merge(frames[1], on=["iso3", "year"], how="outer").sort_values(["iso3", "year"])
 for c in ["inst_voice_accountability", "inst_political_stability"]:
     inst[c + "_chg2"] = inst.groupby("iso3")[c].diff(2)
-inst.to_csv(PROC / "govallocxai_new_institutional_features.csv", index=False)
+inst.to_csv(PROC / "govalloc_cofog_institutional_features.csv", index=False)
 INST = [c for c in inst.columns if c.startswith("inst_")]
 
 out = {}

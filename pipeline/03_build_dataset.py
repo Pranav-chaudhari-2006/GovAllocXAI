@@ -1,11 +1,11 @@
-"""Build GovAllocXAI-Data v2 (master panel) from RAW official sources + preserved legacy v1 dataset.
+"""Build GovAlloc-COFOG v1.0 (master panel) from RAW official sources + preserved legacy v1 dataset.
 
 Inputs : data/raw/worldbank/*.json, data/raw/eurostat/*.json, legacy xlsx (v1, semi-synthetic)
-Outputs: data/dataset_new/govallocxai_new_master.csv        (all countries x years: features + targets + flags + legacy_* cols)
-         data/dataset_new/govallocxai_new_cofog_panel.csv   (modelling panel A: Eurostat COFOG, 16 sectors)
-         data/dataset_new/govallocxai_new_wdi_panel.csv     (modelling panel B: global WDI, 4 sectors)
-         data/dataset_old/govallocxai_old_dataset.csv  (verbatim copy of the original dataset)
-         data/dataset_new/govallocxai_new_data_quality.json (coverage / imputation / legacy-vs-real audit)
+Outputs: data/dataset_new/govalloc_cofog_master.csv        (all countries x years: features + targets + flags + legacy_* cols)
+         data/dataset_new/govalloc_cofog_panel_a16.csv   (modelling panel A: Eurostat COFOG, 16 sectors)
+         data/dataset_new/govalloc_cofog_panel_wdi.csv     (modelling panel B: global WDI, 4 sectors)
+         data/dataset_old/govalloc_cofog_legacy_dataset.csv  (verbatim copy of the original dataset)
+         data/dataset_new/govalloc_cofog_data_quality.json (coverage / imputation / legacy-vs-real audit)
 Rules  : sector TARGETS are never imputed. FEATURES: (1) <=3-year linear interpolation inside a country series,
          (2) <=3-year edge fill, (3) region x income x year median. All imputed cells are flagged in
          `imp_*` columns and counted in `n_imputed_features`.
@@ -181,7 +181,7 @@ for s in SECT:   # derived USD estimates (share of GDP x WDI nominal GDP): flagg
 
 # ---------------- Legacy v1 (preserved verbatim) ----------------
 leg = pd.read_excel(LEGACY, sheet_name="Completed_Dataset")
-leg.to_csv(ROOT / "data/dataset_old/govallocxai_old_dataset.csv", index=False)
+leg.to_csv(ROOT / "data/dataset_old/govalloc_cofog_legacy_dataset.csv", index=False)
 leg2 = leg.rename(columns={"country_iso3": "iso3"}).drop(columns=["country"])
 print("legacy iso3 not in WB:", sorted(set(leg2.iso3) - set(cm.iso3)))
 leg2 = leg2.add_prefix("legacy_").rename(columns={"legacy_iso3": "iso3", "legacy_year": "year"})
@@ -202,16 +202,16 @@ df["wdi_target_n"] = df[wdi_t].notna().sum(axis=1)
 df["cofog_source"] = np.where(df.cofog_complete_flag.fillna(0) == 1, df.cofog_source_name, "")
 order = ["iso3", "iso2", "country", "region", "income_group", "year"]
 df = df[order + [c for c in df.columns if c not in order]]
-df.to_csv(OUT / "govallocxai_new_master.csv", index=False)
+df.to_csv(OUT / "govalloc_cofog_master.csv", index=False)
 
 df["cofog_complete_flag"] = df["cofog_complete_flag"].fillna(0).astype(int)
 df["wdi_target_n"] = df["wdi_target_n"].fillna(0).astype(int)
 pa = df[df.cofog_complete_flag == 1].copy()
-pa.to_csv(OUT / "govallocxai_new_cofog_panel.csv", index=False)
+pa.to_csv(OUT / "govalloc_cofog_panel_a16.csv", index=False)
 pb = df[df.wdi_target_n >= 1].copy()
-pb.to_csv(OUT / "govallocxai_new_wdi_panel.csv", index=False)
+pb.to_csv(OUT / "govalloc_cofog_panel_wdi.csv", index=False)
 p10 = df[df.cofog10_complete_flag == 1].copy()
-p10.to_csv(OUT / "govallocxai_new_cofog10_panel.csv", index=False)
+p10.to_csv(OUT / "govalloc_cofog_panel_a10.csv", index=False)
 
 # ---------------- Audit: legacy vs real ----------------
 aud = {"master_rows": len(df), "master_cols": df.shape[1], "countries": int(df.iso3.nunique()),
@@ -240,5 +240,5 @@ aud["feature_imputed_cells_pct"] = {f: round(float(df[f"imp_{f}"].mean() * 100),
 aud["eurostat_vs_oecd_crosscheck"] = xs_val
 aud["oecd_added_countries"] = new_iso
 aud["cofog_target_years"] = [int(pa.year.min()), int(pa.year.max())]
-json.dump(aud, open(OUT / "govallocxai_new_data_quality.json", "w"), indent=1)
+json.dump(aud, open(OUT / "govalloc_cofog_data_quality.json", "w"), indent=1)
 print(json.dumps(aud, indent=1)[:6000])

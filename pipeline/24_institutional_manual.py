@@ -3,7 +3,7 @@
   * Database of Political Institutions 2020 (election years, term left) -> dpi_*
   * IMF MONA arrangements (programme active in a year)                  -> imf_prog_*
 Ablation on A10 (xgb): base vs base + each group vs base + all; cold-start leave-country-out (6 folds, seeds 0-2) and annual delta-xgb (train<=2019, test 2020-24).
-Outputs data/dataset_new/govallocxai_new_institutional_manual.csv, results/18_institutional_features/manual_*.csv|json
+Outputs data/dataset_new/govalloc_cofog_institutional_manual.csv, results/18_institutional_features/manual_*.csv|json
 """
 import glob
 import importlib.util
@@ -27,7 +27,7 @@ arch = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(arch)
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw" / "institutional"
-master = pd.read_csv(PROC / "govallocxai_new_master.csv", usecols=["iso3", "country"]).drop_duplicates("iso3")
+master = pd.read_csv(PROC / "govalloc_cofog_master.csv", usecols=["iso3", "country"]).drop_duplicates("iso3")
 
 
 def norm(s):
@@ -101,7 +101,7 @@ mo_y = pd.DataFrame(rows, columns=["iso3", "year", "imf_prog_active"]).groupby([
 MO = ["imf_prog_active"]
 
 inst = fr.merge(dp, on=["iso3", "year"], how="outer").merge(mo_y, on=["iso3", "year"], how="outer")
-inst.to_csv(PROC / "govallocxai_new_institutional_manual.csv", index=False)
+inst.to_csv(PROC / "govalloc_cofog_institutional_manual.csv", index=False)
 
 out = {"unmatched": {"fiscal_rules": unm_fr, "dpi": unm_dp, "mona": unm_mo}}
 d, T = arch.load_panel("A10")

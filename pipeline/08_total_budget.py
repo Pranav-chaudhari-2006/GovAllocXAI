@@ -12,7 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from gov_common import *  # noqa: F401,F403
 
-d = pd.read_csv(PROC / "govallocxai_new_cofog_panel.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
+d = pd.read_csv(PROC / "govalloc_cofog_panel_a16.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
 y = "cofog_total_expenditure_pct_gdp"
 d = d[d[y].notna()].reset_index(drop=True)
 d["lag"] = d.groupby("iso3")[y].shift(1)

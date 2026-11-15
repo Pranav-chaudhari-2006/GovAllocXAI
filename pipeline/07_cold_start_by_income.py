@@ -15,7 +15,7 @@ from scipy.stats import spearmanr
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from gov_common import *  # noqa: F401,F403
 
-d = pd.read_csv(PROC / "govallocxai_new_cofog10_panel.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
+d = pd.read_csv(PROC / "govalloc_cofog_panel_a10.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
 T = [f"cofog10_GF{i:02d}_pct_total" for i in range(1, 11)]
 X, Y = d[FEATURES], d[T]
 ctry = d.iso3.unique(); perm = np.random.default_rng(0).permutation(len(ctry))

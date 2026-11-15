@@ -30,7 +30,7 @@ GovAllocXAI/
 ├── README.md  LICENSE
 ├── data/
 │   ├── raw/                  official downloads used by the pipeline (World Bank, Eurostat, OECD, IMF, institutional)
-│   ├── dataset_new/          the released dataset (govallocxai_new_*.csv, data-quality report)
+│   ├── dataset_new/          the released dataset (govalloc_cofog_*.csv, data-quality report)
 │   └── dataset_old/          the original semi-synthetic dataset, preserved verbatim for the audit
 ├── pipeline/                 numbered scripts 01-27 (fetch -> build -> experiments -> explainability -> figures/tables)
 ├── results/                  one folder per experiment (01_legacy_audit ... 19_annual_seed_robustness)

@@ -18,10 +18,10 @@ Legend: OK = matches; the "Trace" column gives file and field.
 | # | Claim (where) | Paper value | Trace (file : field) | Result |
 |---|---|---|---|---|
 | 1 | Master rows / cols / economies (macros, sec_data) | 5,450 / 217 / 217 | data_quality.json master_rows, master_cols, countries(218)-1; **R** master.csv shape (5450,217), 217 WB economies + TWN 25 legacy-only rows | OK (rows=217x25+25; cols==economies=217 is a coincidence, both verified) |
-| 2 | A16 panel 825 rows, 36 economies, 2000-2024 | 825/36 | 02_main_experiments/summary.json panel; **R** cofog_panel.csv (825, 36, 2000-2024, shares sum to 100 within 2.8e-14) | OK |
+| 2 | A16 panel 825 rows, 36 economies, 2000-2024 | 825/36 | 02_main_experiments/summary.json panel; **R** panel_a16.csv (825, 36, 2000-2024, shares sum to 100 within 2.8e-14) | OK |
 | 3 | A16 source split, OECD-added economies, complete rows | 6 / 109 | **R** cofog_panel cofog_source_name: Eurostat 716, OECD 109 rows, 6 OECD economies | OK (data_quality lists 9 OECD-only economies, 6 have complete A16 rows; wording could say so) |
-| 4 | WDI panel 4,995 rows / 211 economies | 4,995 / 211 | **R** wdi_panel.csv | OK |
-| 5 | A10 panel 1,526 / 85 economies, 623 IMF rows | 1526/85/623 | **R** cofog10_panel.csv; source counts Eurostat 740, IMF 623, OECD 163 | OK |
+| 4 | WDI panel 4,995 rows / 211 economies | 4,995 / 211 | **R** panel_wdi.csv | OK |
+| 5 | A10 panel 1,526 / 85 economies, 623 IMF rows | 1526/85/623 | **R** panel_a10.csv; source counts Eurostat 740, IMF 623, OECD 163 | OK |
 | 6 | "35 middle- and low-income economies" in A10 | 35 | **R** income_group != High: 35 | OK |
 | 7 | Legacy-matched rows | 750 | data_quality legacy_vs_real n=750 | OK |
 | 8 | Cross-source Eurostat vs OECD | median 0.025 pp, r>=0.996 (except communication) | data_quality eurostat_vs_oecd_crosscheck: medians 0.023-0.028, min r=0.9959 (water), communication r=0.9637; n=690 | OK |
@@ -114,7 +114,7 @@ Recomputations performed directly (R): items 1-6, 11-15, 17, 19-20, 23, 32-33, 3
 
 ## 5. Legacy-audit claim ("eleven of fifteen sectors are exact multiples")
 
-CONFIRMED from `archive_v1_original/dataset_legacy/ML_Budget_Dataset_WorldBank_Completed.xlsx` (sheet Completed_Dataset, 775 x 59; max relative difference to data/dataset_new/govallocxai_old_dataset.csv 2.1e-16; the second copy in dataset_source_files has the same shape).
+CONFIRMED from `archive_v1_original/dataset_legacy/ML_Budget_Dataset_WorldBank_Completed.xlsx` (sheet Completed_Dataset, 775 x 59; max relative difference to data/dataset_new/govalloc_cofog_legacy_dataset.csv 2.1e-16; the second copy in dataset_source_files has the same shape).
 Ratio to agriculture (mean, sd): infrastructure 2.000 (2.2e-12), rural development 0.875 (1.2e-12), social welfare 3.000 (2.5e-12), energy 1.250, transport 1.500, housing 1.125, water 0.750, environment 0.625, digital 0.500, industry 0.875 (identical to rural development). The four others (defence, R&D, education, health) vary (ratio sd 0.9-3.4). Distinct sector-mix patterns among the eleven: 1 (rounded at 1e-9); max share sd 7.9e-14. Total of the eleven = 16.685 % of GDP (CV 2.85 %, r=0.841 with GDP growth). Twelve identical column pairs including `healthcare_usd == health_expenditure_usd` and all SDG budgets. Minor wording points: L1, L2.
 
 ## 6. Dashboard / API (backend/service.py, src/data/results.js)

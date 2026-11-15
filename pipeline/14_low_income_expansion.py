@@ -5,7 +5,7 @@
     admit extra rows with a relaxed consistency window (raw sum 90-110, renormalised to 100) and FLAG them:
       cofog10_scope  = 'general government' | 'central government'
       cofog10_strict = 1 if raw sum in (97,103) and general government (i.e. same standard as A10), else 0
-    -> data/dataset_new/govallocxai_new_cofog10x_panel.csv  (A10 rows + admitted rows; A10 is untouched)
+    -> data/dataset_new/govalloc_cofog_panel_a10x.csv  (A10 rows + admitted rows; A10 is untouched)
 (c) Leave-country-out cold start (6 folds x seeds 0,1) by income group: peer mean, XGBoost, XGBoost + inverse-frequency
     income-group sample weights, XGBoost + income-group one-hot; on the expanded panel and on the original A10 rows only.
 Outputs: results/10_low_income_expansion/*.csv, results/10_low_income_expansion/summary.json
@@ -35,8 +35,8 @@ D10 = [f"cofog10_{g}_pct_total" for g in DIV]
 LOW = ["Low income", "Lower middle income"]
 SUMMARY = {}
 
-master = pd.read_csv(PROC / "govallocxai_new_master.csv", low_memory=False)
-a10 = pd.read_csv(PROC / "govallocxai_new_cofog10_panel.csv")
+master = pd.read_csv(PROC / "govalloc_cofog_master.csv", low_memory=False)
+a10 = pd.read_csv(PROC / "govalloc_cofog_panel_a10.csv")
 inc = master.groupby("iso3").income_group.first()
 low_iso = sorted(inc[inc.isin(LOW)].index)
 
@@ -161,7 +161,7 @@ x = pd.concat([base, new], ignore_index=True).sort_values(["iso3", "year"]).rese
 x["is_original_a10"] = x.index.map(lambda i: 0)
 key = set(zip(a10.iso3, a10.year))
 x["is_original_a10"] = [int((i, y) in key) for i, y in zip(x.iso3, x.year)]
-x.to_csv(PROC / "govallocxai_new_cofog10x_panel.csv", index=False)
+x.to_csv(PROC / "govalloc_cofog_panel_a10x.csv", index=False)
 print("cand dropped (no master row):", dropped)
 
 

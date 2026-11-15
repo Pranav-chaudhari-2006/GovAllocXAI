@@ -9,7 +9,7 @@ from gov_common import *
 from xgboost import XGBRegressor
 
 # ======================================================== C. legacy audit
-leg = pd.read_csv(OLD / "govallocxai_old_dataset.csv")
+leg = pd.read_csv(OLD / "govalloc_cofog_legacy_dataset.csv")
 LEG_F = ['population', 'urban_population_percent', 'gdp_usd', 'gdp_per_capita_usd', 'gdp_growth_percent', 'inflation_percent', 'tax_revenue_usd',
          'government_debt_usd', 'poverty_rate_percent', 'unemployment_rate_percent', 'literacy_rate_percent', 'life_expectancy_years',
          'health_expenditure_usd', 'internet_users_percent', 'electricity_access_percent', 'co2_emissions', 'corruption_index', 'government_effectiveness']
@@ -58,7 +58,7 @@ C["temporal_split_xgb_R2_usd_mean"] = float(np.mean(list(tr_t.values())))
 tr_k = {t: float(r2(leg.loc[tem, t], (leg.loc[trm, t] / leg.loc[trm, "gdp_usd"]).median() * leg.loc[tem, "gdp_usd"])) for t in LEG_T}
 C["temporal_split_formula_R2_usd_mean"] = float(np.mean(list(tr_k.values())))
 # legacy vs official (real) targets for the 4 sectors that have an official counterpart
-m = pd.read_csv(PROC / "govallocxai_new_master.csv"); m = m[m.has_legacy_v1_row == 1]
+m = pd.read_csv(PROC / "govalloc_cofog_master.csv"); m = m[m.has_legacy_v1_row == 1]
 off = {}
 for lt, w in [("defence_usd", "wdi_defence_pct_gdp"), ("education_usd", "wdi_education_pct_gdp"), ("healthcare_usd", "wdi_health_pct_gdp"), ("research_and_development_usd", "wdi_rnd_pct_gdp")]:
     q = pd.DataFrame({"leg": m[f"legacy_{lt}"] / m["legacy_gdp_usd"] * 100, "off": m[w]}).dropna()
@@ -69,7 +69,7 @@ print("LEGACY:", json.dumps({k: v for k, v in C.items() if k not in ("ratio_to_g
 print("replication means", {k: v for k, v in res.items() if k.endswith("_mean")})
 
 # ======================================================== B. WDI global panel
-w = pd.read_csv(PROC / "govallocxai_new_wdi_panel.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
+w = pd.read_csv(PROC / "govalloc_cofog_panel_wdi.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
 WT = ["wdi_education_pct_gdp", "wdi_health_pct_gdp", "wdi_defence_pct_gdp", "wdi_rnd_pct_gdp",
       "wdi_education_pct_govexp", "wdi_health_pct_govexp", "wdi_defence_pct_govexp"]
 rows = []

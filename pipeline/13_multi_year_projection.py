@@ -31,7 +31,7 @@ def load(kind):
     if kind == "A16":
         d = load_cofog(); T = TARGETS_A
     else:
-        d = pd.read_csv(PROC / "govallocxai_new_cofog10_panel.csv")
+        d = pd.read_csv(PROC / "govalloc_cofog_panel_a10.csv")
         T = [f"cofog10_GF{i:02d}_pct_total" for i in range(1, 11)]
     d = d.sort_values(["iso3", "year"]).reset_index(drop=True)
     d = d.dropna(subset=T).reset_index(drop=True)

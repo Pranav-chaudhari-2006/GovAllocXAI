@@ -1,0 +1,23 @@
+\begin{table}[t]
+\caption{Summary of automated validation checks (all computed by \texttt{pipeline/28\_dataset\_paper\_figures.py} from the released files).}\label{tab:checks}
+\centering\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}p{3.8cm}p{3.2cm}p{7.8cm}@{}}
+\toprule
+Check & Scope & Result \\
+\midrule
+Component shares sum to 100 & A16, 825 rows & maximum deviation $\DSumSixMaxDev$ pp \\
+Component shares sum to 100 & A10, 1{,}526 rows & Eurostat rows 99.7--100.3 (published rounding); OECD and IMF rows exactly 100 \\
+Missing targets & A16, A10 & 0 and 0 missing cells (complete-case panels; targets never imputed) \\
+Negative values & A16, A10 & 27 of 14{,}025 A16 cells (25 country-years), 11 A10 cells; minimum -3.8 pp; kept as published \\
+Upper bounds & A16, A10 & largest share 47.0\% (social protection); no share above 100\% \\
+Duplicate \texttt{iso3}--\texttt{year} keys & master and three panels & 0 duplicates; all years in 2000--2024 \\
+Eurostat vs OECD & 690 country-years, 15 functions & median $|\Delta|$ 0.023--0.028 pp; $r\ge0.964$ \\
+IMF vs Eurostat & 723 country-years, 10 divisions & median $|\Delta|$ 0.027--0.062 pp; $r\ge0.984$ \\
+COFOG vs WDI sector series & A10, health / education / defence & $r=$0.82 / 0.76 / 0.79 (different definitions) \\
+Year-to-year jumps & A10, 1{,}426 consecutive pairs & 98 (6.9\%) move more than 10 pp (total variation); flagged by users, not removed \\
+WDI series bounds & Panel B & 0 negative values; no \%-of-expenditure value above 100 \\
+Legacy features vs World Bank & 750 legacy rows & identical for 6 of 7 checked indicators; inflation within 0.4\% on 90\% of rows \\
+\bottomrule
+\end{tabular}
+\end{table}

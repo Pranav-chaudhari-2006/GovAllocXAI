@@ -67,7 +67,7 @@ def xgb_multi(Xtr, Ytr, Xte, seed=42):
 
 
 # ============================================================ Panel A10
-d = pd.read_csv(PROC / "govallocxai_new_cofog10_panel.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
+d = pd.read_csv(PROC / "govalloc_cofog_panel_a10.csv").sort_values(["iso3", "year"]).reset_index(drop=True)
 X, Y = d[FEATURES], d[T]
 fold = folds(d, 0)          # identical to 07_cold_start_by_income.py
 P = {"xgb": np.zeros((len(d), 10)), "peer_mean": np.zeros((len(d), 10))}
@@ -170,7 +170,7 @@ NV.to_csv(RES / "12_fairness_audit/need_vs_allocation.csv", index=False)
 print(NV.round(2).to_string())
 
 # ============================================================ Panel B (WDI % GDP)
-w = pd.read_csv(PROC / "govallocxai_new_wdi_panel.csv", low_memory=False).sort_values(["iso3", "year"]).reset_index(drop=True)
+w = pd.read_csv(PROC / "govalloc_cofog_panel_wdi.csv", low_memory=False).sort_values(["iso3", "year"]).reset_index(drop=True)
 WT = {"wdi_health_pct_gdp": "health", "wdi_education_pct_gdp": "education", "wdi_defence_pct_gdp": "defence", "wdi_rnd_pct_gdp": "R&D"}
 brows = []
 for t, nm in WT.items():
