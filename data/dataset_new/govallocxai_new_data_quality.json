@@ -1,0 +1,289 @@
+{
+ "master_rows": 5450,
+ "master_cols": 217,
+ "countries": 218,
+ "cofog_panel_rows": 825,
+ "cofog_panel_countries": 36,
+ "wdi_panel_rows": 4995,
+ "wdi_panel_countries": 211,
+ "cofog10_panel_rows": 1526,
+ "cofog10_panel_countries": 85,
+ "cofog10_by_source": {
+  "Eurostat gov_10a_exp": 740,
+  "IMF GFS_COFOG": 623,
+  "OECD NAD Table 11": 163
+ },
+ "cofog10_imf_vs_eurostat": {
+  "cofog10_GF01_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.0619240013117377,
+   "pearson": 0.984457510959684
+  },
+  "cofog10_GF02_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.027002298866452668,
+   "pearson": 0.9936352647385481
+  },
+  "cofog10_GF03_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.028113533939912116,
+   "pearson": 0.9936250686976318
+  },
+  "cofog10_GF04_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.031233380954821754,
+   "pearson": 0.9988184740744805
+  },
+  "cofog10_GF05_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.028745149084934196,
+   "pearson": 0.9895572491067396
+  },
+  "cofog10_GF06_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.02730944274117686,
+   "pearson": 0.9976618434599583
+  },
+  "cofog10_GF07_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.029091891929699187,
+   "pearson": 0.9915518017471927
+  },
+  "cofog10_GF08_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.02733582842698401,
+   "pearson": 0.9985066310431664
+  },
+  "cofog10_GF09_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.0300276547027849,
+   "pearson": 0.9953494523414586
+  },
+  "cofog10_GF10_pct_total": {
+   "n": 723,
+   "median_abs_diff_pp": 0.03792123700561234,
+   "pearson": 0.9968824240333651
+  }
+ },
+ "legacy_rows_preserved": 775,
+ "legacy_vs_real": {
+  "gdp_usd": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "population": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "life_expectancy": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "inflation_pct": {
+   "n": 750,
+   "median_abs_rel_err": 1.7592616723414447e-15,
+   "p90_abs_rel_err": 0.003999309067490359,
+   "pearson": 0.9431309969933516
+  },
+  "gdp_growth_pct": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "unemployment_pct": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "internet_users_pct": {
+   "n": 750,
+   "median_abs_rel_err": 0.0,
+   "p90_abs_rel_err": 0.0,
+   "pearson": 1.0
+  },
+  "leg_def_vs_wdi_defence_pct_gdp": {
+   "n": 747,
+   "median_abs_err_pp": 0.0007282034911889612,
+   "pearson": 0.998190402756609
+  },
+  "leg_edu_vs_wdi_education_pct_gdp": {
+   "n": 518,
+   "median_abs_err_pp": 3.05089287166993e-13,
+   "pearson": 1.0
+  },
+  "leg_hlt_vs_wdi_health_pct_gdp": {
+   "n": 724,
+   "median_abs_err_pp": 2.435527090000054,
+   "pearson": 0.8791491368290097
+  }
+ },
+ "feature_missing_after_imputation_pct": {
+  "gdp_usd": 0.9,
+  "gdp_per_capita_usd": 0.9,
+  "gdp_growth_pct": 0.9,
+  "inflation_pct": 0.9,
+  "population": 0.5,
+  "urban_pop_pct": 0.5,
+  "pop_65plus_pct": 0.5,
+  "pop_0_14_pct": 0.5,
+  "tax_revenue_pct_gdp": 1.5,
+  "central_gov_debt_pct_gdp": 10.1,
+  "revenue_pct_gdp": 1.5,
+  "total_expense_pct_gdp": 1.5,
+  "net_lending_pct_gdp": 1.5,
+  "poverty_215_pct": 1.2,
+  "unemployment_pct": 0.9,
+  "adult_literacy_pct": 2.5,
+  "life_expectancy": 0.5,
+  "under5_mortality": 0.5,
+  "internet_users_pct": 0.8,
+  "electricity_access_pct": 0.6,
+  "basic_water_access_pct": 0.5,
+  "co2_per_capita_t": 0.5,
+  "agri_value_added_pct_gdp": 0.9,
+  "industry_value_added_pct_gdp": 0.9,
+  "trade_pct_gdp": 0.9,
+  "gini": 1.2,
+  "gov_effectiveness_wgi": 0.5,
+  "control_corruption_wgi": 0.5,
+  "rule_of_law_wgi": 0.5,
+  "regulatory_quality_wgi": 0.5
+ },
+ "feature_imputed_cells_pct": {
+  "gdp_usd": 2.9,
+  "gdp_per_capita_usd": 2.9,
+  "gdp_growth_pct": 4.3,
+  "inflation_pct": 16.1,
+  "population": 0.0,
+  "urban_pop_pct": 0.0,
+  "pop_65plus_pct": 0.0,
+  "pop_0_14_pct": 0.0,
+  "tax_revenue_pct_gdp": 43.2,
+  "central_gov_debt_pct_gdp": 69.3,
+  "revenue_pct_gdp": 43.2,
+  "total_expense_pct_gdp": 45.7,
+  "net_lending_pct_gdp": 44.8,
+  "poverty_215_pct": 65.0,
+  "unemployment_pct": 13.5,
+  "adult_literacy_pct": 81.0,
+  "life_expectancy": 0.0,
+  "under5_mortality": 9.7,
+  "internet_users_pct": 9.5,
+  "electricity_access_pct": 1.3,
+  "basic_water_access_pct": 4.0,
+  "co2_per_capita_t": 6.5,
+  "agri_value_added_pct_gdp": 9.9,
+  "industry_value_added_pct_gdp": 9.4,
+  "trade_pct_gdp": 17.5,
+  "gini": 65.0,
+  "gov_effectiveness_wgi": 11.4,
+  "control_corruption_wgi": 10.9,
+  "rule_of_law_wgi": 9.6,
+  "regulatory_quality_wgi": 11.4
+ },
+ "eurostat_vs_oecd_crosscheck": {
+  "general_public_services": {
+   "n": 690,
+   "median_abs_diff_pp": 0.025814219434918684,
+   "pearson": 0.999965581245872
+  },
+  "defence": {
+   "n": 690,
+   "median_abs_diff_pp": 0.024839256771005624,
+   "pearson": 0.9997701202726738
+  },
+  "public_order_safety": {
+   "n": 690,
+   "median_abs_diff_pp": 0.02461231433995903,
+   "pearson": 0.9997676071952539
+  },
+  "agriculture": {
+   "n": 682,
+   "median_abs_diff_pp": 0.025948662102313003,
+   "pearson": 0.9994022404655467
+  },
+  "energy": {
+   "n": 682,
+   "median_abs_diff_pp": 0.024179466972899855,
+   "pearson": 0.9996143106573562
+  },
+  "industry_construction": {
+   "n": 682,
+   "median_abs_diff_pp": 0.027193940107448994,
+   "pearson": 0.9980100700484962
+  },
+  "transport": {
+   "n": 682,
+   "median_abs_diff_pp": 0.024666436070783337,
+   "pearson": 0.9999023165173072
+  },
+  "communication_digital": {
+   "n": 682,
+   "median_abs_diff_pp": 0.02624651606857907,
+   "pearson": 0.9636604053396576
+  },
+  "research_development": {
+   "n": 667,
+   "median_abs_diff_pp": 0.022701440101581705,
+   "pearson": 0.9977475901335049
+  },
+  "environment": {
+   "n": 690,
+   "median_abs_diff_pp": 0.027096309189015177,
+   "pearson": 0.998900246015782
+  },
+  "housing_community": {
+   "n": 682,
+   "median_abs_diff_pp": 0.02813507793576575,
+   "pearson": 0.9990593479756475
+  },
+  "water_supply": {
+   "n": 682,
+   "median_abs_diff_pp": 0.023900965336053258,
+   "pearson": 0.995876966272208
+  },
+  "health": {
+   "n": 690,
+   "median_abs_diff_pp": 0.02430941261402264,
+   "pearson": 0.9999466866269595
+  },
+  "recreation_culture": {
+   "n": 690,
+   "median_abs_diff_pp": 0.02387451218803327,
+   "pearson": 0.9997144510162547
+  },
+  "education": {
+   "n": 690,
+   "median_abs_diff_pp": 0.024712103664835006,
+   "pearson": 0.9999261430302456
+  },
+  "social_protection": {
+   "n": 690,
+   "median_abs_diff_pp": 0.023240618018988357,
+   "pearson": 0.9999869371068779
+  }
+ },
+ "oecd_added_countries": [
+  "AUS",
+  "CHL",
+  "COL",
+  "CRI",
+  "GBR",
+  "ISR",
+  "JPN",
+  "KOR",
+  "USA"
+ ],
+ "cofog_target_years": [
+  2000,
+  2024
+ ]
+}

@@ -1,0 +1,9 @@
+vignette_id,vignette_type,country_placeholder,year_placeholder,income_group_placeholder,last_year_health,last_year_education,last_year_defence,last_year_other,model_health,model_education,model_defence,model_other,actual_health,actual_education,actual_defence,actual_other,applicability_warning_shown_in_C,intended_role,status
+V1,normal,COUNTRY_1,YEAR_1,upper-middle,0.20,0.18,0.07,0.55,0.21,0.18,0.07,0.54,0.21,0.17,0.07,0.55,no,model correct,PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V2,normal,COUNTRY_2,YEAR_2,high,0.24,0.14,0.09,0.53,0.25,0.14,0.09,0.52,0.25,0.14,0.08,0.53,no,model correct,PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V3,normal,COUNTRY_3,YEAR_3,lower-middle,0.12,0.20,0.10,0.58,0.12,0.21,0.10,0.57,0.13,0.21,0.10,0.56,no,model correct,PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V4,model_wrong,COUNTRY_4,YEAR_4,upper-middle,0.15,0.17,0.12,0.56,0.17,0.17,0.10,0.56,0.23,0.15,0.11,0.51,no,model clearly wrong (select from largest-error cases in results/expA1_best_predictions.csv),PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V5,model_wrong,COUNTRY_5,YEAR_5,high,0.18,0.12,0.15,0.55,0.13,0.14,0.18,0.55,0.19,0.12,0.14,0.55,no,model clearly wrong,PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V6,extrapolation,COUNTRY_6,YEAR_6,lower-middle,0.10,0.22,0.05,0.63,0.15,0.20,0.04,0.61,0.09,0.23,0.05,0.63,yes,extrapolation (outside training range; warning flagged by applicability check),PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V7,extrapolation,COUNTRY_7,YEAR_7,low,0.08,0.20,0.06,0.66,0.12,0.18,0.08,0.62,0.07,0.21,0.06,0.66,yes,extrapolation (outside training range),PLACEHOLDER - FILL FROM results/ OR API BEFORE USE
+V8,normal,COUNTRY_8,YEAR_8,high,0.22,0.12,0.08,0.58,0.22,0.12,0.08,0.58,0.22,0.13,0.08,0.57,no,practice vignette (not analysed),PLACEHOLDER - FILL FROM results/ OR API BEFORE USE

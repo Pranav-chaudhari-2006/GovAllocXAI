@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Cold start: leave-country-out (6 folds $\times$ 2 seeds, mean over seeds), TVD in percentage points.}\label{tab:A2}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+
+\begin{tabular}{lcc}
+\toprule
+Method & TVD (pp) & 95\% CI \\
+\midrule
+Hybrid (XGBoost+CatBoost) & 10.77 & [9.60, 12.05] \\
+XGBoost & 10.83 & [9.67, 12.12] \\
+Income-group peer mean & 11.34 & [10.33, 12.53] \\
+Global mean & 11.35 & [10.35, 12.53] \\
+ridge regression & 11.98 & [10.75, 13.26] \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,19 @@
+\begin{table}
+\caption{Fixed hyper-parameters (no test-set tuning).}\label{tab:hyper}
+\centering\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lp{9.5cm}}
+\toprule
+Model & Hyper-parameters \\
+\midrule
+XGBoost & 300 trees, lr 0.05, depth 3, subsample 0.8, colsample 0.8, min child weight 3, $L_2$ = 5 \\
+LightGBM & 300 trees, lr 0.05, 8 leaves, min child 10, subsample 0.8, colsample 0.8, $L_2$ = 5 \\
+CatBoost & 300 iterations, lr 0.07, depth 4, $L_2$ = 5 \\
+Random Forest & 300 trees, min leaf 3, max features 0.5 \\
+Ridge & $\alpha=10$, standardised inputs, median imputation \\
+Hybrid & $0.5\,\hat{y}_{\text{XGB}}+0.5\,\hat{y}_{\text{Cat}}$ \\
+All & targets standardised; seed 42; no tuning on test data (Section~\ref{sec:selection}) \\
+\bottomrule
+\end{tabular}}
+\end{table}

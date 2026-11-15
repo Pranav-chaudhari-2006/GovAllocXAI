@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Allocation-engine sensitivity to the width of the policy bounds (temporal test, $\Delta$-hybrid).}\label{tab:bounds}
+\centering\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+Bounds & TVD (pp) & Predicted rows clipped (\%) & Actual rows outside (\%) \\
+\midrule
+1st-99th pctile & 3.649 & 37.1 & 43.3 \\
+min-max (train) & 3.449 & 11.8 & 14.0 \\
+0.5$\times$min - 1.5$\times$max & 3.464 & 1.7 & 3.4 \\
+none (renorm only) & 3.476 & 0.0 & 5.6 \\
+\bottomrule
+\end{tabular}}
+\end{table}

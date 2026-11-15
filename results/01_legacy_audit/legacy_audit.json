@@ -1,0 +1,236 @@
+{
+ "identical_column_pairs": [
+  [
+   "health_expenditure_usd",
+   "healthcare_usd"
+  ],
+  [
+   "health_expenditure_usd",
+   "sdg3_good_health_usd"
+  ],
+  [
+   "defence_usd",
+   "sdg16_peace_justice_usd"
+  ],
+  [
+   "education_usd",
+   "sdg4_quality_education_usd"
+  ],
+  [
+   "healthcare_usd",
+   "sdg3_good_health_usd"
+  ],
+  [
+   "agriculture_usd",
+   "sdg2_zero_hunger_usd"
+  ],
+  [
+   "rural_development_usd",
+   "industry_msme_usd"
+  ],
+  [
+   "rural_development_usd",
+   "sdg8_decent_work_usd"
+  ],
+  [
+   "energy_usd",
+   "sdg7_clean_energy_usd"
+  ],
+  [
+   "water_sanitation_usd",
+   "sdg6_clean_water_usd"
+  ],
+  [
+   "environment_climate_usd",
+   "sdg13_climate_action_usd"
+  ],
+  [
+   "industry_msme_usd",
+   "sdg8_decent_work_usd"
+  ]
+ ],
+ "identical_pairs_involving_targets": 11,
+ "ratio_to_gdp": {
+  "defence_usd": {
+   "mean_pct": 1.8203340811109403,
+   "cv": 0.8194571058999133,
+   "within_country_cv": 0.14620245578502053
+  },
+  "infrastructure_usd": {
+   "mean_pct": 2.471807862959568,
+   "cv": 0.028493215904593208,
+   "within_country_cv": 0.021472078746700533
+  },
+  "research_and_development_usd": {
+   "mean_pct": 1.5844051554771204,
+   "cv": 0.7015076543739063,
+   "within_country_cv": 0.1482365879665488
+  },
+  "education_usd": {
+   "mean_pct": 5.427820151890189,
+   "cv": 0.7937480562862065,
+   "within_country_cv": 0.15704858401830404
+  },
+  "healthcare_usd": {
+   "mean_pct": 7.3085381380991725,
+   "cv": 0.44281782301595735,
+   "within_country_cv": 0.11316825283005649
+  },
+  "agriculture_usd": {
+   "mean_pct": 1.2359039314798215,
+   "cv": 0.028493215904556623,
+   "within_country_cv": 0.021472078746766134
+  },
+  "rural_development_usd": {
+   "mean_pct": 1.0814159400448076,
+   "cv": 0.028493215904619933,
+   "within_country_cv": 0.021472078746675883
+  },
+  "social_welfare_freebies_usd": {
+   "mean_pct": 3.707711794439419,
+   "cv": 0.028493215904571084,
+   "within_country_cv": 0.021472078746722415
+  },
+  "energy_usd": {
+   "mean_pct": 1.5448799143497527,
+   "cv": 0.02849321590456242,
+   "within_country_cv": 0.02147207874680279
+  },
+  "transport_usd": {
+   "mean_pct": 1.8538558972196604,
+   "cv": 0.02849321590458358,
+   "within_country_cv": 0.0214720787467119
+  },
+  "housing_urban_development_usd": {
+   "mean_pct": 1.3903919229147226,
+   "cv": 0.028493215904631074,
+   "within_country_cv": 0.021472078746759826
+  },
+  "water_sanitation_usd": {
+   "mean_pct": 0.9269279486098301,
+   "cv": 0.02849321590452943,
+   "within_country_cv": 0.021472078746806525
+  },
+  "environment_climate_usd": {
+   "mean_pct": 0.7724399571748388,
+   "cv": 0.028493215904675934,
+   "within_country_cv": 0.021472078746718512
+  },
+  "digital_it_usd": {
+   "mean_pct": 0.6179519657398271,
+   "cv": 0.02849321590456491,
+   "within_country_cv": 0.021472078746663438
+  },
+  "industry_msme_usd": {
+   "mean_pct": 1.0814159400448076,
+   "cv": 0.028493215904619933,
+   "within_country_cv": 0.021472078746675883
+  }
+ },
+ "n_targets_cv_below_0.05": 11,
+ "target_corr_offdiag_min_mean": [
+  0.8560337286562751,
+  0.9698134107927635
+ ],
+ "healthcare_equals_feature_health_expenditure": true,
+ "replication": {
+  "xgb_random_split_R2_usd": {
+   "defence_usd": 0.9871659262464701,
+   "infrastructure_usd": 0.9990854053417555,
+   "research_and_development_usd": 0.9974208971699564,
+   "education_usd": 0.9777183277416186,
+   "healthcare_usd": 0.9865337779233131,
+   "agriculture_usd": 0.9990854053417563,
+   "rural_development_usd": 0.999087217572093,
+   "social_welfare_freebies_usd": 0.9990851587868339,
+   "energy_usd": 0.9990868733225949,
+   "transport_usd": 0.9990851587868335,
+   "housing_urban_development_usd": 0.9990862638868672,
+   "water_sanitation_usd": 0.9990851587868335,
+   "environment_climate_usd": 0.999086873322595,
+   "digital_it_usd": 0.9990854053417557,
+   "industry_msme_usd": 0.999087217572093
+  },
+  "formula_k_x_gdp_R2_usd": {
+   "defence_usd": 0.5398804728855414,
+   "infrastructure_usd": 0.9997365063039036,
+   "research_and_development_usd": 0.7848454853144883,
+   "education_usd": 0.8226150408765087,
+   "healthcare_usd": 0.7090193878089215,
+   "agriculture_usd": 0.9997365063039038,
+   "rural_development_usd": 0.9997365063039033,
+   "social_welfare_freebies_usd": 0.9997365063039036,
+   "energy_usd": 0.9997365063039034,
+   "transport_usd": 0.9997365063039036,
+   "housing_urban_development_usd": 0.9997365063039035,
+   "water_sanitation_usd": 0.9997365063039034,
+   "environment_climate_usd": 0.9997365063039036,
+   "digital_it_usd": 0.9997365063039039,
+   "industry_msme_usd": 0.9997365063039033
+  },
+  "xgb_ratio_scale_R2": {
+   "defence_usd": 0.8885327823751528,
+   "infrastructure_usd": 0.9477225975570436,
+   "research_and_development_usd": 0.9797850082402447,
+   "education_usd": 0.7615149839133626,
+   "healthcare_usd": 0.9833292078052317,
+   "agriculture_usd": 0.9061071594497249,
+   "rural_development_usd": 0.884089626527298,
+   "social_welfare_freebies_usd": 0.9563246840694503,
+   "energy_usd": 0.9278468344549207,
+   "transport_usd": 0.9342646948157333,
+   "housing_urban_development_usd": 0.9175970975841445,
+   "water_sanitation_usd": 0.8531915199208577,
+   "environment_climate_usd": 0.7944832767081169,
+   "digital_it_usd": 0.6979621759465331,
+   "industry_msme_usd": 0.884089626527298
+  },
+  "const_ratio_R2": {
+   "defence_usd": -0.12698742687536302,
+   "infrastructure_usd": -0.0002081585938553676,
+   "research_and_development_usd": -0.0004027649798139521,
+   "education_usd": -0.029969275415260066,
+   "healthcare_usd": -0.004358547726836859,
+   "agriculture_usd": -0.0002081585937154795,
+   "rural_development_usd": -0.0002081585938269459,
+   "social_welfare_freebies_usd": -0.00020815859379386126,
+   "energy_usd": -0.0002081585937163677,
+   "transport_usd": -0.0002081585937407926,
+   "housing_urban_development_usd": -0.00020815859377099066,
+   "water_sanitation_usd": -0.00020815859374345713,
+   "environment_climate_usd": -0.0002081585939652797,
+   "digital_it_usd": -0.0002081585935262975,
+   "industry_msme_usd": -0.0002081585938269459
+  },
+  "xgb_random_split_R2_usd_mean": 0.9959190044762246,
+  "formula_k_x_gdp_R2_usd_mean": 0.9235641304152267,
+  "xgb_ratio_scale_R2_mean": 0.8877894183930074,
+  "const_ratio_R2_mean": -0.010933850635250379
+ },
+ "healthcare_R2_with_leaky_feature": 0.9865337779233131,
+ "healthcare_R2_without_leaky_feature": 0.9693148342614659,
+ "temporal_split_xgb_R2_usd_mean": 0.945119044338431,
+ "temporal_split_formula_R2_usd_mean": 0.9316268623833591,
+ "legacy_vs_official": {
+  "defence_usd": {
+   "n": 747,
+   "pearson": 0.998190402756609,
+   "median_abs_err_pp": 0.0007282034911889612
+  },
+  "education_usd": {
+   "n": 518,
+   "pearson": 1.0,
+   "median_abs_err_pp": 3.05089287166993e-13
+  },
+  "healthcare_usd": {
+   "n": 724,
+   "pearson": 0.8791491368290097,
+   "median_abs_err_pp": 2.435527090000054
+  },
+  "research_and_development_usd": {
+   "n": 598,
+   "pearson": 1.0,
+   "median_abs_err_pp": 2.282618538629322e-13
+  }
+ }
+}

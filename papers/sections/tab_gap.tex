@@ -1,0 +1,22 @@
+\begin{table*}[!t]
+\caption{Closest prior work, described by objective attributes. Cells come from the full text where we read it; $^{\dagger}$ = judged from the abstract only. ``Explanations tested'' means that agreement, stability, faithfulness or ground-truth recovery of the attributions was quantified; ``shown'' means attributions were displayed.}\label{tab:gap}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{2.7cm}p{3.1cm}p{2.7cm}p{2.3cm}p{1.9cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Setting} & \textbf{Target} & \textbf{Explanation method} & \textbf{Explanations tested}\\
+\midrule
+G\"ur et al.~\cite{gur2025} & T\"urkiye, monthly 2008--2024 & aggregate expenditure & none reported & no\\
+Santschi et al.~\cite{santschi2024} & Switzerland, 26 cantons & account groups & none reported & no\\
+R\u{a}dulescu et al.~\cite{radulescu2015} & 5 CEE countries & spending by function & none reported & no\\
+Valle-Cruz et al.~\cite{valle2022} & 217 countries & spending vs outcomes & none reported & no\\
+Guerrero \& Casta\~neda~\cite{guerrero2022} & 140 countries & spending vs SDG gaps & causal framework & n/a\\
+Yao \& Zhu~\cite{yao2025} & patient-level insurance cost data & cost of care & SHAP & shown\\
+Nonato et al.~\cite{nonato2026}$^{\dagger}$ & Brazil federal, 24 years (+ synthetic) & spending by function & none in abstract & no\\
+Kisman et al.~\cite{kisman2026}$^{\dagger}$ & cross-country, 2002--2023 & defence expenditure level & XAI methods & shown\\
+Mohith et al.~\cite{mohith2026}$^{\dagger}$ & India, 12 sectors, FY2005--2025 & sector allocations & SHAP, LIME, permutation & shown\\
+\midrule
+\textbf{This work} & \NCofogCountries{} / \NTenEcon{} economies (COFOG), \NWdiCountries{} (WDI), 2000--2024 & COFOG shares (16 / 10 functions), WDI sector series & TreeSHAP, LIME, KernelSHAP & agreement, stability, deletion, synthetic truth\\
+\bottomrule
+\end{tabular}
+\end{table*}

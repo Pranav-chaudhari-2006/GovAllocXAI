@@ -1,0 +1,127 @@
+% GovAllocXAI -- JOURNAL manuscript, single-column article layout (blue headings, A4, Times).
+% Compiles with pdfLaTeX: pdflatex, bibtex, pdflatex x2. The body is class-independent; swap the preamble for a journal class if the target journal requires its own template.
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[a4paper,left=2.6cm,right=2.6cm,top=2.6cm,bottom=2.8cm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,booktabs,xcolor}
+\usepackage{enumitem}
+\usepackage[section]{placeins}
+\usepackage{titlesec}
+\definecolor{linkblue}{RGB}{0,82,164}
+\titleformat{\section}{\Large\bfseries\color{linkblue}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{linkblue}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{linkblue}}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus 1ex minus .2ex}{0.9ex plus .2ex}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue]{hyperref}
+\Urlmuskip=0mu plus 2mu
+\emergencystretch=3em
+\linespread{1.07}
+\setlength{\parskip}{4pt plus 1pt}
+\makeatletter\renewcommand{\fps@table}{htbp}\expandafter\def\csname fps@table*\endcsname{htbp}\makeatother
+\input{results_macros.tex}
+\input{figs_all.tex}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries GovAllocXAI: A Benchmark of Explainable Machine Learning for Predicting Functional Government Expenditure Shares from Official Multi-Country Data\par}
+\vspace{1.2em}
+{\large Aditi H.\ Joshi$^{1,a,*}$, Pranav S.\ Chaudhari$^{1,b}$, Gaurav M.\ Jaypatre$^{1,c}$, Digvijay P.\ Birajdar$^{1,d}$\par}
+\vspace{0.8em}
+{\small\itshape $^{1}$Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, 411044, India\par}
+\vspace{0.5em}
+{\small $^{a}$aditi.joshi24@pccoepune.org; $^{b}$pranav.chaudhari24@pccoepune.org; $^{c}$gaurav.jaypatre24@pccoepune.org; $^{d}$digvijay.birajdar24@pccoepune.org\par}
+{\small $^{*}$Corresponding author\par}
+\end{center}
+\vspace{0.6em}
+\noindent{\color{linkblue}\Large\bfseries Abstract}\par\vspace{0.4em}
+{\small\noindent How much can machine learning add to last year's government budget, and what can peers and explanations tell us when there is no last year? We build GovAllocXAI, an open benchmark for predicting how executed general-government expenditure is divided across COFOG functions. After finding that eleven of fifteen targets in our earlier semi-synthetic benchmark were exact multiples of one series, we rebuilt the evidence on official data: \NMasterRows{} country-year rows, COFOG shares for \NCofogCountries{} economies (\NTenEcon{} with IMF data) and World Bank sector series for \NWdiCountries{} economies. Under temporal, leave-country-out and leave-region-out protocols with cluster-bootstrap intervals, last year's allocation is a strong baseline (total-variation distance \ResTVDPersist{} pp). A learned correction using same-year covariates (a nowcast) lowers it to \ResTVDHyb{} pp, but the gain (\ResPairedGain{} pp, 95\% CI \ResPairedLo--\ResPairedHi) averages \AnnSeedMeanGain{} pp across learner seeds and is significant for only \AnnSeedNExcl{} of \AnnSeedN. Without history, a stacked learner and a nearest-economies average beat the income-group mean on the ten-division panel by about 1.3 pp (Holm-adjusted $p<0.001$) but not robustly on the 16-function panel; errors are two to three times larger for lower-income economies. Health and R\&D intensity are predictable in unseen economies ($R^2$ 0.63 and 0.60 vs.\ 0.31 and 0.25 for peers; ridge 0.50 and 0.53). SHAP and LIME agree more on direction (sign agreement \AgrSignMean) than on ranking (Spearman \AgrRhoMean). Data, code and the leakage audit are released.\par}
+\vspace{0.5em}
+\noindent{\small\textbf{Keywords:} government expenditure ; COFOG ; benchmark ; explainable AI ; SHAP ; LIME ; persistence baseline ; data leakage}
+\vspace{0.8em}
+
+\section{Introduction}\label{sec:intro}
+\input{sections/sec_intro.tex}
+
+\section{Related Work}\label{sec:related}
+\input{sections/sec_related.tex}
+\input{sections/tab_gap.tex}
+
+\section{Data: GovAllocXAI-Data v2}\label{sec:data}
+\input{sections/sec_data.tex}
+
+\section{Models and Evaluation Protocol}\label{sec:method}
+\input{sections/sec_method.tex}
+
+\section{Results}\label{sec:results}
+\input{sections/sec_results.tex}
+
+\section{Discussion}\label{sec:disc}
+\input{sections/sec_discussion.tex}
+
+\section{Conclusion}\label{sec:conc}
+\input{sections/sec_conclusion.tex}
+
+\appendix
+\section{Literature search protocol}
+A web search was run on 14 November 2026 (not a systematic database search) with strings combining \emph{budget allocation / public expenditure}, \emph{machine learning / XGBoost / gradient boosting}, \emph{COFOG / functional classification}, \emph{SHAP / LIME} and \emph{SDG}. A repeat on Scopus, Web of Science and IEEE Xplore has not yet been run, and the novelty statement in Section~\ref{sec:related} is qualified accordingly. The query log and the closest papers are described in \texttt{docs/literature\_and\_novelty.md} of the repository; a later reference audit (Crossref and arXiv lookups of every cited DOI) is in \texttt{docs/audits/04\_reference\_audit.md}.
+
+\FloatBarrier
+\section{Supplementary tables}\label{app:tables}
+\input{tables/tab_features.tex}
+\input{tables/tab_sdg.tex}
+\input{tables/tab_hyper.tex}
+\input{tables/tab_selection.tex}
+\input{tables/tab_ablation.tex}
+\input{tables/tab_bounds.tex}
+\input{tables/tab_E_hist.tex}
+\FloatBarrier
+
+\section*{CRediT authorship contribution statement}
+\begin{description}[leftmargin=!,labelwidth=5.2cm,itemsep=1pt,parsep=0pt]
+\item[Conceptualization:] A.H.J., P.S.C.
+\item[Methodology:] A.H.J., P.S.C., D.P.B.
+\item[Software:] P.S.C., D.P.B.
+\item[Validation:] G.M.J., D.P.B.
+\item[Formal analysis:] P.S.C., G.M.J.
+\item[Investigation:] G.M.J., A.H.J.
+\item[Resources:] G.M.J.
+\item[Data curation:] P.S.C., G.M.J.
+\item[Writing -- original draft:] P.S.C., G.M.J.
+\item[Writing -- review \& editing:] all authors
+\item[Visualization:] D.P.B., P.S.C.
+\item[Supervision and project administration:] A.H.J.
+\end{description}
+Author abbreviations: Aditi H.\ Joshi (A.H.J.), Pranav S.\ Chaudhari (P.S.C.), Gaurav M.\ Jaypatre (G.M.J.), Digvijay P.\ Birajdar (D.P.B.).
+
+\section*{Declaration of competing interest}
+All authors have reviewed the manuscript and declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research received no external funding.
+
+\section*{Ethical approval}
+This study is a secondary analysis of publicly released, aggregated national statistics (country-level government expenditure and macro-economic indicators). No human participants were recruited, no personal data were collected, and no institutional ethics approval was required. The human-subject evaluation described in the Discussion is future work and will require approval before it is run.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the authors used Anthropic's Claude, an AI coding and writing assistant, for code scaffolding, data-collection scripts, drafting and editing of text, and for simulated critical review of the manuscript; the legacy v1 dataset analysed in Section~\ref{sec:audit} had itself been partly populated with the help of a large language model. References were checked with automated Crossref and arXiv lookups followed by manual correction. The authors reviewed and edited all content produced with these tools and take full responsibility for the content of the publication.
+
+\section*{Data availability}
+All inputs are public. World Development Indicators: \url{https://databank.worldbank.org/source/world-development-indicators}; Worldwide Governance Indicators: \url{https://www.worldbank.org/en/publication/worldwide-governance-indicators}; Eurostat \texttt{gov\_10a\_exp}: \url{https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table}; OECD National Accounts Table~11: \url{https://data-explorer.oecd.org/}; IMF Government Finance Statistics (COFOG): \url{https://data.imf.org/}. The harmonised panels (GovAllocXAI-Data v2.1, with provenance and imputation flags, and the preserved legacy v1 dataset) are in the \texttt{data/dataset\_new} folder of the repository below; a permanent Zenodo archive with a DOI is to be created at acceptance and its DOI inserted here. Redistribution of the derived panels follows the licences of the sources (World Bank CC BY 4.0; OECD, Eurostat and IMF terms of use).
+
+\section*{Code availability}
+All code (one script per pipeline stage, \texttt{pipeline/01}--\texttt{27}), the API and dashboard, the result files from which the numbers in this paper are generated, and the \LaTeX{} sources are in the public repository \url{https://github.com/Pranav-chaudhari-2006/GovAllocXAI-}.
+
+\section*{Acknowledgements}
+The authors thank the Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, for computing resources.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

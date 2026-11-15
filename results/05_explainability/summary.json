@@ -1,0 +1,71 @@
+{
+ "agreement": [
+  {
+   "sector": "health",
+   "spearman_abs_SHAP_vs_LIME": 0.5818942307692307,
+   "top5_jaccard": 0.4119047619047619,
+   "top5_sign_agreement": 0.8224999999999998,
+   "lime_local_R2": 0.4675089665283497,
+   "lime_rerun_spearman": 0.9168717948717948,
+   "deletion_delta_SHAPtop3_pp": 1.5514754056930542,
+   "deletion_delta_random3_pp": 0.5049781799316406,
+   "faithfulness_ratio": 3.0723612768834467
+  },
+  {
+   "sector": "social_protection",
+   "spearman_abs_SHAP_vs_LIME": 0.638076923076923,
+   "top5_jaccard": 0.5161210317460319,
+   "top5_sign_agreement": 0.8950000000000001,
+   "lime_local_R2": 0.5941463611452508,
+   "lime_rerun_spearman": 0.9217435897435897,
+   "deletion_delta_SHAPtop3_pp": 3.118307113647461,
+   "deletion_delta_random3_pp": 0.9270757436752319,
+   "faithfulness_ratio": 3.363594760106084
+  },
+  {
+   "sector": "defence",
+   "spearman_abs_SHAP_vs_LIME": 0.5216730769230769,
+   "top5_jaccard": 0.4276289682539682,
+   "top5_sign_agreement": 0.8375,
+   "lime_local_R2": 0.56362448432853,
+   "lime_rerun_spearman": 0.7475897435897436,
+   "deletion_delta_SHAPtop3_pp": 0.6377564668655396,
+   "deletion_delta_random3_pp": 0.1877293437719345,
+   "faithfulness_ratio": 3.397212465837661
+  },
+  {
+   "sector": "education",
+   "spearman_abs_SHAP_vs_LIME": 0.6745769230769231,
+   "top5_jaccard": 0.5400793650793652,
+   "top5_sign_agreement": 0.9200000000000002,
+   "lime_local_R2": 0.6557258650666059,
+   "lime_rerun_spearman": 0.919794871794872,
+   "deletion_delta_SHAPtop3_pp": 1.5047754049301147,
+   "deletion_delta_random3_pp": 0.39128202199935913,
+   "faithfulness_ratio": 3.845756565152332
+  },
+  {
+   "sector": "transport",
+   "spearman_abs_SHAP_vs_LIME": 0.586548076923077,
+   "top5_jaccard": 0.48000992063492054,
+   "top5_sign_agreement": 0.8074999999999999,
+   "lime_local_R2": 0.4576117530970352,
+   "lime_rerun_spearman": 0.8801794871794872,
+   "deletion_delta_SHAPtop3_pp": 1.0005199909210205,
+   "deletion_delta_random3_pp": 0.3304712176322937,
+   "faithfulness_ratio": 3.027555616157386
+  },
+  {
+   "sector": "general_public_services",
+   "spearman_abs_SHAP_vs_LIME": 0.5610865384615383,
+   "top5_jaccard": 0.48913690476190474,
+   "top5_sign_agreement": 0.8074999999999999,
+   "lime_local_R2": 0.3578757112798982,
+   "lime_rerun_spearman": 0.749230769230769,
+   "deletion_delta_SHAPtop3_pp": 1.2353622913360596,
+   "deletion_delta_random3_pp": 0.618166983127594,
+   "faithfulness_ratio": 1.9984281352035136
+  }
+ ],
+ "shock_definition": "log10GDP-log10(1/0.85); GDPpc*0.85; growth-15pp; inflation+12pp; debt+35pp"
+}

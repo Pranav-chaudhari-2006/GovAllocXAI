@@ -1,0 +1,1328 @@
+{
+ "A10": {
+  "knn_rows": [
+   {
+    "method": "peer_mean",
+    "TVD": 14.926744260252534,
+    "TVD_lo": 13.432220703734512,
+    "TVD_hi": 16.724930355217936
+   },
+   {
+    "method": "ridge",
+    "TVD": 14.82732954514284,
+    "TVD_lo": 13.224424647362252,
+    "TVD_hi": 16.70026182879122
+   },
+   {
+    "method": "xgb_raw",
+    "TVD": 13.96408178622807,
+    "TVD_lo": 12.471172323739772,
+    "TVD_hi": 15.643347591936154
+   },
+   {
+    "method": "xgb_clr",
+    "TVD": 14.386681414664094,
+    "TVD_lo": 12.830047680747565,
+    "TVD_hi": 16.174535123860025
+   },
+   {
+    "method": "cat_clr",
+    "TVD": 14.140862710812492,
+    "TVD_lo": 12.640815354520772,
+    "TVD_hi": 15.939977525843535
+   },
+   {
+    "method": "knn3",
+    "TVD": 14.27387033751367,
+    "TVD_lo": 12.731388451241694,
+    "TVD_hi": 16.058203599535474
+   },
+   {
+    "method": "knn5",
+    "TVD": 13.926434391789414,
+    "TVD_lo": 12.389053260931568,
+    "TVD_hi": 15.748406324420706
+   },
+   {
+    "method": "knn8",
+    "TVD": 13.731617214600531,
+    "TVD_lo": 12.21170268214576,
+    "TVD_hi": 15.533099338747192
+   },
+   {
+    "method": "knn12",
+    "TVD": 13.706892832679426,
+    "TVD_lo": 12.191101633949938,
+    "TVD_hi": 15.564428963273139
+   },
+   {
+    "method": "STACK_base",
+    "TVD": 13.60177107542953,
+    "TVD_lo": 12.117633295006872,
+    "TVD_hi": 15.319669926428602
+   },
+   {
+    "method": "STACK_base+knn3",
+    "TVD": 13.540644927264356,
+    "TVD_lo": 12.044052163967482,
+    "TVD_hi": 15.264667757759415
+   },
+   {
+    "method": "STACK_base+knn5",
+    "TVD": 13.506980894377804,
+    "TVD_lo": 12.013812392293566,
+    "TVD_hi": 15.269366304661819
+   },
+   {
+    "method": "STACK_base+knn8",
+    "TVD": 13.489308477426285,
+    "TVD_lo": 12.002651399168316,
+    "TVD_hi": 15.235392626433814
+   },
+   {
+    "method": "STACK_base+knn12",
+    "TVD": 13.444045335630879,
+    "TVD_lo": 11.95499456551646,
+    "TVD_hi": 15.181059635433911
+   }
+  ],
+  "paired": {
+   "knn3_vs_peer_mean": {
+    "mean_gain_pp": 0.6528739227388629,
+    "ci95": [
+     -0.01706274985032149,
+     1.3283653788212162
+    ]
+   },
+   "knn5_vs_peer_mean": {
+    "mean_gain_pp": 1.0003098684631206,
+    "ci95": [
+     0.4009178386861119,
+     1.589339460283326
+    ]
+   },
+   "knn8_vs_peer_mean": {
+    "mean_gain_pp": 1.195127045652003,
+    "ci95": [
+     0.670165625483403,
+     1.7207198067319325
+    ]
+   },
+   "knn12_vs_peer_mean": {
+    "mean_gain_pp": 1.2198514275731076,
+    "ci95": [
+     0.7222079267330191,
+     1.7090648451968151
+    ]
+   },
+   "knn3_vs_xgb_raw": {
+    "mean_gain_pp": -0.30978855128560046,
+    "ci95": [
+     -0.836430365161529,
+     0.24087445771876728
+    ]
+   },
+   "knn5_vs_xgb_raw": {
+    "mean_gain_pp": 0.03764739443865725,
+    "ci95": [
+     -0.46969142614754844,
+     0.5802860758592446
+    ]
+   },
+   "knn8_vs_xgb_raw": {
+    "mean_gain_pp": 0.2324645716275395,
+    "ci95": [
+     -0.30630264087350634,
+     0.8056922496146951
+    ]
+   },
+   "knn12_vs_xgb_raw": {
+    "mean_gain_pp": 0.2571889535486442,
+    "ci95": [
+     -0.3243165890519789,
+     0.8676214252150464
+    ]
+   },
+   "STACK_base+knn3_vs_STACK_base": {
+    "mean_gain_pp": 0.06112614816517566,
+    "ci95": [
+     -0.05075556676193422,
+     0.1832214741780575
+    ]
+   },
+   "STACK_base+knn5_vs_STACK_base": {
+    "mean_gain_pp": 0.0947901810517285,
+    "ci95": [
+     -0.023840256377219902,
+     0.22111355021370144
+    ]
+   },
+   "STACK_base+knn8_vs_STACK_base": {
+    "mean_gain_pp": 0.11246259800324489,
+    "ci95": [
+     -0.007646731644390729,
+     0.24959178699932916
+    ]
+   },
+   "STACK_base+knn12_vs_STACK_base": {
+    "mean_gain_pp": 0.15772573979865326,
+    "ci95": [
+     0.021150207163552006,
+     0.3048095042023829
+    ]
+   },
+   "STACK_base_vs_peer_mean": {
+    "mean_gain_pp": 1.3249731848230035,
+    "ci95": [
+     0.7135346254702104,
+     1.9268319731504386
+    ]
+   },
+   "xgb_raw_vs_peer_mean": {
+    "mean_gain_pp": 0.9626624740244634,
+    "ci95": [
+     0.2580570436934547,
+     1.6851503949923214
+    ]
+   }
+  },
+  "conformal": [
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.8007208387942333,
+    "coverage_econ_avg": 0.7521784123575628,
+    "mean_width_pp": 8.669567180594605
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7915465268676278,
+    "coverage_econ_avg": 0.7530017403572079,
+    "mean_width_pp": 8.335808889213396
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.9034076015727391,
+    "coverage_econ_avg": 0.87751176826696,
+    "mean_width_pp": 12.648206540784837
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8870904325032766,
+    "coverage_econ_avg": 0.8595433403011342,
+    "mean_width_pp": 11.644525466924257
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.7998689384010484,
+    "coverage_econ_avg": 0.7543934515860558,
+    "mean_width_pp": 8.403659424236306
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7847313237221494,
+    "coverage_econ_avg": 0.746045329819942,
+    "mean_width_pp": 7.982887880260719
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.8994102228047182,
+    "coverage_econ_avg": 0.8697979224966874,
+    "mean_width_pp": 12.330513136213959
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8857798165137615,
+    "coverage_econ_avg": 0.8565195025014014,
+    "mean_width_pp": 11.315634405733329
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.7931192660550459,
+    "coverage_econ_avg": 0.7397595352696241,
+    "mean_width_pp": 8.105535201256469
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7806684141546527,
+    "coverage_econ_avg": 0.7352315643674472,
+    "mean_width_pp": 7.741199341279682
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.887483617300131,
+    "coverage_econ_avg": 0.8483289589753431,
+    "mean_width_pp": 11.609012930979201
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8709698558322412,
+    "coverage_econ_avg": 0.8333375927264083,
+    "mean_width_pp": 10.49789923834662
+   }
+  ],
+  "conformal_by_group": [
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.47333333333333333,
+    "mean_width_pp": 8.646171674507453
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.6752021563342318,
+    "mean_width_pp": 8.651722619715589
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8645676691729324,
+    "mean_width_pp": 8.670127667771407
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.6114754098360655,
+    "mean_width_pp": 8.779826834899726
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.47333333333333333,
+    "mean_width_pp": 8.646171674507453
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8118598382749326,
+    "mean_width_pp": 11.863481286631336
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8037593984962406,
+    "mean_width_pp": 7.071558477852733
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.6114754098360655,
+    "mean_width_pp": 8.779826834899726
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.6066666666666667,
+    "mean_width_pp": 12.597522780334206
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8595687331536388,
+    "mean_width_pp": 12.668488841161961
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.9332706766917294,
+    "mean_width_pp": 12.63934128255416
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.7950819672131147,
+    "mean_width_pp": 12.704410051129827
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.6066666666666667,
+    "mean_width_pp": 12.597522780334206
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8997304582210243,
+    "mean_width_pp": 16.046799339259152
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8958646616541354,
+    "mean_width_pp": 10.021887792417598
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.7950819672131147,
+    "mean_width_pp": 12.704410051129827
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.56,
+    "mean_width_pp": 8.475388658810546
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.6964959568733153,
+    "mean_width_pp": 8.379329718898678
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8575187969924812,
+    "mean_width_pp": 8.404886980091728
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.5409836065573771,
+    "mean_width_pp": 8.494943427725891
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.56,
+    "mean_width_pp": 8.475388658810546
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8,
+    "mean_width_pp": 11.10474156032276
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.799718045112782,
+    "mean_width_pp": 6.851103926261766
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.5409836065573771,
+    "mean_width_pp": 8.494943427725891
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.6933333333333334,
+    "mean_width_pp": 12.162006280663238
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8563342318059299,
+    "mean_width_pp": 12.315479698629986
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.9286654135338346,
+    "mean_width_pp": 12.333354414298284
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.7524590163934426,
+    "mean_width_pp": 12.45525889241809
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.6933333333333334,
+    "mean_width_pp": 12.162006280663238
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8946091644204852,
+    "mean_width_pp": 15.007167421500162
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8957706766917293,
+    "mean_width_pp": 9.939255647476598
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.7524590163934426,
+    "mean_width_pp": 12.45525889241809
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.49333333333333335,
+    "mean_width_pp": 8.132117545039598
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.6749326145552561,
+    "mean_width_pp": 8.069273531398396
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8571428571428571,
+    "mean_width_pp": 8.112080458267847
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.5426229508196722,
+    "mean_width_pp": 8.198837754432612
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.49333333333333335,
+    "mean_width_pp": 8.132117545039598
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.778167115902965,
+    "mean_width_pp": 10.749921360043144
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8032894736842106,
+    "mean_width_pp": 6.654846560944747
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.5426229508196722,
+    "mean_width_pp": 8.198837754432612
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.5766666666666667,
+    "mean_width_pp": 11.505553960070706
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.836388140161725,
+    "mean_width_pp": 11.589719183822755
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.924906015037594,
+    "mean_width_pp": 11.618154344315874
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.6983606557377049,
+    "mean_width_pp": 11.617788103636203
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Low income",
+    "economies": 3,
+    "rows": 30,
+    "coverage": 0.5766666666666667,
+    "mean_width_pp": 11.505553960070706
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 23,
+    "rows": 371,
+    "coverage": 0.8722371967654986,
+    "mean_width_pp": 14.069119567029293
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 50,
+    "rows": 1064,
+    "coverage": 0.8887218045112782,
+    "mean_width_pp": 9.160055625211601
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Lower middle income",
+    "economies": 9,
+    "rows": 61,
+    "coverage": 0.6983606557377049,
+    "mean_width_pp": 11.617788103636203
+   }
+  ],
+  "n": 1526,
+  "economies": 85,
+  "note": "seed 0, 6 outer folds, 4 inner folds; calibration = inner OOF residuals on training economies only"
+ },
+ "A16": {
+  "knn_rows": [
+   {
+    "method": "peer_mean",
+    "TVD": 11.292997271684271,
+    "TVD_lo": 10.284547181139137,
+    "TVD_hi": 12.511342671149787
+   },
+   {
+    "method": "ridge",
+    "TVD": 12.11426255523285,
+    "TVD_lo": 10.824177841595297,
+    "TVD_hi": 13.411515364633999
+   },
+   {
+    "method": "xgb_raw",
+    "TVD": 10.962892637913301,
+    "TVD_lo": 9.772066442579307,
+    "TVD_hi": 12.23261168596566
+   },
+   {
+    "method": "xgb_clr",
+    "TVD": 11.236152700897462,
+    "TVD_lo": 10.03672746689019,
+    "TVD_hi": 12.582497787541032
+   },
+   {
+    "method": "cat_clr",
+    "TVD": 11.02067318072117,
+    "TVD_lo": 9.844404197967622,
+    "TVD_hi": 12.2759222543394
+   },
+   {
+    "method": "knn3",
+    "TVD": 11.021874150655952,
+    "TVD_lo": 9.889986504745915,
+    "TVD_hi": 12.312288439225219
+   },
+   {
+    "method": "knn5",
+    "TVD": 10.78431464760147,
+    "TVD_lo": 9.65318057449538,
+    "TVD_hi": 12.059229485040342
+   },
+   {
+    "method": "knn8",
+    "TVD": 10.589742886756271,
+    "TVD_lo": 9.476075725551947,
+    "TVD_hi": 11.818324830715904
+   },
+   {
+    "method": "knn12",
+    "TVD": 10.482352927256182,
+    "TVD_lo": 9.467565303805248,
+    "TVD_hi": 11.651848509612202
+   },
+   {
+    "method": "STACK_base",
+    "TVD": 10.492703572645162,
+    "TVD_lo": 9.414699330922511,
+    "TVD_hi": 11.622734594509117
+   },
+   {
+    "method": "STACK_base+knn3",
+    "TVD": 10.40489036350281,
+    "TVD_lo": 9.304575727387398,
+    "TVD_hi": 11.52159010400737
+   },
+   {
+    "method": "STACK_base+knn5",
+    "TVD": 10.408452786681199,
+    "TVD_lo": 9.311519821705327,
+    "TVD_hi": 11.535210357766399
+   },
+   {
+    "method": "STACK_base+knn8",
+    "TVD": 10.413698200304614,
+    "TVD_lo": 9.301500782616333,
+    "TVD_hi": 11.568780612855761
+   },
+   {
+    "method": "STACK_base+knn12",
+    "TVD": 10.40823534987998,
+    "TVD_lo": 9.320841639794198,
+    "TVD_hi": 11.556475779855544
+   }
+  ],
+  "paired": {
+   "knn3_vs_peer_mean": {
+    "mean_gain_pp": 0.27112312102831876,
+    "ci95": [
+     -0.32374288313465116,
+     0.8503913838344744
+    ]
+   },
+   "knn5_vs_peer_mean": {
+    "mean_gain_pp": 0.5086826240828031,
+    "ci95": [
+     -0.08735656004904652,
+     1.104252229646023
+    ]
+   },
+   "knn8_vs_peer_mean": {
+    "mean_gain_pp": 0.7032543849280002,
+    "ci95": [
+     0.19598098875232764,
+     1.2170825823628904
+    ]
+   },
+   "knn12_vs_peer_mean": {
+    "mean_gain_pp": 0.8106443444280916,
+    "ci95": [
+     0.43586505493006794,
+     1.1893654455097042
+    ]
+   },
+   "knn3_vs_xgb_raw": {
+    "mean_gain_pp": -0.05898151274264997,
+    "ci95": [
+     -0.5589946026230548,
+     0.40945222889085836
+    ]
+   },
+   "knn5_vs_xgb_raw": {
+    "mean_gain_pp": 0.17857799031183422,
+    "ci95": [
+     -0.3516261143104825,
+     0.6950538340139676
+    ]
+   },
+   "knn8_vs_xgb_raw": {
+    "mean_gain_pp": 0.3731497511570314,
+    "ci95": [
+     -0.20114996608787755,
+     0.9233283327929553
+    ]
+   },
+   "knn12_vs_xgb_raw": {
+    "mean_gain_pp": 0.48053971065712286,
+    "ci95": [
+     -0.11095376949884714,
+     1.0930690538644396
+    ]
+   },
+   "STACK_base+knn3_vs_STACK_base": {
+    "mean_gain_pp": 0.08781320914234973,
+    "ci95": [
+     0.004928608380017595,
+     0.172391393864694
+    ]
+   },
+   "STACK_base+knn5_vs_STACK_base": {
+    "mean_gain_pp": 0.08425078596395962,
+    "ci95": [
+     -0.019037335335596057,
+     0.18225839416306067
+    ]
+   },
+   "STACK_base+knn8_vs_STACK_base": {
+    "mean_gain_pp": 0.0790053723405449,
+    "ci95": [
+     -0.054466594020724214,
+     0.20555016792197217
+    ]
+   },
+   "STACK_base+knn12_vs_STACK_base": {
+    "mean_gain_pp": 0.08446822276517904,
+    "ci95": [
+     -0.037865849629070594,
+     0.20472771919812577
+    ]
+   },
+   "STACK_base_vs_peer_mean": {
+    "mean_gain_pp": 0.8002936990391113,
+    "ci95": [
+     0.07946361050151589,
+     1.4691034570296548
+    ]
+   },
+   "xgb_raw_vs_peer_mean": {
+    "mean_gain_pp": 0.33010463377096866,
+    "ci95": [
+     -0.4210123585809017,
+     1.0574446815348193
+    ]
+   }
+  },
+  "conformal": [
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.7858823529411765,
+    "coverage_econ_avg": 0.776680530798178,
+    "mean_width_pp": 3.9691370225429234
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7828877005347593,
+    "coverage_econ_avg": 0.7736549316696376,
+    "mean_width_pp": 3.9360368289144185
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.8879144385026738,
+    "coverage_econ_avg": 0.8823535601109129,
+    "mean_width_pp": 5.4907079650435495
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8848484848484849,
+    "coverage_econ_avg": 0.879081129926718,
+    "mean_width_pp": 5.425186343979334
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.7962210338680927,
+    "coverage_econ_avg": 0.788015943751238,
+    "mean_width_pp": 3.788487767238761
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7920142602495543,
+    "coverage_econ_avg": 0.7838819568231332,
+    "mean_width_pp": 3.7579559703658
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.8929768270944741,
+    "coverage_econ_avg": 0.8888104080015844,
+    "mean_width_pp": 5.25826474581409
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8903386809269163,
+    "coverage_econ_avg": 0.8860747177658942,
+    "mean_width_pp": 5.193809751224868
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "nominal": 0.8,
+    "coverage": 0.7800356506238859,
+    "coverage_econ_avg": 0.7733933699742523,
+    "mean_width_pp": 3.539086951446756
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "nominal": 0.8,
+    "coverage": 0.7781105169340463,
+    "coverage_econ_avg": 0.7714405080213903,
+    "mean_width_pp": 3.5143186385001415
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "nominal": 0.9,
+    "coverage": 0.8794295900178253,
+    "coverage_econ_avg": 0.8741055159437513,
+    "mean_width_pp": 4.930479284150571
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "nominal": 0.9,
+    "coverage": 0.8769340463458111,
+    "coverage_econ_avg": 0.8715550108932462,
+    "mean_width_pp": 4.85903747468723
+   }
+  ],
+  "conformal_by_group": [
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.7897913182578347,
+    "mean_width_pp": 3.970783061810823
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5882352941176471,
+    "mean_width_pp": 3.885909162059756
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.7867374391041955,
+    "mean_width_pp": 3.9370282290005427
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5882352941176471,
+    "mean_width_pp": 3.885909162059756
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8912964444121283,
+    "mean_width_pp": 5.493618701179234
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.7169117647058824,
+    "mean_width_pp": 5.34353386918302
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8881698538500691,
+    "mean_width_pp": 5.426801226051944
+   },
+   {
+    "method": "xgb_raw",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.7169117647058824,
+    "mean_width_pp": 5.34353386918302
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8003344724787319,
+    "mean_width_pp": 3.7909917686313217
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5882352941176471,
+    "mean_width_pp": 3.6618791968274196
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.796044499381953,
+    "mean_width_pp": 3.7598561290513555
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5882352941176471,
+    "mean_width_pp": 3.6618791968274196
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8944957463826074,
+    "mean_width_pp": 5.263264653713786
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.8161764705882353,
+    "mean_width_pp": 5.005456902635747
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8918054242710681,
+    "mean_width_pp": 5.197534900269893
+   },
+   {
+    "method": "knn5",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.8161764705882353,
+    "mean_width_pp": 5.005456902635747
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.784337962626336,
+    "mean_width_pp": 3.541698384823731
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5625,
+    "mean_width_pp": 3.4070463513234492
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.7823747545989966,
+    "mean_width_pp": 3.5164402164912754
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.2,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.5625,
+    "mean_width_pp": 3.4070463513234492
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.8834436123027704,
+    "mean_width_pp": 4.935230703123519
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "global",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.6764705882352942,
+    "mean_width_pp": 4.690235662330851
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "High income",
+    "economies": 35,
+    "rows": 809,
+    "coverage": 0.880898713008071,
+    "mean_width_pp": 4.862375953052745
+   },
+   {
+    "method": "STACK_base",
+    "alpha": 0.1,
+    "variant": "mondrian",
+    "income_group": "Upper middle income",
+    "economies": 1,
+    "rows": 16,
+    "coverage": 0.6764705882352942,
+    "mean_width_pp": 4.690235662330851
+   }
+  ],
+  "n": 825,
+  "economies": 36,
+  "note": "seed 0, 6 outer folds, 4 inner folds; calibration = inner OOF residuals on training economies only"
+ }
+}

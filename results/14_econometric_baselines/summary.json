@@ -1,0 +1,126 @@
+{
+ "A16": [
+  {
+   "method": "persistence",
+   "TVD": 3.616421472002064,
+   "TVD_lo": 3.1709432098524517,
+   "TVD_hi": 4.077202596025057,
+   "gain_vs_persistence": 0.0,
+   "gain_lo": 0.0,
+   "gain_hi": 0.0,
+   "n": 178
+  },
+  {
+   "method": "random walk with drift",
+   "TVD": 3.7329188834035953,
+   "TVD_lo": 3.279252258446164,
+   "TVD_hi": 4.202768856675914,
+   "gain_vs_persistence": -0.11649741140152982,
+   "gain_lo": -0.1453636681912227,
+   "gain_hi": -0.08608292100004658,
+   "n": 178
+  },
+  {
+   "method": "AR(1) panel, pooled (CLR), ridge alpha=1",
+   "TVD": 3.856047567191778,
+   "TVD_lo": 3.4252898342607865,
+   "TVD_hi": 4.310806528901193,
+   "gain_vs_persistence": -0.23962609518971342,
+   "gain_lo": -0.41360857767931386,
+   "gain_hi": -0.0749600314409914,
+   "n": 178
+  },
+  {
+   "method": "AR(1) panel, pooled (CLR), ridge alpha=10",
+   "TVD": 4.897192046764202,
+   "TVD_lo": 4.356756932917441,
+   "TVD_hi": 5.458978150221844,
+   "gain_vs_persistence": -1.280770574762137,
+   "gain_lo": -1.6337000689321783,
+   "gain_hi": -0.9758350759214327,
+   "n": 178
+  },
+  {
+   "method": "AR(1) panel + country fixed effects (CLR), ridge alpha=1",
+   "TVD": 3.8818435345097178,
+   "TVD_lo": 3.4379927813330404,
+   "TVD_hi": 4.331168102933506,
+   "gain_vs_persistence": -0.26542206250765277,
+   "gain_lo": -0.49717357695793685,
+   "gain_hi": -0.029360566036054303,
+   "n": 178
+  },
+  {
+   "method": "AR(1) panel + country fixed effects (CLR), ridge alpha=10",
+   "TVD": 4.625050900223368,
+   "TVD_lo": 4.10094843419468,
+   "TVD_hi": 5.1689930825374555,
+   "gain_vs_persistence": -1.0086294282213035,
+   "gain_lo": -1.3375312958398484,
+   "gain_hi": -0.6958833955965037,
+   "n": 178
+  }
+ ],
+ "A10": [
+  {
+   "method": "persistence",
+   "TVD": 4.6221874421679106,
+   "TVD_lo": 3.9279122250672738,
+   "TVD_hi": 5.385935193779398,
+   "gain_vs_persistence": 0.0,
+   "gain_lo": 0.0,
+   "gain_hi": 0.0,
+   "n": 338
+  },
+  {
+   "method": "random walk with drift",
+   "TVD": 4.875304348890893,
+   "TVD_lo": 4.145768872467568,
+   "TVD_hi": 5.669022669021971,
+   "gain_vs_persistence": -0.25311690672298326,
+   "gain_lo": -0.446971909335675,
+   "gain_hi": -0.11242048709276138,
+   "n": 338
+  },
+  {
+   "method": "AR(1) panel, pooled (CLR), ridge alpha=1",
+   "TVD": 4.848634521339164,
+   "TVD_lo": 4.197253268403092,
+   "TVD_hi": 5.5424170812966675,
+   "gain_vs_persistence": -0.2264470791712542,
+   "gain_lo": -0.3901362352305314,
+   "gain_hi": -0.048452434126454016,
+   "n": 338
+  },
+  {
+   "method": "AR(1) panel, pooled (CLR), ridge alpha=10",
+   "TVD": 5.000183358926347,
+   "TVD_lo": 4.343846510471527,
+   "TVD_hi": 5.708357811418352,
+   "gain_vs_persistence": -0.37799591675843675,
+   "gain_lo": -0.5713477711032503,
+   "gain_hi": -0.176298861171456,
+   "n": 338
+  },
+  {
+   "method": "AR(1) panel + country fixed effects (CLR), ridge alpha=1",
+   "TVD": 5.235275917354218,
+   "TVD_lo": 4.538407027633585,
+   "TVD_hi": 6.003965900711555,
+   "gain_vs_persistence": -0.6130884751863085,
+   "gain_lo": -0.8754748306655259,
+   "gain_hi": -0.3570972736784943,
+   "n": 338
+  },
+  {
+   "method": "AR(1) panel + country fixed effects (CLR), ridge alpha=10",
+   "TVD": 4.9683856296554625,
+   "TVD_lo": 4.301580419598086,
+   "TVD_hi": 5.70039904724686,
+   "gain_vs_persistence": -0.3461981874875509,
+   "gain_lo": -0.5494190393545838,
+   "gain_hi": -0.14097668320551507,
+   "n": 338
+  }
+ ]
+}

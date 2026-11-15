@@ -1,0 +1,105 @@
+{
+ "A10": {
+  "n_rows": 1526,
+  "n_economies": 85,
+  "overall_TVD": {
+   "xgb": 13.932042745922576,
+   "peer_mean": 14.926744260252534
+  },
+  "disparity_income_group": {
+   "groups_used(>=3 economies)": [
+    "Low income",
+    "Lower middle income",
+    "Upper middle income",
+    "High income"
+   ],
+   "worst_group": "Low income",
+   "worst_TVD": 33.35458056435139,
+   "best_group": "High income",
+   "best_TVD": 11.357478531416087,
+   "max_min_ratio_xgb": 2.9367945069927974,
+   "ratio_ci95": [
+    2.090403364135792,
+    3.850764643706031
+   ],
+   "max_min_ratio_peer_mean": 2.559674612258625,
+   "worst_group_peer_mean": "Low income",
+   "worst_TVD_peer_mean": 32.06325421499442
+  },
+  "disparity_region": {
+   "groups_used(>=3 economies)": [
+    "East Asia & Pacific",
+    "Europe & Central Asia",
+    "Latin America & Caribbean ",
+    "Middle East, North Africa, Afghanistan & Pakistan",
+    "Sub-Saharan Africa "
+   ],
+   "worst_group": "East Asia & Pacific",
+   "worst_TVD": 21.157563039489407,
+   "best_group": "Europe & Central Asia",
+   "best_TVD": 10.920002819681265,
+   "max_min_ratio_xgb": 1.9375052725587993,
+   "ratio_ci95": [
+    1.5971238749213867,
+    2.8928835881193797
+   ],
+   "max_min_ratio_peer_mean": 1.9579382564295424,
+   "worst_group_peer_mean": "East Asia & Pacific",
+   "worst_TVD_peer_mean": 22.90339679491242
+  }
+ },
+ "B": {
+  "health": {
+   "worst_group_MAE": "High income",
+   "worst_MAE": 1.1130578597122998,
+   "best_MAE": 0.4499664401125739,
+   "ratio_MAE": 2.473646388903652,
+   "rel_MAE_ratio_pct_of_mean": 1.9296593185086914,
+   "bias_by_income": {
+    "Low income": 0.006,
+    "Lower middle income": -0.087,
+    "Upper middle income": -0.191,
+    "High income": 0.048
+   }
+  },
+  "education": {
+   "worst_group_MAE": "Lower middle income",
+   "worst_MAE": 1.504943429815668,
+   "best_MAE": 1.0360276985512507,
+   "ratio_MAE": 1.4526092612389947,
+   "rel_MAE_ratio_pct_of_mean": 1.591157452776945,
+   "bias_by_income": {
+    "Low income": -0.059,
+    "Lower middle income": -0.163,
+    "Upper middle income": -0.099,
+    "High income": 0.132
+   }
+  },
+  "defence": {
+   "worst_group_MAE": "Low income",
+   "worst_MAE": 1.1728272117363872,
+   "best_MAE": 0.875276809523972,
+   "ratio_MAE": 1.3399500580556234,
+   "rel_MAE_ratio_pct_of_mean": 1.2758675293833,
+   "bias_by_income": {
+    "Low income": -0.047,
+    "Lower middle income": 0.037,
+    "Upper middle income": 0.046,
+    "High income": 0.013
+   }
+  },
+  "R&D": {
+   "worst_group_MAE": "High income",
+   "worst_MAE": 0.5387830749400708,
+   "best_MAE": 0.11152761326245285,
+   "ratio_MAE": 4.830938806806321,
+   "rel_MAE_ratio_pct_of_mean": 1.5415569759322043,
+   "bias_by_income": {
+    "Low income": -0.028,
+    "Lower middle income": -0.01,
+    "Upper middle income": -0.027,
+    "High income": -0.007
+   }
+  }
+ }
+}

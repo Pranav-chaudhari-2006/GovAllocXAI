@@ -1,0 +1,22 @@
+\begin{table}
+\caption{Total-budget module: general-government total expenditure as percent of GDP (30 OECD/EU economies, 716 country-years, Eurostat COFOG panel). MAE in percentage points of GDP. The income-group mean equals the global mean because all but one economy is high income.}\label{tab:total}
+\centering\small
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Protocol & Method & $n$ & MAE (pp of GDP) & 95\% CI \\
+\midrule
+temporal 2020-24 & persistence & 150 & 2.87 & [2.57, 3.26] \\
+temporal 2020-24 & country mean & 150 & 3.59 & [2.90, 4.49] \\
+temporal 2020-24 & delta ridge & 150 & 1.83 & [1.62, 2.08] \\
+temporal 2020-24 & delta xgb & 150 & 2.03 & [1.75, 2.38] \\
+temporal 2020-24 & delta cat & 150 & 2.09 & [1.81, 2.43] \\
+cold start leave-country-out & global mean & 716 & 5.63 & [4.47, 6.86] \\
+cold start leave-country-out & income-group mean & 716 & 5.63 & [4.47, 6.86] \\
+cold start leave-country-out & ridge & 716 & 3.82 & [3.13, 4.59] \\
+cold start leave-country-out & xgb & 716 & 4.26 & [3.53, 5.02] \\
+cold start leave-country-out & cat & 716 & 4.41 & [3.62, 5.24] \\
+\bottomrule
+\end{tabular}}
+\end{table}

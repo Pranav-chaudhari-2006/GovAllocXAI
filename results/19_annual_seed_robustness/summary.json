@@ -1,0 +1,24 @@
+{
+ "persistence_TVD": 3.616421472002064,
+ "cat": {
+  "mean_gain": 0.06813220170849202,
+  "min_gain": 0.04904198110525468,
+  "max_gain": 0.12136325232722521,
+  "n_seeds_ci_excludes_zero": 1,
+  "n_seeds": 5
+ },
+ "hybrid": {
+  "mean_gain": 0.1156669257809307,
+  "min_gain": 0.10429658357407591,
+  "max_gain": 0.14000071196875932,
+  "n_seeds_ci_excludes_zero": 1,
+  "n_seeds": 5
+ },
+ "xgb": {
+  "mean_gain": 0.03521665346353384,
+  "min_gain": 0.01801911322254637,
+  "max_gain": 0.06746082698552326,
+  "n_seeds_ci_excludes_zero": 0,
+  "n_seeds": 5
+ }
+}

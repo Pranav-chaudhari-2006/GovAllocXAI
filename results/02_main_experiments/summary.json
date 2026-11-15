@@ -1,0 +1,58 @@
+{
+ "A1_paired": {
+  "mean_TVD_reduction_vs_persistence": 0.14000071196875932,
+  "ci95": [
+   0.02523687989377926,
+   0.2772393787601024
+  ],
+  "share_of_rows_improved": 0.5280898876404494
+ },
+ "A2_paired": {
+  "hybrid_vs_peer_mean_TVD_reduction": 0.3490300820079074,
+  "ci95": [
+   -0.43948860923301153,
+   1.1040213345443213
+  ],
+  "best_ML_method": "ML Hybrid (50% XGB + 50% CatBoost)"
+ },
+ "covid": {
+  "health": {
+   "actual_mean_delta_2020": 0.21575703690337336,
+   "pred_mean_delta_2020": -0.1208270316858997,
+   "corr_2020": 0.2690663198415874
+  },
+  "social_protection": {
+   "actual_mean_delta_2020": -0.3909896746757424,
+   "pred_mean_delta_2020": 0.651272084946563,
+   "corr_2020": 0.33690192057250284
+  },
+  "education": {
+   "actual_mean_delta_2020": -0.9512221975264529,
+   "pred_mean_delta_2020": -0.17912428282738227,
+   "corr_2020": 0.22067626389377656
+  },
+  "defence": {
+   "actual_mean_delta_2020": -0.08343245835289846,
+   "pred_mean_delta_2020": -0.06789537598504342,
+   "corr_2020": 0.3017004852912095
+  }
+ },
+ "engine": {
+  "TVD_before_constraints": 3.476420760033306,
+  "TVD_after_constraints": 3.463678425451489,
+  "rows_violating_bounds_before": 0.016853932584269662,
+  "max_sum_error_after": 2.842170943040401e-14,
+  "slsqp_vs_exact_max_abs_diff": 3.552713678800501e-15
+ },
+ "panel": {
+  "rows": 825,
+  "countries": 36,
+  "A1_train": 611,
+  "A1_test": 178,
+  "A1_test_countries": 36,
+  "years": [
+   2000,
+   2024
+  ]
+ }
+}

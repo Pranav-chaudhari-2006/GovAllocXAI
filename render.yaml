@@ -1,0 +1,15 @@
+# Render Blueprint: backend API (FastAPI). Create with: Render Dashboard > New > Blueprint > select this repository.
+services:
+  - type: web
+    name: govallocxai-api
+    runtime: python
+    plan: free            # if the service runs out of memory (512 MB) switch to "starter"
+    region: oregon
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v2/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: FRONTEND_ORIGINS
+        value: ""         # optional: extra allowed origins, comma separated (vercel.app and onrender.com are already allowed)

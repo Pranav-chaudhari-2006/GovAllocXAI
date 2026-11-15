@@ -1,0 +1,62 @@
+{
+ "blend": [
+  {
+   "division": "GF07 health",
+   "n_rows": 30,
+   "spearman_blend_vs_xgb_member": 0.42335321089661115,
+   "top5_jaccard": 0.3551587301587302,
+   "top5_sign_agreement": 0.9733333333333333,
+   "faithfulness_ratio_kernelshap_on_blend": 2.601367276317474
+  },
+  {
+   "division": "GF09 education",
+   "n_rows": 30,
+   "spearman_blend_vs_xgb_member": 0.2860275608115839,
+   "top5_jaccard": 0.3181216931216931,
+   "top5_sign_agreement": 0.7133333333333335,
+   "faithfulness_ratio_kernelshap_on_blend": 1.2554717772608923
+  },
+  {
+   "division": "GF10 social protection",
+   "n_rows": 30,
+   "spearman_blend_vs_xgb_member": 0.3734101209185011,
+   "top5_jaccard": 0.39153439153439146,
+   "top5_sign_agreement": 0.7733333333333334,
+   "faithfulness_ratio_kernelshap_on_blend": 2.839416866232003
+  }
+ ],
+ "sanity": [
+  {
+   "variant": "correlated_copy",
+   "method": "LIME",
+   "precision_at_3": 0.4333333333333333,
+   "p3_sd": 0.1567207819938757,
+   "share_A": 0.43276252609578253,
+   "share_copy": 0.08387566770531311
+  },
+  {
+   "variant": "correlated_copy",
+   "method": "TreeSHAP",
+   "precision_at_3": 0.5166666666666666,
+   "p3_sd": 0.17013926184468017,
+   "share_A": 0.38147082477808,
+   "share_copy": 0.08869062447920442
+  },
+  {
+   "variant": "independent",
+   "method": "LIME",
+   "precision_at_3": 0.6666666666666666,
+   "p3_sd": 0.0,
+   "share_A": 0.5111911619415566,
+   "share_copy": NaN
+  },
+  {
+   "variant": "independent",
+   "method": "TreeSHAP",
+   "precision_at_3": 0.6666666666666666,
+   "p3_sd": 0.0,
+   "share_A": 0.4591253504157066,
+   "share_copy": NaN
+  }
+ ]
+}

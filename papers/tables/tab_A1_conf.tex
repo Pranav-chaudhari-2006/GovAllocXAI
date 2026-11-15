@@ -1,0 +1,18 @@
+\begin{table}
+\caption{Temporal test 2020--24 ($n=178$), one-step-ahead, TVD in percentage points.}\label{tab:A1}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+
+\begin{tabular}{lcc}
+\toprule
+Method & TVD (pp) & 95\% CI \\
+\midrule
+Persistence & 3.62 & [3.17, 4.08] \\
+Country mean & 6.96 & [6.16, 7.85] \\
+Features-only: XGBoost & 6.64 & [5.94, 7.35] \\
+Delta-learner: XGBoost & 3.59 & [3.15, 4.06] \\
+Delta-learner: CatBoost & 3.50 & [3.08, 3.92] \\
+Delta-learner hybrid & 3.48 & [3.06, 3.91] \\
+\bottomrule
+\end{tabular}
+\end{table}

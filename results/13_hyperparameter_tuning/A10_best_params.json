@@ -1,0 +1,168 @@
+{
+ "xgb": [
+  {
+   "outer_fold": 0,
+   "params": {
+    "n_estimators": 400,
+    "learning_rate": 0.05176340429875833,
+    "max_depth": 7,
+    "subsample": 0.7724415914984484,
+    "colsample_bytree": 0.6541928796033428,
+    "min_child_weight": 6.923530586011299,
+    "reg_lambda": 1.5171717849735484
+   },
+   "inner_cv_TVD_tuned": 13.797275305489356,
+   "inner_cv_TVD_default": 13.926548936857854,
+   "n_trials": 3
+  },
+  {
+   "outer_fold": 1,
+   "params": {
+    "n_estimators": 300,
+    "learning_rate": 0.010855056299622884,
+    "max_depth": 6,
+    "subsample": 0.7793449142228759,
+    "colsample_bytree": 0.4842321631571403,
+    "min_child_weight": 1.810239259825638,
+    "reg_lambda": 14.49391039224441
+   },
+   "inner_cv_TVD_tuned": 14.02324975014955,
+   "inner_cv_TVD_default": 14.32456901285259,
+   "n_trials": 4
+  },
+  {
+   "outer_fold": 2,
+   "params": {
+    "n_estimators": 200,
+    "learning_rate": 0.06392785059363248,
+    "max_depth": 4,
+    "subsample": 0.8105669163846474,
+    "colsample_bytree": 0.7174852565662235,
+    "min_child_weight": 1.4965545294612845,
+    "reg_lambda": 2.4329430558029514
+   },
+   "inner_cv_TVD_tuned": 14.684323429312482,
+   "inner_cv_TVD_default": 14.853593959603925,
+   "n_trials": 4
+  },
+  {
+   "outer_fold": 3,
+   "params": {
+    "n_estimators": 300,
+    "learning_rate": 0.01860497971494687,
+    "max_depth": 2,
+    "subsample": 0.5149381054392834,
+    "colsample_bytree": 0.6740999346368266,
+    "min_child_weight": 6.991266824263046,
+    "reg_lambda": 0.564454347598172
+   },
+   "inner_cv_TVD_tuned": 14.36329331697702,
+   "inner_cv_TVD_default": 14.759461781053224,
+   "n_trials": 6
+  },
+  {
+   "outer_fold": 4,
+   "params": {
+    "n_estimators": 600,
+    "learning_rate": 0.18119025126885316,
+    "max_depth": 5,
+    "subsample": 0.8574079968371824,
+    "colsample_bytree": 0.8186372947583624,
+    "min_child_weight": 1.9104642510227776,
+    "reg_lambda": 43.14549634210767
+   },
+   "inner_cv_TVD_tuned": 14.589776560834913,
+   "inner_cv_TVD_default": 14.59839082125755,
+   "n_trials": 2
+  },
+  {
+   "outer_fold": 5,
+   "params": {
+    "n_estimators": 200,
+    "learning_rate": 0.022173724400460195,
+    "max_depth": 3,
+    "subsample": 0.6637819738443671,
+    "colsample_bytree": 0.4864985803920523,
+    "min_child_weight": 1.6423559949347282,
+    "reg_lambda": 39.95945756616697
+   },
+   "inner_cv_TVD_tuned": 13.532185449099746,
+   "inner_cv_TVD_default": 13.777954508748927,
+   "n_trials": 5
+  }
+ ],
+ "cat": [
+  {
+   "outer_fold": 0,
+   "params": {
+    "iterations": 300,
+    "learning_rate": 0.08012967323928792,
+    "depth": 6,
+    "l2_leaf_reg": 11.387317092169058
+   },
+   "inner_cv_TVD_tuned": 13.476428544923024,
+   "inner_cv_TVD_default": 13.659825463140834,
+   "n_trials": 2
+  },
+  {
+   "outer_fold": 1,
+   "params": {
+    "iterations": 200,
+    "learning_rate": 0.02000526784862258,
+    "depth": 5,
+    "l2_leaf_reg": 11.587950184865049
+   },
+   "inner_cv_TVD_tuned": 13.982904338342466,
+   "inner_cv_TVD_default": 14.052655790875285,
+   "n_trials": 2
+  },
+  {
+   "outer_fold": 2,
+   "params": {
+    "iterations": 250,
+    "learning_rate": 0.07090754896586705,
+    "depth": 5,
+    "l2_leaf_reg": 1.0921849507601296
+   },
+   "inner_cv_TVD_tuned": 14.272435495812129,
+   "inner_cv_TVD_default": 14.334381389485303,
+   "n_trials": 2
+  },
+  {
+   "outer_fold": 3,
+   "params": {
+    "iterations": 300,
+    "learning_rate": 0.07,
+    "depth": 4,
+    "l2_leaf_reg": 5.0
+   },
+   "inner_cv_TVD_tuned": 14.256507867610976,
+   "inner_cv_TVD_default": 14.256507867610976,
+   "n_trials": 1
+  },
+  {
+   "outer_fold": 4,
+   "params": {
+    "iterations": 400,
+    "learning_rate": 0.1878081158065172,
+    "depth": 8,
+    "l2_leaf_reg": 6.431738616426704
+   },
+   "inner_cv_TVD_tuned": 14.005101281971555,
+   "inner_cv_TVD_default": 14.208933546408476,
+   "n_trials": 2
+  },
+  {
+   "outer_fold": 5,
+   "params": {
+    "iterations": 500,
+    "learning_rate": 0.03219208835420722,
+    "depth": 4,
+    "l2_leaf_reg": 19.32756740838128
+   },
+   "inner_cv_TVD_tuned": 13.522728910730878,
+   "inner_cv_TVD_default": 13.640907656706212,
+   "n_trials": 2
+  }
+ ]
+}

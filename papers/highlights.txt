@@ -1,0 +1,7 @@
+Highlights (separate file for Elsevier-type submissions, 3-5 bullets, max 85 characters each recommended)
+
+- Open official-data benchmark of COFOG and WDI expenditure-share targets
+- Legacy R^2>0.99 traced to exact multiples of one synthetic series
+- Last year's allocation is hard to beat; the learned gain is small and fragile
+- Peer learning helps without history on a wide panel but not robustly on the narrow one
+- SHAP and LIME agree on direction more than on ranking; both are ambiguous

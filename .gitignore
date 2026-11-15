@@ -1,0 +1,12 @@
+node_modules/
+frontend/dist/
+.env
+__pycache__/
+*.pyc
+.vscode/
+.pytest_cache/
+catboost_info/
+*.log
+results/**/log_*.txt
+papers/overleaf_zips/*.tmp
+.vite/

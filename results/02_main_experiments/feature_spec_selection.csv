@@ -1,0 +1,10 @@
+regime,spec,n_features,TVD_val
+history (delta learner),BASE,25,2.3287846362627302
+history (delta learner),PLUS_groups,31,2.3727386580084198
+history (delta learner),PLUS_changes,32,2.2691745528959864
+history (delta learner),PLUS_both,38,2.3042010922835585
+history (delta learner),persistence,0,2.2588225540776827
+cold-start features-only,BASE,25,4.925142389401868
+cold-start features-only,PLUS_groups,31,4.970244988747521
+cold-start features-only,PLUS_changes,32,5.040598513163254
+cold-start features-only,PLUS_both,38,5.081397650815428

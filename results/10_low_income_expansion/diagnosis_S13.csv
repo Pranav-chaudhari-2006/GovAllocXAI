@@ -1,0 +1,73 @@
+iso3,income_group,file_exists,n_obs_div,years_any_div,max_divs_in_a_year,years_all10,years_all10_sum97_103,years_all10_sum90_110,n_divisions_ever,in_A10,reason_missing
+AFG,Low income,True,120,12,10,12,12,12,10,True,in A10
+AGO,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+BDI,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+BEN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+BFA,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+BGD,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+BOL,Lower middle income,True,60,6,10,6,6,6,10,True,in A10
+BTN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+CAF,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+CIV,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+CMR,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+COD,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+COG,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+COM,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+DJI,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+EGY,Lower middle income,True,140,14,10,14,14,14,10,True,in A10
+ERI,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+ETH,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+GHA,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+GIN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+GMB,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+GNB,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+HND,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+HTI,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+IND,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+KEN,Lower middle income,True,20,2,10,2,2,2,10,True,in A10
+KGZ,Lower middle income,True,98,11,10,5,5,5,10,True,in A10
+KHM,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+KIR,Lower middle income,True,130,13,10,13,13,13,10,True,in A10
+LAO,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+LBN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+LBR,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+LSO,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MAR,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MDG,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MLI,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MMR,Lower middle income,True,80,8,10,8,8,8,10,True,in A10
+MOZ,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MRT,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+MWI,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+NAM,Lower middle income,True,70,7,10,7,7,7,10,True,in A10
+NER,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+NGA,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+NIC,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+NPL,Lower middle income,True,20,2,10,2,2,2,10,True,in A10
+PAK,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+PNG,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+PRK,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+PSE,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+RWA,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SDN,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SEN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SLB,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SLE,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SOM,Low income,True,70,7,10,7,7,7,10,True,in A10
+SSD,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+STP,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SWZ,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+SYR,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+TCD,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+TGO,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+TJK,Lower middle income,True,40,4,10,4,4,4,10,True,in A10
+TLS,Lower middle income,True,10,1,10,1,0,0,10,False,all-10 years exist but raw sum outside 97-103
+TUN,Lower middle income,True,1,1,1,0,0,0,1,False,S13 data exist but never all 10 divisions in one year
+TZA,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+UGA,Low income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+UZB,Lower middle income,True,106,13,10,1,0,1,10,False,all-10 years exist but raw sum outside 97-103
+VEN,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+VUT,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+YEM,Low income,True,110,11,10,11,11,11,10,True,in A10
+ZMB,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all
+ZWE,Lower middle income,True,0,0,0,0,0,0,0,False,no S13 COFOG data at all

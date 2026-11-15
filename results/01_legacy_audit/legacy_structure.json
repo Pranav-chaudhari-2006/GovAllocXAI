@@ -1,0 +1,72 @@
+{
+ "sectors": [
+  "infrastructure_usd",
+  "agriculture_usd",
+  "rural_development_usd",
+  "social_welfare_freebies_usd",
+  "energy_usd",
+  "transport_usd",
+  "housing_urban_development_usd",
+  "water_sanitation_usd",
+  "environment_climate_usd",
+  "digital_it_usd",
+  "industry_msme_usd"
+ ],
+ "exact_multiples": {
+  "infrastructure_usd": {
+   "multiple_of_agriculture": 1.9999999999999372,
+   "std_of_multiple": 2.1972810841599504e-12
+  },
+  "agriculture_usd": {
+   "multiple_of_agriculture": 1.0,
+   "std_of_multiple": 0.0
+  },
+  "rural_development_usd": {
+   "multiple_of_agriculture": 0.8749999999999692,
+   "std_of_multiple": 1.2013101916994035e-12
+  },
+  "social_welfare_freebies_usd": {
+   "multiple_of_agriculture": 2.9999999999999614,
+   "std_of_multiple": 2.531983868876772e-12
+  },
+  "energy_usd": {
+   "multiple_of_agriculture": 1.2499999999999802,
+   "std_of_multiple": 1.4587411813923506e-12
+  },
+  "transport_usd": {
+   "multiple_of_agriculture": 1.4999999999999405,
+   "std_of_multiple": 1.68050093887304e-12
+  },
+  "housing_urban_development_usd": {
+   "multiple_of_agriculture": 1.1249999999999354,
+   "std_of_multiple": 1.526200696098751e-12
+  },
+  "water_sanitation_usd": {
+   "multiple_of_agriculture": 0.7499999999999716,
+   "std_of_multiple": 9.889337944011294e-13
+  },
+  "environment_climate_usd": {
+   "multiple_of_agriculture": 0.6249999999999576,
+   "std_of_multiple": 1.1105122039347378e-12
+  },
+  "digital_it_usd": {
+   "multiple_of_agriculture": 0.49999999999993205,
+   "std_of_multiple": 1.2863707326806944e-12
+  },
+  "industry_msme_usd": {
+   "multiple_of_agriculture": 0.8749999999999692,
+   "std_of_multiple": 1.2013101916994035e-12
+  }
+ },
+ "max_std_of_multiple": 2.531983868876772e-12,
+ "latent_total_pct_gdp": {
+  "mean": 16.684703074977058,
+  "sd": 0.47540084701925656,
+  "min": 14.49894334772685,
+  "max": 18.827386156296786
+ },
+ "within_group_share_sd_across_rows": 7.938083132864171e-14,
+ "corr_latent_ratio_vs_gdp_growth": 0.8410714719472333,
+ "n_rows": 775,
+ "n_distinct_country_year_mixes": 1
+}
