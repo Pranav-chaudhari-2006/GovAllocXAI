@@ -1,5 +1,5 @@
 \begin{table*}[!t]
-\caption{Closest prior work, described by objective attributes. Cells come from the full text where we read it; $^{\dagger}$ = judged from the abstract only. ``Explanations tested'' means that agreement, stability, faithfulness or ground-truth recovery of the attributions was quantified; ``shown'' means attributions were displayed. $^{\ddagger}$ From a secondary summary; the publisher page was not accessible.}\label{tab:gap}
+\caption{Closest prior work, described by objective attributes. Cells come from the full texts of Nonato, Kisman and Mohith and from the abstract of Francies; $^{\dagger}$ = judged from the abstract only. ``Explanations tested'' means that agreement, stability, faithfulness or ground-truth recovery of the attributions was quantified; ``shown'' means attributions were displayed.}\label{tab:gap}
 \centering\footnotesize\setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.15}
 \begin{tabular}{@{}p{2.7cm}p{3.1cm}p{2.7cm}p{2.3cm}p{1.9cm}@{}}
@@ -12,9 +12,9 @@ R\u{a}dulescu et al.~\cite{radulescu2015} & 5 CEE countries & spending by functi
 Valle-Cruz et al.~\cite{valle2022} & 217 countries & spending vs outcomes & none reported & no\\
 Guerrero \& Casta\~neda~\cite{guerrero2022} & 140 countries & spending vs SDG gaps & causal framework & n/a\\
 Yao \& Zhu~\cite{yao2025} & patient-level insurance cost data & cost of care & SHAP & shown\\
-Nonato et al.~\cite{nonato2026}$^{\dagger}$ & Brazil federal, 24 years (+ synthetic) & GDP growth, inflation, Gini given spending by function (allocation by optimisation) & none in abstract & no\\
-Kisman et al.~\cite{kisman2026}$^{\dagger}$ & cross-country, 2002--2023 & defence spending (share of GDP, share of spending, per capita) & XAI methods & fidelity/faithfulness reported$^{\ddagger}$\\
-Mohith et al.~\cite{mohith2026}$^{\dagger}$ & India, 12 sectors, FY2005--2025 & sector allocations & SHAP, LIME, permutation & not stated\\
+Nonato et al.~\cite{nonato2026} & Brazil federal, 24 years (+ synthetic) & GDP growth, inflation, Gini given spending by function (allocation by optimisation) & none reported & no\\
+Kisman et al.~\cite{kisman2026} & cross-country, 2002--2023 & classes of defence spending (share of GDP, share of spending, per capita) & SHAP, PDP, ALE & fidelity and faithfulness quantified\\
+Mohith et al.~\cite{mohith2026} & India, 12 sectors, FY2005--2025 & absolute sector allocations (INR), one year ahead & SHAP, permutation, PDP, LIME (selected cases) & stability across two dataset variants\\
 Francies et al.~\cite{francies2026}$^{\dagger}$ & Chicago and NYC municipal budgets, 2023--2026 & fund allocations & SHAP, causal model, counterfactuals & composite explainability score (fidelity, interpretability, equity)\\
 \midrule
 \textbf{This work} & \NCofogCountries{} / \NTenEcon{} economies (COFOG), \NWdiCountries{} (WDI), 2000--2024 & COFOG shares (16 / 10 functions), WDI sector series & TreeSHAP, LIME, KernelSHAP & agreement, stability, deletion, synthetic truth\\
