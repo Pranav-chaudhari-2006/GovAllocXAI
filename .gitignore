@@ -11,3 +11,4 @@ results/**/log_*.txt
 papers/overleaf_zips/*.tmp
 .vite/
 release/
+AI & Similarity Reports/
