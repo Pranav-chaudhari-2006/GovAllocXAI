@@ -1,5 +1,7 @@
 # Dataset Card — GovAlloc-COFOG v1.0
 
+**Archive and DOI:** https://doi.org/10.5281/zenodo.24248315 (all versions), v1.0: https://doi.org/10.5281/zenodo.24248316 | Licence: CC BY 4.0 (source terms in SOURCES_AND_LICENCES.txt).
+
 *Built by `pipeline/01_fetch_worldbank_eurostat.py`, `02_fetch_imf_cofog.py`, `03_build_dataset.py` from official APIs on 14 Nov 2026. Raw downloads are in `data/raw/`, outputs in `data/dataset_new/`. Every cell is either an official observation, a flagged imputed feature, or a legacy v1 value (prefixed `legacy_`).*
 
 ## 1. Files

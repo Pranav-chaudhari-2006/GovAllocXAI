@@ -89,7 +89,7 @@ OECD/EU-centred COFOG panel; executed, not proposed, spending; the annual settin
 
 ## 7. Citation and licence
 
-Code: MIT (see `LICENSE`). Dataset: CC BY 4.0 for our harmonisation, subject to the original providers' terms. Cite the Zenodo release once published (DOI to be added).
+Code: MIT (see `LICENSE`). Dataset: CC BY 4.0 for our harmonisation, subject to the original providers' terms. Dataset DOI: https://doi.org/10.5281/zenodo.24248315 (all versions; v1.0 is https://doi.org/10.5281/zenodo.24248316).
 
 ## 8. Known issues
 Open items, including a non-reproducible experiment script, are listed in `docs/guides/05_known_issues_and_future_work.md`.
