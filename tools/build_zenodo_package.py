@@ -13,7 +13,7 @@ Harmonised general-government expenditure by function (COFOG) panels with proven
 
 Authors: Pranav S. Chaudhari, Aditi H. Joshi, Gaurav M. Jaypatre, Digvijay P. Birajdar
 Affiliation: Department of Computer Engineering, Pimpri Chinchwad College of Engineering, Pune, India
-Version 1.0, 15 November 2026. Code and papers: https://github.com/Pranav-chaudhari-2006/GovAllocXAI-
+Version 1.0, 15 November 2026. Code and papers: https://github.com/Pranav-chaudhari-2006/GovAllocXAI
 
 WHAT IS INSIDE
   data/                      the dataset (CSV, UTF-8)

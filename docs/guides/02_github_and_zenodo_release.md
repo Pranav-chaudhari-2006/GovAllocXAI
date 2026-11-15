@@ -1,6 +1,6 @@
 # Push to GitHub, create a release, get a Zenodo DOI
 
-Repository: https://github.com/Pranav-chaudhari-2006/GovAllocXAI- (already set as `origin`; the local branch is ahead of the remote, so the push is a fast-forward).
+Repository: https://github.com/Pranav-chaudhari-2006/GovAllocXAI (already set as `origin`; the local branch is ahead of the remote, so the push is a fast-forward).
 
 ## 1. Check
 ```powershell
