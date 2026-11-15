@@ -1,27 +1,32 @@
 import React from "react";
+import { Database, SlidersHorizontal, FlaskConical, Brain, Zap, ShieldAlert, TrendingDown } from "lucide-react";
 import Header from "../components/Header";
-import { Disclaimer } from "../components/Banners";
 
-const POINTS = [
-  "Targets are official COFOG expenditure shares (Eurostat, OECD, IMF), normalised to sum to 100%: 16 functions for 36 economies, or 10 divisions for 85 economies including developing ones.",
-  "Predictors are 25 macro, demographic, development and governance indicators (World Bank WDI/WGI); no feature derived from the target is used (earlier synthetic-data versions leaked one and were retired).",
-  "Models are evaluated leave-country-out (cold start) and on a temporal split 2020-24 (annual update), against persistence and peer-mean baselines.",
-  "Explanations: SHAP values (in percentage points) per component and LIME local surrogates for a chosen component.",
-  "Shock presets (recession, stagflation, severe stress) are counterfactual sensitivity checks, not causal estimates.",
-  "The applicability banner reports how unusual an economy's indicators are versus the training economies; treat 'unusual' or 'outside typical range' recommendations as extrapolations.",
-  "Error is highest for low-income economies (TVD about 33 pp) and gains over baselines are small.",
+const CARDS = [
+  { icon: Database, tone: "text-cyan-300 bg-cyan-500/10", title: "What we predict", text: "Official shares of government spending by function (COFOG) from Eurostat, OECD and the IMF, always adding up to 100%. 16 functions for 36 economies, or 10 areas for 85 economies." },
+  { icon: SlidersHorizontal, tone: "text-teal-300 bg-teal-500/10", title: "What the model sees", text: "25 economic, demographic, development and governance indicators from the World Bank. No indicator is derived from the spending shares." },
+  { icon: FlaskConical, tone: "text-blue-300 bg-blue-500/10", title: "How it is tested", text: "On countries it has never seen (leave-country-out) and on 2020-24 (temporal split), always against two simple baselines: last year's split and the income-group average." },
+  { icon: Brain, tone: "text-violet-300 bg-violet-500/10", title: "How it explains", text: "SHAP shows which indicators push a share up or down (in percentage points); LIME gives a second, simpler opinion for one area." },
+  { icon: Zap, tone: "text-amber-300 bg-amber-500/10", title: "Stress tests", text: "Recession, stagflation and severe-stress presets show how the reference moves. They are sensitivity checks, not forecasts or causal estimates." },
+  { icon: ShieldAlert, tone: "text-rose-300 bg-rose-500/10", title: "Similarity score", text: "Shows how unusual a country is compared with the countries the model learned from. Low similarity means the numbers are an extrapolation." },
+  { icon: TrendingDown, tone: "text-emerald-300 bg-emerald-500/10", title: "Honest limits", text: "Last year's actual split is very hard to beat, so gains are small. Errors are largest for low-income countries (about 33 percentage points). Reference only; a human decides." },
 ];
 
 export default function Methodology() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-7xl">
       <Header title="Methodology and Limits" subtitle="What the system does, and what it does not claim." />
-      <Disclaimer />
-      <ul className="glass-card p-6 space-y-3 text-sm text-slate-300 list-disc list-inside">
-        {POINTS.map((p) => (
-          <li key={p}>{p}</li>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {CARDS.map(({ icon: Icon, tone, title, text }) => (
+          <div key={title} className="glass-card glass-card-hover p-6">
+            <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${tone}`}>
+              <Icon className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-semibold text-white">{title}</h3>
+            <p className="text-sm text-slate-400 mt-2 leading-relaxed">{text}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
