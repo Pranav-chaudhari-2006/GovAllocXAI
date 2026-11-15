@@ -89,7 +89,7 @@ OECD/EU-centred COFOG panel; executed, not proposed, spending; the annual settin
 
 ## 7. Citation and licence
 
-Code: MIT (see `LICENSE`). Dataset: CC BY 4.0 for our harmonisation, subject to the original providers' terms. Dataset DOI: https://doi.org/10.5281/zenodo.24248315 (all versions; v1.0 is https://doi.org/10.5281/zenodo.24248316). Kaggle mirror: https://www.kaggle.com/datasets/pranavchaudhari24/govalloc-cofog-government-spending-by-function
+Code: MIT (see `LICENSE`). Dataset: CC BY 4.0 for our harmonisation, subject to the original providers' terms. Dataset DOI: https://doi.org/10.5281/zenodo.24248315 (all versions; v1.0 is https://doi.org/10.5281/zenodo.24248316). Code DOI: https://doi.org/10.5281/zenodo.24255442 (all versions; v1.0.0 is https://doi.org/10.5281/zenodo.24255443). Kaggle mirror: https://www.kaggle.com/datasets/pranavchaudhari24/govalloc-cofog-government-spending-by-function
 
 ## 8. Known issues
 Open items, including a non-reproducible experiment script, are listed in `docs/guides/05_known_issues_and_future_work.md`.

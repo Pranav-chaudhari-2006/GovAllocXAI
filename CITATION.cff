@@ -3,6 +3,7 @@ message: "If you use this software, please cite it as below. The data set has it
 type: software
 title: "GovAllocXAI: code, web tool and manuscripts for benchmarking explainable machine learning on government expenditure shares"
 version: "1.0.0"
+doi: 10.5281/zenodo.24255443
 date-released: "2026-11-16"
 license: MIT
 repository-code: "https://github.com/Pranav-chaudhari-2006/GovAllocXAI"
