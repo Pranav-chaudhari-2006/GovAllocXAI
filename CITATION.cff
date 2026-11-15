@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this dataset or code, please cite it as below."
-title: "GovAlloc-COFOG: Harmonised General-Government Expenditure by Function (COFOG) Panels with Provenance and Imputation Flags"
-version: "1.0"
-date-released: "2026-11-15"
-doi: 10.5281/zenodo.24248316
-license: CC-BY-4.0
+message: "If you use this software, please cite it as below. The data set has its own citation (see references)."
+type: software
+title: "GovAllocXAI: code, web tool and manuscripts for benchmarking explainable machine learning on government expenditure shares"
+version: "1.0.0"
+date-released: "2026-11-16"
+license: MIT
 repository-code: "https://github.com/Pranav-chaudhari-2006/GovAllocXAI"
 authors:
   - family-names: Chaudhari
@@ -19,3 +19,17 @@ authors:
   - family-names: Birajdar
     given-names: "Digvijay P."
     affiliation: "Pimpri Chinchwad College of Engineering, Pune, India"
+references:
+  - type: dataset
+    title: "GovAlloc-COFOG: Harmonised General-Government Expenditure by Function (COFOG) Panels with Provenance and Imputation Flags"
+    version: "1.0"
+    doi: 10.5281/zenodo.24248316
+    authors:
+      - family-names: Chaudhari
+        given-names: "Pranav S."
+      - family-names: Joshi
+        given-names: "Aditi H."
+      - family-names: Jaypatre
+        given-names: "Gaurav M."
+      - family-names: Birajdar
+        given-names: "Digvijay P."

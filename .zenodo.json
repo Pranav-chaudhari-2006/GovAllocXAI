@@ -1,0 +1,17 @@
+{
+  "title": "GovAllocXAI: code, web tool and manuscripts for benchmarking explainable machine learning on government expenditure shares",
+  "upload_type": "software",
+  "description": "<p><b>GovAllocXAI</b> is the open-source code base behind a benchmark of explainable machine learning for predicting functional government expenditure shares (COFOG) from official multi-country data. It contains the numbered data-building and experiment pipeline, the per-experiment result files, the LaTeX sources of the accompanying papers, a FastAPI backend and a React web tool.</p><p>The data it builds on are archived separately as <b>GovAlloc-COFOG v1.0</b> (https://doi.org/10.5281/zenodo.24248315).</p>",
+  "creators": [
+    {"name": "Chaudhari, Pranav S.", "affiliation": "Pimpri Chinchwad College of Engineering, Pune, India"},
+    {"name": "Joshi, Aditi H.", "affiliation": "Pimpri Chinchwad College of Engineering, Pune, India"},
+    {"name": "Jaypatre, Gaurav M.", "affiliation": "Pimpri Chinchwad College of Engineering, Pune, India"},
+    {"name": "Birajdar, Digvijay P.", "affiliation": "Pimpri Chinchwad College of Engineering, Pune, India"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": ["government expenditure", "COFOG", "explainable AI", "SHAP", "LIME", "public finance", "open source"],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.24248315", "relation": "references", "resource_type": "dataset", "scheme": "doi"}
+  ]
+}
