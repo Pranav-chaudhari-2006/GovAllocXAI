@@ -20,7 +20,7 @@ Full numbers, tables and caveats are in the papers and in `docs/methods_and_expe
 
 ## Live demo
 
-* Website: https://govallocxai.vercel.app (React, hosted on Vercel)
+* Website: https://govallocxai-xi.vercel.app (React, hosted on Vercel)
 * API: https://govallocxai-api.onrender.com/api/v2/health (FastAPI, free Render plan: it sleeps after 15 minutes idle and needs 3-5 minutes to wake up and fit its models; the website shows a "warming up" message)
 
 ## 2. Repository map

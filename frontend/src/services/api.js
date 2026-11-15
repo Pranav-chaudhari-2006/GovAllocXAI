@@ -37,10 +37,24 @@ async function request(path, options = {}, { onRetry, retries = 12, delayMs = 50
 }
 
 export const getHealth = (opts) => request("/v2/health", {}, opts);
-export const getEconomies = (opts) => request("/v2/economies", {}, opts);
+// Precomputed static files (served from the CDN) make the default view instant, even on slow connections or while the free API server sleeps.
+async function getStatic(path) {
+  try {
+    const res = await fetch(`${import.meta.env.BASE_URL || "/"}precomputed/${path}`);
+    if (res.ok) return await res.json();
+  } catch { /* fall back to the API */ }
+  return null;
+}
+
+export const getEconomies = async (opts) => (await getStatic("economies.json")) || request("/v2/economies", {}, opts);
 
 /** POST /api/v2/recommend */
-export function recommendBudget({ iso3, year, panel = "cofog10", shock, overrides, limeSector, totalBudgetUsd }, opts) {
+export async function recommendBudget({ iso3, year, panel = "cofog10", shock, overrides, limeSector, totalBudgetUsd }, opts) {
+  const isDefault = !year && !shock && !limeSector && !totalBudgetUsd && !(overrides && Object.keys(overrides).length);
+  if (isDefault) {
+    const pre = await getStatic(`${panel}/${iso3}.json`);
+    if (pre) return pre;
+  }
   const body = { iso3, panel };
   if (year) body.year = Number(year);
   if (shock) body.shock = shock;

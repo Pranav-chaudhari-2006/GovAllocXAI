@@ -8,7 +8,7 @@ import {
 import Header from "../components/Header";
 import useRecommendation from "../components/useRecommendation";
 import { Status } from "../components/Banners";
-import { getEconomies, SHOCK_LABELS } from "../services/api";
+import { getEconomies, getHealth, SHOCK_LABELS } from "../services/api";
 import { friendly, PALETTE } from "../data/glossary";
 
 const tip = { background: "#0d1626", border: "1px solid rgba(255,255,255,0.12)", fontSize: 12, borderRadius: 8 };
@@ -46,6 +46,7 @@ export default function Home() {
 
   useEffect(() => {
     let live = true;
+    getHealth({ retries: 0 }).catch(() => {});   // wakes the free API server in the background for the advanced options
     getEconomies({ onRetry: () => live && setWarming(true) })
       .then((e) => live && (setWarming(false), setEconomies([...e].sort((a, b) => a.country.localeCompare(b.country)))))
       .catch(() => live && setWarming(false));
