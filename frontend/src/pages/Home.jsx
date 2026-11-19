@@ -33,11 +33,30 @@ export default function Home() {
   const [budget, setBudget] = useState("");
   const [comp, setComp] = useState("");
   const [useLime, setUseLime] = useState(false);
+
+  // Macro & Fiscal Overrides
   const [customGdpGrowth, setCustomGdpGrowth] = useState("");
   const [customInflation, setCustomInflation] = useState("");
   const [customUnemployment, setCustomUnemployment] = useState("");
-  const [customPop65, setCustomPop65] = useState("");
+  const [customTaxRevenue, setCustomTaxRevenue] = useState("");
   const [customDebt, setCustomDebt] = useState("");
+  const [customExpense, setCustomExpense] = useState("");
+  const [customTrade, setCustomTrade] = useState("");
+
+  // Demographics & Human Capital Overrides
+  const [customPop65, setCustomPop65] = useState("");
+  const [customPop014, setCustomPop014] = useState("");
+  const [customUrban, setCustomUrban] = useState("");
+  const [customLifeExp, setCustomLifeExp] = useState("");
+  const [customInternet, setCustomInternet] = useState("");
+
+  // Economic Structure & Governance Overrides
+  const [customAgri, setCustomAgri] = useState("");
+  const [customIndustry, setCustomIndustry] = useState("");
+  const [customGovEff, setCustomGovEff] = useState("");
+  const [customRuleLaw, setCustomRuleLaw] = useState("");
+  const [customCorruption, setCustomCorruption] = useState("");
+
   const [sort, setSort] = useState({ key: "rec", dir: -1 });
   const { data, loading, warming, error, run, setWarming } = useRecommendation();
   const { setShared } = useSharedResult();
@@ -60,9 +79,46 @@ export default function Home() {
     if (customGdpGrowth.trim() !== "") ov.gdp_growth_pct = Number(customGdpGrowth);
     if (customInflation.trim() !== "") ov.inflation_pct = Number(customInflation);
     if (customUnemployment.trim() !== "") ov.unemployment_pct = Number(customUnemployment);
-    if (customPop65.trim() !== "") ov.pop_65plus_pct = Number(customPop65);
+    if (customTaxRevenue.trim() !== "") ov.tax_revenue_pct_gdp = Number(customTaxRevenue);
     if (customDebt.trim() !== "") ov.central_gov_debt_pct_gdp = Number(customDebt);
+    if (customExpense.trim() !== "") ov.total_expense_pct_gdp = Number(customExpense);
+    if (customTrade.trim() !== "") ov.trade_pct_gdp = Number(customTrade);
+
+    if (customPop65.trim() !== "") ov.pop_65plus_pct = Number(customPop65);
+    if (customPop014.trim() !== "") ov.pop_0_14_pct = Number(customPop014);
+    if (customUrban.trim() !== "") ov.urban_pop_pct = Number(customUrban);
+    if (customLifeExp.trim() !== "") ov.life_expectancy = Number(customLifeExp);
+    if (customInternet.trim() !== "") ov.internet_users_pct = Number(customInternet);
+
+    if (customAgri.trim() !== "") ov.agri_value_added_pct_gdp = Number(customAgri);
+    if (customIndustry.trim() !== "") ov.industry_value_added_pct_gdp = Number(customIndustry);
+    if (customGovEff.trim() !== "") ov.gov_effectiveness_wgi = Number(customGovEff);
+    if (customRuleLaw.trim() !== "") ov.rule_of_law_wgi = Number(customRuleLaw);
+    if (customCorruption.trim() !== "") ov.control_corruption_wgi = Number(customCorruption);
     return ov;
+  };
+
+  const clearManual = () => {
+    setCustomGdpGrowth("");
+    setCustomInflation("");
+    setCustomUnemployment("");
+    setCustomTaxRevenue("");
+    setCustomDebt("");
+    setCustomExpense("");
+    setCustomTrade("");
+    setCustomPop65("");
+    setCustomPop014("");
+    setCustomUrban("");
+    setCustomLifeExp("");
+    setCustomInternet("");
+    setCustomAgri("");
+    setCustomIndustry("");
+    setCustomGovEff("");
+    setCustomRuleLaw("");
+    setCustomCorruption("");
+    setBudget("");
+    setShock("");
+    setYear("");
   };
 
   const submit = () => {
@@ -79,42 +135,58 @@ export default function Home() {
   };
 
   const applyPreset1 = () => {
+    clearManual();
     setIso3("IND");
     setDetail("cofog10");
-    setBudget("450000000000");
-    setCustomGdpGrowth("8.2");
-    setCustomInflation("4.5");
-    setCustomUnemployment("4.0");
-    setCustomPop65("6.8");
-    setCustomDebt("55.0");
-    setShock("");
-    setYear("");
+    setBudget("450000000000"); // $450B
+    setCustomGdpGrowth("7.8");
+    setCustomInflation("5.1");
+    setCustomUnemployment("4.2");
+    setCustomPop65("6.9");
+    setCustomPop014("25.5");
+    setCustomTaxRevenue("18.5");
+    setCustomDebt("56.0");
+    setCustomUrban("36.0");
+    setCustomTrade("48.0");
+    setCustomInternet("55.0");
     setAdv(true);
   };
 
   const applyPreset2 = () => {
+    clearManual();
     setIso3("DEU");
     setDetail("cofog16");
-    setBudget("600000000000");
-    setCustomGdpGrowth("1.2");
-    setCustomInflation("2.0");
-    setCustomUnemployment("3.5");
-    setCustomPop65("24.5");
-    setCustomDebt("85.0");
-    setShock("");
-    setYear("");
+    setBudget("650000000000"); // $650B
+    setCustomGdpGrowth("1.3");
+    setCustomInflation("2.2");
+    setCustomUnemployment("3.6");
+    setCustomPop65("22.8");
+    setCustomPop014("13.8");
+    setCustomTaxRevenue("39.5");
+    setCustomDebt("66.0");
+    setCustomLifeExp("81.2");
+    setCustomUrban("77.5");
+    setCustomGovEff("1.6");
+    setCustomRuleLaw("1.5");
     setAdv(true);
   };
 
-  const clearManual = () => {
-    setCustomGdpGrowth("");
-    setCustomInflation("");
-    setCustomUnemployment("");
-    setCustomPop65("");
-    setCustomDebt("");
-    setBudget("");
-    setShock("");
-    setYear("");
+  const applyPreset3 = () => {
+    clearManual();
+    setIso3("BRA");
+    setDetail("cofog10");
+    setBudget("320000000000"); // $320B
+    setCustomGdpGrowth("-0.5");
+    setCustomInflation("8.5");
+    setCustomUnemployment("8.8");
+    setCustomDebt("88.0");
+    setCustomTaxRevenue("31.0");
+    setCustomPop65("10.2");
+    setCustomPop014("20.1");
+    setCustomIndustry("24.0");
+    setCustomAgri("6.5");
+    setCustomUrban("87.0");
+    setAdv(true);
   };
 
   const rows = useMemo(() => (data?.components || []).map((c, i) => ({
@@ -188,27 +260,37 @@ export default function Home() {
         {adv && (
           <div className="space-y-5 pt-5 mt-4 border-t border-white/[0.06]">
             {/* Quick Presets for Live Evaluator Demos */}
-            <div className="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs">
-              <span className="font-medium text-cyan-300">Live Evaluator Presets:</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 p-3.5 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-xs">
+              <span className="font-semibold text-cyan-300">Live Evaluator Scenarios (3 Realistic Archetypes):</span>
               <div className="flex flex-wrap items-center gap-2">
                 <button
                   type="button"
                   onClick={applyPreset1}
                   className="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 border border-cyan-500/30 font-medium transition"
+                  title="Developing economy with high growth (7.8%) and demographic youth dividend"
                 >
-                  Preset 1: Developing Growth & Fiscal Push (India)
+                  Preset 1: Emerging Market Expansion (India)
                 </button>
                 <button
                   type="button"
                   onClick={applyPreset2}
                   className="px-2.5 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 border border-teal-500/30 font-medium transition"
+                  title="Advanced economy with demographic aging (22.8% 65+) and fiscal welfare commitments"
                 >
-                  Preset 2: Aging & Fiscal Consolidation (Germany)
+                  Preset 2: Advanced Aging Welfare State (Germany)
+                </button>
+                <button
+                  type="button"
+                  onClick={applyPreset3}
+                  className="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-200 border border-amber-500/30 font-medium transition"
+                  title="Commodity exporter under high debt (88%) and stagflationary fiscal pressure"
+                >
+                  Preset 3: Commodity Exporter Under Fiscal Stress (Brazil)
                 </button>
                 <button
                   type="button"
                   onClick={clearManual}
-                  className="px-2 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-slate-200 border border-white/10 transition"
+                  className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-slate-200 border border-white/10 transition"
                 >
                   Reset
                 </button>
@@ -244,33 +326,103 @@ export default function Home() {
               </label>
             </div>
 
-            {/* Manual Indicator Overrides for Custom Simulation */}
-            <div className="rounded-xl p-4 bg-white/[0.02] border border-white/[0.05] space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-200">Manual Macroeconomic Simulation (Custom Indicator Overrides)</span>
-                <span className="text-[11px] text-slate-500">Leave blank to use country's official values</span>
+            {/* Comprehensive Manual Macroeconomic Simulation by Policy Dimension */}
+            <div className="rounded-xl p-5 bg-white/[0.02] border border-white/[0.06] space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.06] pb-2.5">
+                <div>
+                  <span className="text-xs font-semibold text-white">Manual Policy & Indicator Simulation (Custom Overrides)</span>
+                  <p className="text-[11px] text-slate-400">All fields are optional. Leave blank to retain the country's official empirical values.</p>
+                </div>
+                <span className="text-[11px] text-cyan-400 font-medium">17 Macro, Demographic & Governance Inputs</span>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                <label className="text-[11px] text-slate-400 space-y-1">
-                  GDP growth (%)
-                  <input className={inp} placeholder="e.g. 8.2" inputMode="decimal" value={customGdpGrowth} onChange={(e) => setCustomGdpGrowth(e.target.value)} />
-                </label>
-                <label className="text-[11px] text-slate-400 space-y-1">
-                  Inflation (%)
-                  <input className={inp} placeholder="e.g. 4.5" inputMode="decimal" value={customInflation} onChange={(e) => setCustomInflation(e.target.value)} />
-                </label>
-                <label className="text-[11px] text-slate-400 space-y-1">
-                  Unemployment (%)
-                  <input className={inp} placeholder="e.g. 4.0" inputMode="decimal" value={customUnemployment} onChange={(e) => setCustomUnemployment(e.target.value)} />
-                </label>
-                <label className="text-[11px] text-slate-400 space-y-1">
-                  Population 65+ (%)
-                  <input className={inp} placeholder="e.g. 6.8" inputMode="decimal" value={customPop65} onChange={(e) => setCustomPop65(e.target.value)} />
-                </label>
-                <label className="text-[11px] text-slate-400 space-y-1">
-                  Central debt (% GDP)
-                  <input className={inp} placeholder="e.g. 55.0" inputMode="decimal" value={customDebt} onChange={(e) => setCustomDebt(e.target.value)} />
-                </label>
+
+              {/* Group 1: Macroeconomic & Fiscal Indicators */}
+              <div className="space-y-2">
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">1. Macroeconomic & Fiscal Policy</span>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5">
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    GDP growth (%)
+                    <input className={inp} placeholder="e.g. 7.8" inputMode="decimal" value={customGdpGrowth} onChange={(e) => setCustomGdpGrowth(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Inflation (%)
+                    <input className={inp} placeholder="e.g. 5.1" inputMode="decimal" value={customInflation} onChange={(e) => setCustomInflation(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Unemployment (%)
+                    <input className={inp} placeholder="e.g. 4.2" inputMode="decimal" value={customUnemployment} onChange={(e) => setCustomUnemployment(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Tax revenue (% GDP)
+                    <input className={inp} placeholder="e.g. 18.5" inputMode="decimal" value={customTaxRevenue} onChange={(e) => setCustomTaxRevenue(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Gov debt (% GDP)
+                    <input className={inp} placeholder="e.g. 56.0" inputMode="decimal" value={customDebt} onChange={(e) => setCustomDebt(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Gov expense (% GDP)
+                    <input className={inp} placeholder="e.g. 28.0" inputMode="decimal" value={customExpense} onChange={(e) => setCustomExpense(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Trade (% GDP)
+                    <input className={inp} placeholder="e.g. 48.0" inputMode="decimal" value={customTrade} onChange={(e) => setCustomTrade(e.target.value)} />
+                  </label>
+                </div>
+              </div>
+
+              {/* Group 2: Demographics & Human Capital */}
+              <div className="space-y-2 pt-2 border-t border-white/[0.04]">
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">2. Demographics & Social Development</span>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Population 65+ (%)
+                    <input className={inp} placeholder="e.g. 6.9" inputMode="decimal" value={customPop65} onChange={(e) => setCustomPop65(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Youth 0-14 (%)
+                    <input className={inp} placeholder="e.g. 25.5" inputMode="decimal" value={customPop014} onChange={(e) => setCustomPop014(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Urban pop (%)
+                    <input className={inp} placeholder="e.g. 36.0" inputMode="decimal" value={customUrban} onChange={(e) => setCustomUrban(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Life expectancy (yrs)
+                    <input className={inp} placeholder="e.g. 70.8" inputMode="decimal" value={customLifeExp} onChange={(e) => setCustomLifeExp(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Internet users (%)
+                    <input className={inp} placeholder="e.g. 55.0" inputMode="decimal" value={customInternet} onChange={(e) => setCustomInternet(e.target.value)} />
+                  </label>
+                </div>
+              </div>
+
+              {/* Group 3: Economic Structure & Governance (WGI) */}
+              <div className="space-y-2 pt-2 border-t border-white/[0.04]">
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">3. Economic Structure & Institutional Governance</span>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Agriculture (% GDP)
+                    <input className={inp} placeholder="e.g. 15.0" inputMode="decimal" value={customAgri} onChange={(e) => setCustomAgri(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Industry (% GDP)
+                    <input className={inp} placeholder="e.g. 26.0" inputMode="decimal" value={customIndustry} onChange={(e) => setCustomIndustry(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Gov effectiveness (-2.5 to 2.5)
+                    <input className={inp} placeholder="e.g. 0.4" inputMode="decimal" value={customGovEff} onChange={(e) => setCustomGovEff(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Rule of law (-2.5 to 2.5)
+                    <input className={inp} placeholder="e.g. 0.1" inputMode="decimal" value={customRuleLaw} onChange={(e) => setCustomRuleLaw(e.target.value)} />
+                  </label>
+                  <label className="text-[11px] text-slate-400 space-y-1">
+                    Control corruption (-2.5 to 2.5)
+                    <input className={inp} placeholder="e.g. -0.2" inputMode="decimal" value={customCorruption} onChange={(e) => setCustomCorruption(e.target.value)} />
+                  </label>
+                </div>
               </div>
             </div>
           </div>
