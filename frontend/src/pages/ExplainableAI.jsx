@@ -16,7 +16,7 @@ function ContribChart({ data, valueKey }) {
         <XAxis type="number" tick={{ fill: "#94a3b8", fontSize: 11 }} />
         <YAxis type="category" dataKey="label" width={200} tick={{ fill: "#94a3b8", fontSize: 11 }} />
         <ReferenceLine x={0} stroke="#475569" />
-        <Tooltip contentStyle={tip} />
+        <Tooltip contentStyle={tip} itemStyle={{ color: "#f8fafc" }} labelStyle={{ color: "#94a3b8" }} />
         <Bar dataKey={valueKey}>
           {data.map((d, i) => (
             <Cell key={i} fill={d[valueKey] >= 0 ? "#22d3ee" : "#f472b6"} />

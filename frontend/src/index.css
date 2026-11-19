@@ -51,3 +51,24 @@ body {
 .badge-implemented {
   @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold tracking-wide uppercase bg-emerald-500/10 text-emerald-300 border border-emerald-500/20;
 }
+
+/* Ensure all Recharts tooltips and hover items are crisp, readable white text */
+.recharts-default-tooltip {
+  background-color: #0b1329 !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 10px !important;
+  color: #f8fafc !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.7) !important;
+}
+
+.recharts-tooltip-item,
+.recharts-tooltip-item-name,
+.recharts-tooltip-item-value,
+.recharts-tooltip-item-separator,
+.recharts-tooltip-label,
+.recharts-default-tooltip span,
+.recharts-default-tooltip p,
+.recharts-default-tooltip div,
+.recharts-default-tooltip li {
+  color: #f8fafc !important;
+}

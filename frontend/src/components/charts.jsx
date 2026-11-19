@@ -3,7 +3,17 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, Sankey, ReferenceLine,
 } from "recharts";
 
-export const tip = { background: "#0d1626", border: "1px solid rgba(255,255,255,0.12)", fontSize: 12, borderRadius: 10, padding: "8px 10px" };
+export const tip = {
+  background: "#0d1626",
+  border: "1px solid rgba(255,255,255,0.22)",
+  fontSize: 12,
+  borderRadius: 10,
+  padding: "8px 12px",
+  color: "#f8fafc",
+  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.7)"
+};
+export const itemStyle = { color: "#f8fafc", fontSize: 12 };
+export const labelStyle = { color: "#38bdf8", fontWeight: 600, fontSize: 12, marginBottom: 4 };
 export const axis = { fill: "#94a3b8", fontSize: 11 };
 const grid = "rgba(255,255,255,0.06)";
 
@@ -34,7 +44,7 @@ export function Donut({ rows, height = 280 }) {
             <Pie data={rows} dataKey="rec" nameKey="name" innerRadius="60%" outerRadius="94%" paddingAngle={3} stroke="none" cornerRadius={4}>
               {rows.map((r) => <Cell key={r.key} fill={r.color} />)}
             </Pie>
-            <Tooltip contentStyle={tip} formatter={(v) => `${Number(v).toFixed(1)}%`} />
+            <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} formatter={(v) => `${Number(v).toFixed(1)}%`} />
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
@@ -63,7 +73,7 @@ export function RankedBars({ rows }) {
         <CartesianGrid strokeDasharray="3 3" stroke={grid} horizontal={false} />
         <XAxis type="number" tick={axis} unit="%" axisLine={false} tickLine={false} />
         <YAxis type="category" dataKey="name" width={170} tick={{ fill: "#cbd5e1", fontSize: 12 }} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tip} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${Number(v).toFixed(1)}%`} />
+        <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${Number(v).toFixed(1)}%`} />
         <Bar dataKey="rec" name="Model reference" radius={[0, 8, 8, 0]} barSize={20}>
           {data.map((r) => <Cell key={r.key} fill={r.color} />)}
         </Bar>
@@ -82,7 +92,7 @@ export function DiffBars({ rows }) {
         <XAxis type="number" tick={axis} unit=" pp" axisLine={false} tickLine={false} />
         <YAxis type="category" dataKey="name" width={170} tick={{ fill: "#cbd5e1", fontSize: 12 }} axisLine={false} tickLine={false} />
         <ReferenceLine x={0} stroke="#64748b" />
-        <Tooltip contentStyle={tip} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${v > 0 ? "+" : ""}${Number(v).toFixed(2)} pp`} />
+        <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${v > 0 ? "+" : ""}${Number(v).toFixed(2)} pp`} />
         <Bar dataKey="diff" name="Model minus last year" radius={4} barSize={18}>
           {data.map((r) => <Cell key={r.key} fill={r.diff >= 0 ? "#34d399" : "#fb7185"} />)}
         </Bar>
@@ -99,7 +109,7 @@ export function PeerBars({ data }) {
         <CartesianGrid strokeDasharray="3 3" stroke={grid} horizontal={false} />
         <XAxis type="number" tick={axis} unit="%" axisLine={false} tickLine={false} />
         <YAxis type="category" dataKey="name" width={170} tick={{ fill: "#cbd5e1", fontSize: 12 }} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={tip} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${Number(v).toFixed(1)}%`} />
+        <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${Number(v).toFixed(1)}%`} />
         <Legend wrapperStyle={{ fontSize: 12 }} />
         <Bar dataKey="rec" name="Model reference" fill="#22d3ee" radius={[0, 6, 6, 0]} barSize={14} />
         <Bar dataKey="peer" name="Similar economies (average)" fill="#a78bfa" radius={[0, 6, 6, 0]} barSize={14} />
@@ -173,7 +183,7 @@ export function FlowSankey({ rows, sdgInfo, height = 420 }) {
   return (
     <ResponsiveContainer width="100%" height={height}>
       <Sankey data={{ nodes, links }} node={<Node />} link={<Link />} nodePadding={14} nodeWidth={10} margin={{ left: 100, right: 100, top: 10, bottom: 10 }}>
-        <Tooltip contentStyle={tip} />
+        <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} />
       </Sankey>
     </ResponsiveContainer>
   );

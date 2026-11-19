@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import KPICard from "../components/KPICard";
 import useRecommendation from "../components/useRecommendation";
 import { Status } from "../components/Banners";
-import { ChartCard, Donut, RankedBars, DiffBars, PeerBars, RangeBars, FlowSankey, Steps, tip, axis } from "../components/charts";
+import { ChartCard, Donut, RankedBars, DiffBars, PeerBars, RangeBars, FlowSankey, Steps, tip, itemStyle, labelStyle, axis } from "../components/charts";
 import { getEconomies, getHealth, SHOCK_LABELS } from "../services/api";
 import { friendly, PALETTE } from "../data/glossary";
 import { SDG_INFO } from "../data/sdg";
@@ -33,6 +33,11 @@ export default function Home() {
   const [budget, setBudget] = useState("");
   const [comp, setComp] = useState("");
   const [useLime, setUseLime] = useState(false);
+  const [customGdpGrowth, setCustomGdpGrowth] = useState("");
+  const [customInflation, setCustomInflation] = useState("");
+  const [customUnemployment, setCustomUnemployment] = useState("");
+  const [customPop65, setCustomPop65] = useState("");
+  const [customDebt, setCustomDebt] = useState("");
   const [sort, setSort] = useState({ key: "rec", dir: -1 });
   const { data, loading, warming, error, run, setWarming } = useRecommendation();
   const { setShared } = useSharedResult();
@@ -49,7 +54,68 @@ export default function Home() {
 
   const eco = economies.find((e) => e.iso3 === iso3);
   const panel = detail === "auto" ? (eco?.has_official_cofog_history ? "cofog16" : "cofog10") : detail;
-  const submit = () => { setComp(""); run({ iso3, panel, shock: shock || undefined, year, totalBudgetUsd: budget ? Number(budget) : undefined }); };
+
+  const getOverrides = () => {
+    const ov = {};
+    if (customGdpGrowth.trim() !== "") ov.gdp_growth_pct = Number(customGdpGrowth);
+    if (customInflation.trim() !== "") ov.inflation_pct = Number(customInflation);
+    if (customUnemployment.trim() !== "") ov.unemployment_pct = Number(customUnemployment);
+    if (customPop65.trim() !== "") ov.pop_65plus_pct = Number(customPop65);
+    if (customDebt.trim() !== "") ov.central_gov_debt_pct_gdp = Number(customDebt);
+    return ov;
+  };
+
+  const submit = () => {
+    setComp("");
+    const ov = getOverrides();
+    run({
+      iso3,
+      panel,
+      shock: shock || undefined,
+      year: year || undefined,
+      overrides: Object.keys(ov).length ? ov : undefined,
+      totalBudgetUsd: budget ? Number(budget) : undefined,
+    });
+  };
+
+  const applyPreset1 = () => {
+    setIso3("IND");
+    setDetail("cofog10");
+    setBudget("450000000000");
+    setCustomGdpGrowth("8.2");
+    setCustomInflation("4.5");
+    setCustomUnemployment("4.0");
+    setCustomPop65("6.8");
+    setCustomDebt("55.0");
+    setShock("");
+    setYear("");
+    setAdv(true);
+  };
+
+  const applyPreset2 = () => {
+    setIso3("DEU");
+    setDetail("cofog16");
+    setBudget("600000000000");
+    setCustomGdpGrowth("1.2");
+    setCustomInflation("2.0");
+    setCustomUnemployment("3.5");
+    setCustomPop65("24.5");
+    setCustomDebt("85.0");
+    setShock("");
+    setYear("");
+    setAdv(true);
+  };
+
+  const clearManual = () => {
+    setCustomGdpGrowth("");
+    setCustomInflation("");
+    setCustomUnemployment("");
+    setCustomPop65("");
+    setCustomDebt("");
+    setBudget("");
+    setShock("");
+    setYear("");
+  };
 
   const rows = useMemo(() => (data?.components || []).map((c, i) => ({
     key: c.component, name: c.label || c.component.replace(/_/g, " "), color: PALETTE[i % PALETTE.length], sdg: c.sdg || [],
@@ -120,19 +186,93 @@ export default function Home() {
           </button>
         </div>
         {adv && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-5 mt-4 border-t border-white/[0.06]">
-            <label className="text-xs text-slate-400 space-y-1.5">Year of indicators<input className={inp} placeholder="latest" inputMode="numeric" value={year} onChange={(e) => setYear(e.target.value)} /></label>
-            <label className="text-xs text-slate-400 space-y-1.5">Level of detail
-              <select className={inp} value={detail} onChange={(e) => setDetail(e.target.value)}>
-                <option value="auto">Automatic</option><option value="cofog16">16 detailed areas</option><option value="cofog10">10 main areas</option>
-              </select>
-            </label>
-            <label className="text-xs text-slate-400 space-y-1.5">Stress test (what-if)
-              <select className={inp} value={shock} onChange={(e) => setShock(e.target.value)}>
-                <option value="">None</option>{Object.entries(SHOCK_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
-              </select>
-            </label>
-            <label className="text-xs text-slate-400 space-y-1.5">Your total budget (US$)<input className={inp} placeholder="model estimate" inputMode="decimal" value={budget} onChange={(e) => setBudget(e.target.value)} /></label>
+          <div className="space-y-5 pt-5 mt-4 border-t border-white/[0.06]">
+            {/* Quick Presets for Live Evaluator Demos */}
+            <div className="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs">
+              <span className="font-medium text-cyan-300">Live Evaluator Presets:</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={applyPreset1}
+                  className="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-200 border border-cyan-500/30 font-medium transition"
+                >
+                  Preset 1: Developing Growth & Fiscal Push (India)
+                </button>
+                <button
+                  type="button"
+                  onClick={applyPreset2}
+                  className="px-2.5 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 border border-teal-500/30 font-medium transition"
+                >
+                  Preset 2: Aging & Fiscal Consolidation (Germany)
+                </button>
+                <button
+                  type="button"
+                  onClick={clearManual}
+                  className="px-2 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-slate-200 border border-white/10 transition"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+
+            {/* General Settings */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <label className="text-xs text-slate-400 space-y-1.5">
+                Year of indicators
+                <input className={inp} placeholder="latest" inputMode="numeric" value={year} onChange={(e) => setYear(e.target.value)} />
+              </label>
+              <label className="text-xs text-slate-400 space-y-1.5">
+                Level of detail
+                <select className={inp} value={detail} onChange={(e) => setDetail(e.target.value)}>
+                  <option value="auto">Automatic</option>
+                  <option value="cofog16">16 detailed areas</option>
+                  <option value="cofog10">10 main areas</option>
+                </select>
+              </label>
+              <label className="text-xs text-slate-400 space-y-1.5">
+                Stress test (what-if)
+                <select className={inp} value={shock} onChange={(e) => setShock(e.target.value)}>
+                  <option value="">None</option>
+                  {Object.entries(SHOCK_LABELS).map(([k, v]) => (
+                    <option key={k} value={k}>{v}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="text-xs text-slate-400 space-y-1.5">
+                Your total budget (US$)
+                <input className={inp} placeholder="model estimate (e.g. 450000000000)" inputMode="decimal" value={budget} onChange={(e) => setBudget(e.target.value)} />
+              </label>
+            </div>
+
+            {/* Manual Indicator Overrides for Custom Simulation */}
+            <div className="rounded-xl p-4 bg-white/[0.02] border border-white/[0.05] space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-200">Manual Macroeconomic Simulation (Custom Indicator Overrides)</span>
+                <span className="text-[11px] text-slate-500">Leave blank to use country's official values</span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <label className="text-[11px] text-slate-400 space-y-1">
+                  GDP growth (%)
+                  <input className={inp} placeholder="e.g. 8.2" inputMode="decimal" value={customGdpGrowth} onChange={(e) => setCustomGdpGrowth(e.target.value)} />
+                </label>
+                <label className="text-[11px] text-slate-400 space-y-1">
+                  Inflation (%)
+                  <input className={inp} placeholder="e.g. 4.5" inputMode="decimal" value={customInflation} onChange={(e) => setCustomInflation(e.target.value)} />
+                </label>
+                <label className="text-[11px] text-slate-400 space-y-1">
+                  Unemployment (%)
+                  <input className={inp} placeholder="e.g. 4.0" inputMode="decimal" value={customUnemployment} onChange={(e) => setCustomUnemployment(e.target.value)} />
+                </label>
+                <label className="text-[11px] text-slate-400 space-y-1">
+                  Population 65+ (%)
+                  <input className={inp} placeholder="e.g. 6.8" inputMode="decimal" value={customPop65} onChange={(e) => setCustomPop65(e.target.value)} />
+                </label>
+                <label className="text-[11px] text-slate-400 space-y-1">
+                  Central debt (% GDP)
+                  <input className={inp} placeholder="e.g. 55.0" inputMode="decimal" value={customDebt} onChange={(e) => setCustomDebt(e.target.value)} />
+                </label>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -241,7 +381,7 @@ export default function Home() {
                 <XAxis type="number" tick={axis} axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="label" width={240} tick={{ fill: "#cbd5e1", fontSize: 12 }} axisLine={false} tickLine={false} />
                 <ReferenceLine x={0} stroke="#64748b" />
-                <Tooltip contentStyle={tip} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${v} pp`} />
+                <Tooltip contentStyle={tip} itemStyle={itemStyle} labelStyle={labelStyle} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v) => `${v} pp`} />
                 <Bar dataKey="v" radius={5} barSize={18}>{shapData.map((d, i) => <Cell key={i} fill={d.v >= 0 ? "#60a5fa" : "#f472b6"} />)}</Bar>
               </BarChart>
             </ResponsiveContainer>
